@@ -1,3 +1,15 @@
+/*Llamada a funcion que muestra cantidad de dias restantes para inicio de mundial*/
+cantDiasComienzoMundial()
+
+/*Funcion calcula cantidad de dias restantes para inicio de Mundial*/
+function cantDiasComienzoMundial () {
+    let diferencia = fechaComienzoMundial.getTime()-hoy.getTime()
+    let cantdias = Math.floor(diferencia/(1000*3600*24))
+    console.log("Dias Restantes para Mundial: ", cantdias)
+    document.getElementById("resultado").innerHTML = String(cantdias) + " dias Restantes para el Mundial"
+}
+
+/*Funcion muestra por consola pais seleccionado, grupo y puesto*/
 function seleccionadoGrupo (grupo, pais) {
 
     switch (grupo) {
@@ -67,6 +79,7 @@ function seleccionadoGrupo (grupo, pais) {
 
 }
 
+/*Funcion muestra por consola primer y segundo puesto para grupos A y B */
 function seleccionadosProximaFase () {
     if (grupoA1 != "" && grupoA2 != "") {
         console.log("Grupo A - Primer Puesto: ", grupoA1)
@@ -83,5 +96,7 @@ function seleccionadosProximaFase () {
     else {
         console.error("Error - Falto seleccionar pais en grupo B")
     }
+
+    console.log("-----")
     
 }
