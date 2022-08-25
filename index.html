@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Curso JavaScript</title>
+
+        <!--link favicon-->
+        <link rel="shortcut icon" type="image/x-icon" href="/img/diamond-hard.svg">
+
+        <!--link para aplicar CSS-->
+        <link rel="stylesheet" href="./css/style.css">
+
+        <!--link para aplicar bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+        <!--link para aplicar JavaScript variables-->
+        <script defer src="js/variables.js"></script>
+
+        <!--link para aplicar JavaScript funciones-->
+        <script defer src="js/funciones.js"></script>
+    </head>
+
+    <body class="m-0 p-0">
+        <!--Titulo Principal-->
+        <div class="text-center">
+            <h1>Pronostico Mundial 2022</h1>
+        </div>
+
+        <!--Menu Botones-->
+        <div class="text-center">
+            <h2>Menu navbar - Pendiente a desarrollar</h2>
+        </div>
+
+        <!--Titulo Fase de Grupos-->
+        <div class="fase-de-grupos text-center m-1 p-0">
+            <h3 class="my-2 p-2 text-white">Fase de Grupos</h3>
+        </div>
+
+        <!--Instrucciones-->
+        <div class="fase-de-grupos text-center m-1 p-0">
+            <h6 class="my-2 p-1">Seleccionar primero y segundo de cada grupo haciendo 
+                click en las banderas de los paises
+            </h6>
+            <h6 class="my-2 p-1">En consola se muestra mensaje de los paises seleccionados
+            </h6>
+        </div>
+
+        <!--Grupos-->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 m-1">
+            <div class="text-center col m-0 p-2">
+                <h5>GRUPO A</h5>
+                <ul class="list-group grupo">
+                    <li class="list-group-item">
+                        <button class="d-flex justify-content-between align-items-center" onclick="seleccionadoGrupo('A', 'Qatar')">
+                            Qatar
+                            <img src="/img/qatar.png">
+                        </button>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <button class="d-flex justify-content-between align-items-center" onclick="seleccionadoGrupo('A', 'Ecuador')"> 
+                            Ecuador
+                            <img src="/img/ecuador.png">
+                        </button>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <button class="d-flex justify-content-between align-items-center" onclick="seleccionadoGrupo('A', 'Senegal')">     
+                            Senegal
+                            <img src="/img/senegal.png">
+                        </button>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <button class="d-flex justify-content-between align-items-center" onclick="seleccionadoGrupo('A', 'Paises Bajos')">     
+                            Paises Bajos
+                            <img src="/img/netherlands.png">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center col m-0 p-2">
+                <h5>GRUPO B</h5>
+                <ul class="list-group grupo">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <button class="d-flex justify-content-between align-items-center" onclick="seleccionadoGrupo('B', 'Inglaterra')">
+                            Inglaterra
+                            <img src="/img/england.png">
+                        </button>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <button class="d-flex justify-content-between align-items-center" onclick="seleccionadoGrupo('B', 'Irán')">
+                            Irán
+                            <img src="/img/iran.png">
+                        </button>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <button class="d-flex justify-content-between align-items-center" onclick="seleccionadoGrupo('B', 'Estados Unidos')">
+                            Estados Unidos
+                            <img src="/img/united-states.png">
+                        </button>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <button class="d-flex justify-content-between align-items-center" onclick="seleccionadoGrupo('B', 'Gales')">
+                            Gales
+                            <img src="/img/wales.png">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center col m-0 p-2">
+                <h5>GRUPO C</h5>
+                <ul class="list-group grupo">
+                    <li class="list-group-item d-flex justify-content-between">
+                        Argentina
+                        <img src="/img/argentina.png">
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        Arabia Saudita
+                        <img src="/img/saudi-arabia.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        México
+                        <img src="/img/mexico.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Polonia
+                        <img src="/img/poland.png">
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center col m-0 p-2">
+                <h5>GRUPO D</h5>
+                <ul class="list-group grupo">
+                    <li class="list-group-item d-flex justify-content-between">
+                        Francia
+                        <img src="/img/france.png">
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        Australia
+                        <img src="/img/australia.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Dinamarca
+                        <img src="/img/denmark.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Túnez
+                        <img src="/img/tunisia.png">
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center col m-0 p-2">
+                <h5>GRUPO E</h5>
+                <ul class="list-group grupo">
+                    <li class="list-group-item d-flex justify-content-between">
+                        España
+                        <img src="/img/spain.png">
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        Costa Rica
+                        <img src="/img/costa-rica.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Alemania
+                        <img src="/img/germany.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Japón
+                        <img src="/img/japan.png">
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center col m-0 p-2">
+                <h5>GRUPO F</h5>
+                <ul class="list-group grupo">
+                    <li class="list-group-item d-flex justify-content-between">
+                        Belgica
+                        <img src="/img/belgium.png">
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        Canada
+                        <img src="/img/canada.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Marruecos
+                        <img src="/img/morocco.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Croacia
+                        <img src="/img/croatia.png">
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center col m-0 p-2">
+                <h5>GRUPO G</h5>
+                <ul class="list-group grupo">
+                    <li class="list-group-item d-flex justify-content-between">
+                        Brazil
+                        <img src="/img/brazil-flag.png">
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        Serbia
+                        <img src="/img/serbia.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Suiza
+                        <img src="/img/switzerland.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Camerun
+                        <img src="/img/cameroon.png">
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center col m-0 p-2">
+                <h5>GRUPO H</h5>
+                <ul class="list-group grupo">
+                    <li class="list-group-item d-flex justify-content-between">
+                        Portugal
+                        <img src="/img/portugal.png">
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        Ghana
+                        <img src="/img/ghana.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Uruguay
+                        <img src="/img/uruguay.png">
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        Corea del Sur
+                        <img src="/img/south-korea.png">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!--Titulo Fase de Clasificacion-->
+        <div class="fase-de-grupos text-center m-1 p-0">
+            <h3 class="my-2 p-2 text-white">Fase de Clasificación</h3>
+        </div>
+
+        <!--Diagrama Fase de Clasificacion-->
+        <div class="text-center">
+            <h2>Diagrama Fase de Clasificacion - Pendiente a desarrollar</h2>
+        </div>
+
+        <!--Mostrar en Consola Paises Seleccionados para Proxima Fase-->
+        <div class="text-center m-2 p-1">
+            <button type="button" class="btn btn-dark" onclick="seleccionadosProximaFase()">Ver Paises Seleccionados en consola</button>
+        </div>
+
+    </body>
+</html>
