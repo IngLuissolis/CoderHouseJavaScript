@@ -17,6 +17,10 @@ h1, h3 {
     width: 100%;
 }
 
+.grupo li:hover {
+    background: grey;
+}
+
 .grupo li button {
     width: 100%;
     height: 100%;
@@ -28,4 +32,25 @@ h1, h3 {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
+}
+
+.octavos div button {
+    width: 10rem;
+    height: 4rem;
+    background: black;
+}
+
+.octavos div button img {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
+#imgOctavosA1, #imgOctavosA2, #imgOctavosB1, #imgOctavosB2,
+    #imgOctavosC1, #imgOctavosC2, #imgOctavosD1, #imgOctavosD2,
+    #imgOctavosE1, #imgOctavosE2, #imgOctavosF1, #imgOctavosF2,
+    #imgOctavosG1, #imgOctavosG2, #imgOctavosH1, #imgOctavosH2,
+    #imgCuartosO1, #imgCuartosO2, #imgCuartosO3, #imgCuartosO4, 
+    #imgCuartosO5, #imgCuartosO6, #imgCuartosO7, #imgCuartosO8 {
+    display: none;
 }
