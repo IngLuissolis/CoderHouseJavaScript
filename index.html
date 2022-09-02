@@ -51,42 +51,46 @@
         <!--Instrucciones-->
         <div class="fase-de-grupos text-center text-info bg-dark m-1 p-0">
             <h6 class="my-2 p-1">Seleccionar primero y segundo de cada grupo haciendo 
-                click en las banderas de los paises para grupos A, B, C y D
+                click en las banderas de los paises
             </h6>
         </div>
 
         <!--Grupos-->
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 m-1">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 m-2">
             <div class="text-center col m-0 p-2">
                 <h5>GRUPO A</h5>
                 <ul class="list-group grupo">
-                    <li class="list-group-item">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('A', 'Qatar')">
+                            onclick="paisSeleccionadoOctavosBis('A', 'Qatar')">
                             Qatar
                             <img src="./img/qatar.png">
                         </button>
+                        <div id="posicionGrupoQatar" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('A', 'Ecuador')">
+                            onclick="paisSeleccionadoOctavosBis('A', 'Ecuador')">
                             Ecuador
                             <img src="./img/ecuador.png">
                         </button>
+                        <div id="posicionGrupoEcuador" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('A', 'Senegal')">
+                            onclick="paisSeleccionadoOctavosBis('A', 'Senegal')">
                             Senegal
                             <img src="./img/senegal.png">
                         </button>
+                        <div id="posicionGrupoSenegal" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('A', 'Paises Bajos')">
+                            onclick="paisSeleccionadoOctavosBis('A', 'PaisesBajos')">
                             Paises Bajos
                             <img src="./img/netherlands.png">
                         </button>
+                        <div id="posicionGrupoPaisesBajos" class="m-1 p-1"></div>
                     </li>
                 </ul>
             </div>
@@ -94,33 +98,37 @@
             <div class="text-center col m-0 p-2">
                 <h5>GRUPO B</h5>
                 <ul class="list-group grupo">
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('B', 'Inglaterra')">
+                            onclick="paisSeleccionadoOctavosBis('B', 'Inglaterra')">
                             Inglaterra
                             <img src="./img/england.png">
                         </button>
+                        <div id="posicionGrupoInglaterra" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('B', 'Iran')">
+                            onclick="paisSeleccionadoOctavosBis('B', 'Iran')">
                             Irán
                             <img src="./img/iran.png">
                         </button>
+                        <div id="posicionGrupoIran" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('B', 'Estados Unidos')">
+                            onclick="paisSeleccionadoOctavosBis('B', 'EstadosUnidos')">
                             Estados Unidos
                             <img src="./img/united-states.png">
                         </button>
+                        <div id="posicionGrupoEstadosUnidos" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('B', 'Gales')">
+                            onclick="paisSeleccionadoOctavosBis('B', 'Gales')">
                             Gales
                             <img src="./img/wales.png">
                         </button>
+                        <div id="posicionGrupoGales" class="m-1 p-1"></div>
                     </li>
                 </ul>
             </div>
@@ -128,33 +136,37 @@
             <div class="text-center col m-0 p-2">
                 <h5>GRUPO C</h5>
                 <ul class="list-group grupo">
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('C', 'Argentina')">
+                            onclick="paisSeleccionadoOctavosBis('C', 'Argentina')">
                             Argentina
                             <img src="./img/argentina.png">
                         </button>
+                        <div id="posicionGrupoArgentina" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('C', 'Arabia Saudita')">
+                            onclick="paisSeleccionadoOctavosBis('C', 'ArabiaSaudita')">
                             Arabia Saudita
                             <img src="./img/saudi-arabia.png">
                         </button>
+                        <div id="posicionGrupoArabiaSaudita" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('C', 'Mexico')">
+                            onclick="paisSeleccionadoOctavosBis('C', 'Mexico')">
                             México
                             <img src="./img/mexico.png">
                         </button>
+                        <div id="posicionGrupoMexico" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('C', 'Polonia')">
+                            onclick="paisSeleccionadoOctavosBis('C', 'Polonia')">
                             Polonia
                             <img src="./img/poland.png">
                         </button>
+                        <div id="posicionGrupoPolonia" class="m-1 p-1"></div>
                     </li>
                 </ul>
             </div>
@@ -162,33 +174,37 @@
             <div class="text-center col m-0 p-2">
                 <h5>GRUPO D</h5>
                 <ul class="list-group grupo">
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('D', 'Francia')">
+                            onclick="paisSeleccionadoOctavosBis('D', 'Francia')">
                             Francia
                             <img src="./img/france.png">
                         </button>
+                        <div id="posicionGrupoFrancia" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('D', 'Australia')">
+                            onclick="paisSeleccionadoOctavosBis('D', 'Australia')">
                             Australia
                             <img src="./img/australia.png">
                         </button>
+                        <div id="posicionGrupoAustralia" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('D', 'Dinamarca')">
+                            onclick="paisSeleccionadoOctavosBis('D', 'Dinamarca')">
                             Dinamarca
                             <img src="./img/denmark.png">
                         </button>
+                        <div id="posicionGrupoDinamarca" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('D', 'Tunez')">
+                            onclick="paisSeleccionadoOctavosBis('D', 'Tunez')">
                             Túnez
                             <img src="./img/tunisia.png">
                         </button>
+                        <div id="posicionGrupoTunez" class="m-1 p-1"></div>
                     </li>
                 </ul>
             </div>
@@ -196,33 +212,37 @@
             <div class="text-center col m-0 p-2">
                 <h5>GRUPO E</h5>
                 <ul class="list-group grupo">
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('E', 'España')">
+                            onclick="paisSeleccionadoOctavosBis('E', 'España')">
                             España
                             <img src="./img/spain.png">
                         </button>
+                        <div id="posicionGrupoEspaña" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('E', 'Costa Rica')">
+                            onclick="paisSeleccionadoOctavosBis('E', 'CostaRica')">
                             Costa Rica
                             <img src="./img/costa-rica.png">
                         </button>
+                        <div id="posicionGrupoCostaRica" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('E', 'Alemania')">
+                            onclick="paisSeleccionadoOctavosBis('E', 'Alemania')">
                             Alemania
                             <img src="./img/germany.png">
                         </button>
+                        <div id="posicionGrupoAlemania" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('E', 'Japon')">
+                            onclick="paisSeleccionadoOctavosBis('E', 'Japon')">
                             Japón
                             <img src="./img/japan.png">
                         </button>
+                        <div id="posicionGrupoJapon" class="m-1 p-1"></div>
                     </li>
                 </ul>
             </div>
@@ -230,33 +250,37 @@
             <div class="text-center col m-0 p-2">
                 <h5>GRUPO F</h5>
                 <ul class="list-group grupo">
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('F', 'Belgica')">
+                            onclick="paisSeleccionadoOctavosBis('F', 'Belgica')">
                             Belgica
                             <img src="./img/belgium.png">
                         </button>
+                        <div id="posicionGrupoBelgica" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('F', 'Canada')">
+                            onclick="paisSeleccionadoOctavosBis('F', 'Canada')">
                             Canada
                             <img src="./img/canada.png">
                         </button>
+                        <div id="posicionGrupoCanada" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('F', 'Marruecos')">
+                            onclick="paisSeleccionadoOctavosBis('F', 'Marruecos')">
                             Marruecos
                             <img src="./img/morocco.png">
                         </button>
+                        <div id="posicionGrupoMarruecos" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('F', 'Croacia')">
+                            onclick="paisSeleccionadoOctavosBis('F', 'Croacia')">
                             Croacia
                             <img src="./img/croatia.png">
                         </button>
+                        <div id="posicionGrupoCroacia" class="m-1 p-1"></div>
                     </li>
                 </ul>
             </div>
@@ -264,33 +288,37 @@
             <div class="text-center col m-0 p-2">
                 <h5>GRUPO G</h5>
                 <ul class="list-group grupo">
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('G', 'Brazil')">
+                            onclick="paisSeleccionadoOctavosBis('G', 'Brazil')">
                             Brazil
                             <img src="./img/brazil-flag.png">
                         </button>
+                        <div id="posicionGrupoBrazil" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('G', 'Serbia')">
+                            onclick="paisSeleccionadoOctavosBis('G', 'Serbia')">
                             Serbia
                             <img src="./img/serbia.png">
                         </button>
+                        <div id="posicionGrupoSerbia" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('G', 'Suiza')">
+                            onclick="paisSeleccionadoOctavosBis('G', 'Suiza')">
                             Suiza
                             <img src="./img/switzerland.png">
                         </button>
+                        <div id="posicionGrupoSuiza" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('G', 'Camerun')">
+                            onclick="paisSeleccionadoOctavosBis('G', 'Camerun')">
                             Camerun
                             <img src="./img/cameroon.png">
                         </button>
+                        <div id="posicionGrupoCamerun" class="m-1 p-1"></div>
                     </li>
                 </ul>
             </div>
@@ -298,33 +326,37 @@
             <div class="text-center col m-0 p-2">
                 <h5>GRUPO H</h5>
                 <ul class="list-group grupo">
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('H', 'Portugal')">
+                            onclick="paisSeleccionadoOctavosBis('H', 'Portugal')">
                             Portugal
                             <img src="./img/portugal.png">
                         </button>
+                        <div id="posicionGrupoPortugal" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('H', 'Ghana')">
+                            onclick="paisSeleccionadoOctavosBis('H', 'Ghana')">
                             Ghana
                             <img src="./img/ghana.png">
                         </button>
+                        <div id="posicionGrupoGhana" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('H', 'Uruguay')">
+                            onclick="paisSeleccionadoOctavosBis('H', 'Uruguay')">
                             Uruguay
                             <img src="./img/uruguay.png">
                         </button>
+                        <div id="posicionGrupoUruguay" class="m-1 p-1"></div>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between">
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
                         <button class="d-flex justify-content-between align-items-center"
-                            onclick="paisSeleccionadoOctavos('H', 'Corea del Sur')">
+                            onclick="paisSeleccionadoOctavosBis('H', 'CoreadelSur')">
                             Corea del Sur
                             <img src="./img/south-korea.png">
                         </button>
+                        <div id="posicionGrupoCoreadelSur" class="m-1 p-1"></div>
                     </li>
                 </ul>
             </div>
@@ -386,7 +418,8 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="botonOctavosE1">
+                    <button type="button" class="btn btn-success" id="botonOctavosE1"
+                    onclick="paisSeleccionadoCuartos(E1.nombre, E1.imgBandera, 'cuartosO3')">
                         <div class="d-flex justify-content-between align-items-center">
                             <div id="textOctavosE1">E1</div>
                             <img id="imgOctavosE1" src="" alt=""/> 
@@ -395,7 +428,8 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="botonOctavosF2">
+                    <button type="button" class="btn btn-success" id="botonOctavosF2"
+                    onclick="paisSeleccionadoCuartos(F2.nombre, F2.imgBandera, 'cuartosO3')">
                         <div class="d-flex justify-content-between align-items-center">
                             <img id="imgOctavosF2" src="" alt="" />
                             <div id="textOctavosF2">F2</div>
@@ -404,7 +438,8 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="botonOctavosG1">
+                    <button type="button" class="btn btn-success" id="botonOctavosG1"
+                    onclick="paisSeleccionadoCuartos(G1.nombre, G1.imgBandera, 'cuartosO4')">
                         <div class="d-flex justify-content-between align-items-center">
                             <div id="textOctavosG1">G1</div>
                             <img id="imgOctavosG1" src="" alt=""/> 
@@ -413,7 +448,8 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="botonOctavosH2">
+                    <button type="button" class="btn btn-success" id="botonOctavosH2"
+                    onclick="paisSeleccionadoCuartos(H2.nombre, H2.imgBandera, 'cuartosO4')">
                         <div class="d-flex justify-content-between align-items-center">
                             <img id="imgOctavosH2" src="" alt="" />
                             <div id="textOctavosH2">H2</div>
@@ -462,7 +498,8 @@
                 </div>
                 
                 <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="botonOctavosE2">
+                    <button type="button" class="btn btn-success" id="botonOctavosE2"
+                    onclick="paisSeleccionadoCuartos(E2.nombre, E2.imgBandera, 'cuartosO7')">
                         <div class="d-flex justify-content-between align-items-center">
                             <div id="textOctavosE2">E2</div>
                             <img id="imgOctavosE2" src="" alt=""/> 
@@ -471,7 +508,8 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="botonOctavoF1">
+                    <button type="button" class="btn btn-success" id="botonOctavosF1"
+                    onclick="paisSeleccionadoCuartos(F1.nombre, F1.imgBandera, 'cuartosO7')">
                         <div class="d-flex justify-content-between align-items-center">
                             <img id="imgOctavosF1" src="" alt="" />
                             <div id="textOctavosF1">F1</div>
@@ -480,7 +518,8 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="botonOctavosG2">
+                    <button type="button" class="btn btn-success" id="botonOctavosG2"
+                    onclick="paisSeleccionadoCuartos(G2.nombre, G2.imgBandera, 'cuartosO8')">
                         <div class="d-flex justify-content-between align-items-center">
                             <div id="textOctavosG2">G2</div>
                             <img id="imgOctavosG2" src="" alt=""/> 
@@ -489,7 +528,8 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="botonOctavoH1">
+                    <button type="button" class="btn btn-success" id="botonOctavoH1"
+                    onclick="paisSeleccionadoCuartos(H1.nombre, H1.imgBandera, 'cuartosO8')">
                         <div class="d-flex justify-content-between align-items-center">
                             <img id="imgOctavosH1" src="" alt="" />
                             <div id="textOctavosH1">H1</div>
@@ -572,6 +612,115 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <img id="imgCuartosO8" src="" alt="" />
                             <div id="textCuartosO8">CUARTO O8</div>
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h4 class="m-1 p-0">SEMIFINALES</h4>
+            <div class="d-flex row row-cols-2  m-1 p-1 octavos">
+
+                <div class="col p-1 d-flex justify-content-end">
+                    <button type="button" class="btn btn-success" id="botonSemi1">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div id="textSemi1">SEMIFINAL 1</div>
+                            <img id="imgSemi1" src="" alt=""/>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="col p-1 d-flex justify-content-start">
+                    <button type="button" class="btn btn-success" id="botonSemi2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <img id="imgSemi2" src="" alt="" />
+                            <div id="textSemi2">SEMIFINAL 2</div>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="col p-1 d-flex justify-content-end">
+                    <button type="button" class="btn btn-success" id="botonSemi3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div id="textSemi3">SEMIFINAL 3</div>
+                            <img id="imgSemi3" src="" alt=""/>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="col p-1 d-flex justify-content-start">
+                    <button type="button" class="btn btn-success" id="botonSemi4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <img id="imgSemi4" src="" alt="" />
+                            <div id="textSemi4">SEMIFINAL 4</div>
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h4 class="m-1 p-0">TERCER PUESTO</h4>
+            <div class="d-flex row row-cols-2  m-1 p-1 octavos">
+
+                <div class="col p-1 d-flex justify-content-end">
+                    <button type="button" class="btn btn-success" id="botonTercer1">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div id="textTercer1">PS 1</div>
+                            <img id="imgTercer1" src="" alt=""/>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="col p-1 d-flex justify-content-start">
+                    <button type="button" class="btn btn-success" id="botonTercer2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <img id="imgTercer2" src="" alt="" />
+                            <div id="textTercer2">PS 2</div>
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h4 class="m-1 p-0">FINAL</h4>
+            <div class="d-flex row row-cols-2  m-1 p-1 octavos">
+
+                <div class="col p-1 d-flex justify-content-end">
+                    <button type="button" class="btn btn-success" id="botonFinal1">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div id="textFinal1">FINAL 1</div>
+                            <img id="imgFinal1" src="" alt=""/>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="col p-1 d-flex justify-content-start">
+                    <button type="button" class="btn btn-success" id="botonFinal2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <img id="imgFinal2" src="" alt="" />
+                            <div id="textFinal2">FINAL 2</div>
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h4 class="m-1 p-0">CAMPEON</h4>
+            <div class="m-1 p-1 octavos">
+
+                <div class="p-1 d-flex justify-content-center">
+                    <button type="button" class="btn btn-success" id="botonCampeon">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div id="textCampeon">CAMPEÓN</div>
+                            <img id="imgCampeon" src="" alt=""/>
                         </div>
                     </button>
                 </div>

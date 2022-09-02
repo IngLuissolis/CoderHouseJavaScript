@@ -18,7 +18,7 @@ h1, h3 {
 }
 
 .grupo li:hover {
-    background: grey;
+    background: yellowgreen;
 }
 
 .grupo li button {
@@ -32,6 +32,12 @@ h1, h3 {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
+    margin: 0.15rem;
+}
+
+.grupo li div {
+    border-radius: 0.3rem;
+    width: 1.5rem;
 }
 
 .octavos div button {
@@ -51,6 +57,20 @@ h1, h3 {
     #imgOctavosE1, #imgOctavosE2, #imgOctavosF1, #imgOctavosF2,
     #imgOctavosG1, #imgOctavosG2, #imgOctavosH1, #imgOctavosH2,
     #imgCuartosO1, #imgCuartosO2, #imgCuartosO3, #imgCuartosO4, 
-    #imgCuartosO5, #imgCuartosO6, #imgCuartosO7, #imgCuartosO8 {
+    #imgCuartosO5, #imgCuartosO6, #imgCuartosO7, #imgCuartosO8,
+    #imgSemi1, #imgSemi2, #imgSemi3, #imgSemi4,
+    #imgTercer1, #imgTercer2, #imgFinal1, #imgFinal2, #imgCampeon,
+    #posicionGrupoQatar, #posicionGrupoEcuador, #posicionGrupoSenegal,
+    #posicionGrupoPaisesBajos, #posicionGrupoInglaterra, #posicionGrupoIran,
+    #posicionGrupoEstadosUnidos, #posicionGrupoGales, #posicionGrupoArgentina,
+    #posicionGrupoArabiaSaudita, #posicionGrupoMexico, #posicionGrupoPolonia,
+    #posicionGrupoFrancia, #posicionGrupoAustralia, #posicionGrupoDinamarca,
+    #posicionGrupoTunez, #posicionGrupoEspaña, #posicionGrupoCostaRica, 
+    #posicionGrupoAlemania,
+    #posicionGrupoJapon, #posicionGrupoBelgica, #posicionGrupoCanada,
+    #posicionGrupoMarruecos, #posicionGrupoCroacia, #posicionGrupoBrazil,
+    #posicionGrupoSerbia, #posicionGrupoSuiza, #posicionGrupoCamerun,
+    #posicionGrupoPortugal, #posicionGrupoGhana, #posicionGrupoUruguay,
+    #posicionGrupoCoreadelSur {
     display: none;
 }

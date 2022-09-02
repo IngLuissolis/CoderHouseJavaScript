@@ -3,15 +3,15 @@
 const Qatar = new Pais ("Qatar", "./img/qatar.png")
 const Ecuador = new Pais ("Ecuador", "./img/ecuador.png")
 const Senegal = new Pais ("Senegal", "./img/senegal.png")
-const PaisesBajos = new Pais ("Paises Bajos", "./img/netherlands.png")
+const PaisesBajos = new Pais ("PaisesBajos", "./img/netherlands.png")
 /*objetos paises Grupo B*/
 const Inglaterra = new Pais ("Inglaterra", "./img/england.png")
 const Iran = new Pais ("Iran", "./img/Iran.png")
-const EstadosUnidos = new Pais ("Estados Unidos", "./img/united-states.png")
+const EstadosUnidos = new Pais ("EstadosUnidos", "./img/united-states.png")
 const Gales = new Pais ("Gales", "./img/wales.png")
 /*objetos paises Grupo C*/
 const Argentina = new Pais ("Argentina", "./img/argentina.png")
-const Arabia = new Pais ("Arabia Saudita", "./img/saudi-arabia.png")
+const Arabia = new Pais ("ArabiaSaudita", "./img/saudi-arabia.png")
 const Mexico = new Pais ("Mexico", "./img/mexico.png")
 const Polonia = new Pais ("Polonia", "./img/poland.png")
 /*objetos paises Grupo D*/
@@ -21,7 +21,7 @@ const Dinamarca = new Pais ("Dinamarca", "./img/denmark.png")
 const Tunez = new Pais ("Tunez", "./img/tunisia.png")
 /*objetos paises Grupo E*/
 const España = new Pais ("España", "./img/spain.png")
-const CostaRica = new Pais ("Costa Rica", "./img/costa-rica.png")
+const CostaRica = new Pais ("CostaRica", "./img/costa-rica.png")
 const Alemania = new Pais ("Alemania", "./img/germany.png")
 const Japon = new Pais ("Japon", "./img/japan.png")
 /*objetos paises Grupo F*/
@@ -38,18 +38,17 @@ const Camerun = new Pais ("Camerun", "./img/cameroon.png")
 const Portugal = new Pais ("Portugal", "./img/portugal.png")
 const Ghana = new Pais ("Ghana", "./img/ghana.png")
 const Uruguay = new Pais ("Uruguay", "./img/uruguay.png")
-const CoreaDelSur = new Pais ("Corea del Sur", "./img/south-korea.png")
+const CoreaDelSur = new Pais ("CoreadelSur", "./img/south-korea.png")
 
-/*Array de Objetos grupoA*/
-const grupoA = [Qatar, Ecuador, Senegal, PaisesBajos]
-/*Array grupoB*/
-const grupoB = [Inglaterra, Iran, EstadosUnidos, Gales]
-const grupoC = [Argentina, Arabia, Mexico, Polonia]
-const grupoD = [Francia, Australia, Dinamarca, Tunez]
-const grupoE = [España, CostaRica, Alemania, Japon]
-const grupoF = [Belgica, Canada, Marruecos, Croacia]
-const grupoG = [Brazil, Serbia, Suiza, Camerun]
-const grupoH = [Portugal, Ghana, Uruguay, CoreaDelSur]
+// /*Array de Objetos Paises*/
+const grupoTodos = [Qatar, Ecuador, Senegal, PaisesBajos,
+    Inglaterra, Iran, EstadosUnidos, Gales,
+    Argentina, Arabia, Mexico, Polonia,
+    Francia, Australia, Dinamarca, Tunez,
+    España, CostaRica, Alemania, Japon,
+    Belgica, Canada, Marruecos, Croacia,
+    Brazil, Serbia, Suiza, Camerun,
+    Portugal, Ghana, Uruguay, CoreaDelSur]
 
 /*Objetos Octavos*/
 const A1 = new Pais ("", "")

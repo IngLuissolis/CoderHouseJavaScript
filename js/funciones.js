@@ -6,250 +6,217 @@ const cantDiasComienzoMundial = () => {
     document.getElementById("resultado").innerHTML = String(cantdias) + " dias Restantes para Inicio del Mundial"
 }
 
+/*Muestra en Seccion Octavos nombre de pais y bandera de pais seleccionado como 1er o 2do puesto  */
+const mostrarTextoBanderaOctavos = (posicionOctavos, nombreInner, imgBanderaSrc, imgBanderaStyleDisplay) => {
+  document.getElementById("textOctavos"+posicionOctavos).innerHTML = nombreInner
+  document.getElementById("imgOctavos"+posicionOctavos).src = imgBanderaSrc
+  document.getElementById("imgOctavos"+posicionOctavos).style.display = imgBanderaStyleDisplay
+}
 
-/*Funcion muestra en octavos nombre y bandera de paises seleccionnados*/
-const paisSeleccionadoOctavos = (grupo, pais) => {
+/*Muestra en seccion Grupos Numero de clasificacion, 1 = primero del grupo, 2 = segundo del grupo */
+const mostrarPosicionGrupo = (posicionClasificacionGrupo, nombre, styleBackgroundColor, styleColor, styleDisplay) => {
+    document.getElementById("posicionGrupo"+nombre).innerHTML = posicionClasificacionGrupo
+    document.getElementById("posicionGrupo"+nombre).style.backgroundColor = styleBackgroundColor
+    document.getElementById("posicionGrupo"+nombre).style.color = styleColor
+    document.getElementById("posicionGrupo"+nombre).style.display = styleDisplay
+}
 
-    switch (grupo) {
-      case "A":
-        /* */
-        if (A1.nombre === "" && A2.nombre === "") {
-          grupoA.forEach((A) => {
-            if (A.nombre === pais) {
-              A1.nombre = A.nombre
-              A1.imgBandera = A.imgBandera
-              document.getElementById("textOctavosA1").innerHTML = A1.nombre
-              document.getElementById("imgOctavosA1").src = A1.imgBandera
-              document.getElementById("imgOctavosA1").style.display = "block"
-            }
-          });
-        } else if (A1.nombre != pais && A2.nombre === "") {
-          grupoA.forEach((A) => {
-            if (A.nombre === pais) {
-              A2.nombre = A.nombre
-              A2.imgBandera = A.imgBandera
-              document.getElementById("textOctavosA2").innerHTML = A2.nombre
-              document.getElementById("imgOctavosA2").src = A2.imgBandera
-              document.getElementById("imgOctavosA2").style.display = "block"
-            }
-          });
-        } else if (A1.nombre === pais) {
-          A1.nombre = ""
-          A1.imgBandera = ""
-          document.getElementById("textOctavosA1").innerHTML = "A1"
-          document.getElementById("imgOctavosA1").src = ""
-          document.getElementById("imgOctavosA1").style.display = "none"
-        } else if (A2.nombre === pais) {
-          A2.nombre = ""
-          A2.imgBandera = ""
-          document.getElementById("textOctavosA2").innerHTML = "A2"
-          document.getElementById("imgOctavosA2").src = ""
-          document.getElementById("imgOctavosA2").style.display = "none"
-        } else if (A1.nombre === "" && A2.nombre != "") {
-          grupoA.forEach((A) => {
-            if (A.nombre === pais) {
-              A1.nombre = A.nombre
-              A1.imgBandera = A.imgBandera
-              document.getElementById("textOctavosA1").innerHTML = A1.nombre
-              document.getElementById("imgOctavosA1").src = A1.imgBandera
-              document.getElementById("imgOctavosA1").style.display = "block"
-            }
-          });
-        } else if (A1.nombre != "" && A2.nombre != "") {
-          /*Primero y segundo puesto estan seleccionados, aparece mensaje por consola */
-          console.warn("Primer y Segundo Puesto Grupo A seleccionados");
+/*Algoritmo de seleccion para Octavos */
+const logicaOctavos = (Aux1, Aux2, pais) => {
+  if (Aux1.nombre === "" && Aux2.nombre === "") {
+    grupoTodos.forEach((Z) => {
+      if (Z.nombre === pais) {
+        Aux1.nombre = Z.nombre
+        Aux1.imgBandera = Z.imgBandera
+      }
+    });
+  } else if (Aux1.nombre != pais && Aux2.nombre === "") {
+      grupoTodos.forEach((Z) => {
+        if (Z.nombre === pais) {
+          Aux2.nombre = Z.nombre
+          Aux2.imgBandera = Z.imgBandera
         }
-        break;
-
-      case "B":
-        if (B1.nombre === "" && B2.nombre === "") {
-          grupoB.forEach((B) => {
-            if (B.nombre === pais) {
-              B1.nombre = B.nombre
-              B1.imgBandera = B.imgBandera
-              document.getElementById("textOctavosB1").innerHTML = B1.nombre
-              document.getElementById("imgOctavosB1").src = B1.imgBandera
-              document.getElementById("imgOctavosB1").style.display = "block"
-            }
-          });
-        } else if (B1.nombre != pais && B2.nombre === "") {
-          grupoB.forEach((B) => {
-            if (B.nombre === pais) {
-              B2.nombre = B.nombre
-              B2.imgBandera = B.imgBandera
-              document.getElementById("textOctavosB2").innerHTML = B2.nombre
-              document.getElementById("imgOctavosB2").src = B2.imgBandera
-              document.getElementById("imgOctavosB2").style.display = "block"
-            }
-          });
-        } else if (B1.nombre === pais) {
-          B1.nombre = ""
-          B1.imgBandera = ""
-          document.getElementById("textOctavosB1").innerHTML = "B1"
-          document.getElementById("imgOctavosB1").src = ""
-          document.getElementById("imgOctavosB1").style.display = "none"
-        } else if (B2.nombre === pais) {
-          B2.nombre = ""
-          B2.imgBandera = ""
-          document.getElementById("textOctavosB2").innerHTML = "B2"
-          document.getElementById("imgOctavosB2").src = ""
-          document.getElementById("imgOctavosB2").style.display = "none"
-        } else if (B1.nombre === "" && B2.nombre != "") {
-          grupoB.forEach((B) => {
-            if (B.nombre === pais) {
-              B1.nombre = B.nombre
-              B1.imgBandera = B.imgBandera
-              document.getElementById("textOctavosB1").innerHTML = B1.nombre
-              document.getElementById("imgOctavosB1").src = B1.imgBandera
-              document.getElementById("imgOctavosB1").style.display = "block"
-            }
-          });
-        } else if (B1.nombre != "" && B2.nombre != "") {
-          /*Primero y segundo puesto estan seleccionados, aparece mensaje por consola */
-          console.warn("Primer y Segundo Puesto Grupo B seleccionados");
+      });
+  } else if (Aux1.nombre === pais) {
+      Aux1.nombre = ""
+      Aux1.imgBandera = ""
+  } else if (Aux2.nombre === pais) {
+      Aux2.nombre = ""
+      Aux2.imgBandera = ""
+  } else if (Aux1.nombre === "" && Aux2.nombre != "") {
+      grupoTodos.forEach((Z) => {
+        if (Z.nombre === pais) {
+          Aux1.nombre = Z.nombre
+          Aux1.imgBandera = Z.imgBandera
         }
-        break;
+      });
+  } else if (Aux1.nombre != "" && Aux2.nombre != "") {
+      /*Primero y segundo puesto estan seleccionados, aparece mensaje por consola */
+      console.warn("Primer y Segundo Puesto Grupo seleccionados");
+  }
+}
 
-      case "C":
-        if (C1.nombre === "" && C2.nombre === "") {
-          grupoC.forEach((C) => {
-            if (C.nombre === pais) {
-              C1.nombre = C.nombre
-              C1.imgBandera = C.imgBandera
-              document.getElementById("textOctavosC1").innerHTML = C1.nombre
-              document.getElementById("imgOctavosC1").src = C1.imgBandera
-              document.getElementById("imgOctavosC1").style.display = "block"
-            }
-          });
-        } else if (C1.nombre != pais && C2.nombre === "") {
-          grupoC.forEach((C) => {
-            if (C.nombre === pais) {
-              C2.nombre = C.nombre
-              C2.imgBandera = C.imgBandera
-              document.getElementById("textOctavosC2").innerHTML = C2.nombre
-              document.getElementById("imgOctavosC2").src = C2.imgBandera
-              document.getElementById("imgOctavosC2").style.display = "block"
-            }
-          });
-        } else if (C1.nombre === pais) {
-          C1.nombre = ""
-          C1.imgBandera = ""
-          document.getElementById("textOctavosC1").innerHTML = "C1"
-          document.getElementById("imgOctavosC1").src = ""
-          document.getElementById("imgOctavosC1").style.display = "none"
-        } else if (C2.nombre === pais) {
-          C2.nombre = ""
-          C2.imgBandera = ""
-          document.getElementById("textOctavosC2").innerHTML = "C2"
-          document.getElementById("imgOctavosC2").src = ""
-          document.getElementById("imgOctavosC2").style.display = "none"
-        } else if (C1.nombre === "" && C2.nombre != "") {
-          grupoC.forEach((C) => {
-            if (C.nombre === pais) {
-              C1.nombre = C.nombre
-              C1.imgBandera = C.imgBandera
-              document.getElementById("textOctavosC1").innerHTML = C1.nombre
-              document.getElementById("imgOctavosC1").src = C1.imgBandera
-              document.getElementById("imgOctavosC1").style.display = "block"
-            }
-          });
-        } else if (C1.nombre != "" && C2.nombre != "") {
-          /*Primero y segundo puesto estan seleccionados, aparece mensaje por consola */
-          console.warn("Primer y Segundo Puesto Grupo C seleccionados");
-        }
-        break;
+const mostrarTextoBanderaOctavosBis = (grupo, Octavos1, Octavos2, pais) => {
 
-      case "D":
-        if (D1.nombre === "" && D2.nombre === "") {
-          grupoD.forEach((D) => {
-            if (D.nombre === pais) {
-              D1.nombre = D.nombre
-              D1.imgBandera = D.imgBandera
-              document.getElementById("textOctavosD1").innerHTML = D1.nombre
-              document.getElementById("imgOctavosD1").src = D1.imgBandera
-              document.getElementById("imgOctavosD1").style.display = "block"
-            }
-          });
-        } else if (D1.nombre != pais && D2.nombre === "") {
-          grupoD.forEach((D) => {
-            if (D.nombre === pais) {
-              D2.nombre = D.nombre
-              D2.imgBandera = D.imgBandera
-              document.getElementById("textOctavosD2").innerHTML = D2.nombre
-              document.getElementById("imgOctavosD2").src = D2.imgBandera
-              document.getElementById("imgOctavosD2").style.display = "block"
-            }
-          });
-        } else if (D1.nombre === pais) {
-          D1.nombre = ""
-          D1.imgBandera = ""
-          document.getElementById("textOctavosD1").innerHTML = "D1"
-          document.getElementById("imgOctavosD1").src = ""
-          document.getElementById("imgOctavosD1").style.display = "none"
-        } else if (D2.nombre === pais) {
-          D2.nombre = ""
-          D2.imgBandera = ""
-          document.getElementById("textOctavosD2").innerHTML = "D2"
-          document.getElementById("imgOctavosD2").src = ""
-          document.getElementById("imgOctavosD2").style.display = "none"
-        } else if (D1.nombre === "" && D2.nombre != "") {
-          grupoC.forEach((D) => {
-            if (D.nombre === pais) {
-              D1.nombre = D.nombre
-              D1.imgBandera = D.imgBandera
-              document.getElementById("textOctavosD1").innerHTML = D1.nombre
-              document.getElementById("imgOctavosD1").src = D1.imgBandera
-              document.getElementById("imgOctavosD1").style.display = "block"
-            }
-          });
-        } else if (D1.nombre != "" && D2.nombre != "") {
-          /*Primero y segundo puesto estan seleccionados, aparece mensaje por consola */
-          console.warn("Primer y Segundo Puesto Grupo C seleccionados");
-        }
-        break;
-        /*Faltan case para objetos E1, E2, F1, F2, G1, G2, H1 y H2 */
+  console.warn("Mostrar Octavos1: ", Octavos1)
+  console.warn("Mostrar Octavos2: ", Octavos2)
 
-      default:
-        break;
-    }
-    
+  if(Octavos1.nombre != "" && Octavos2.nombre === "") {
+    mostrarTextoBanderaOctavos(grupo+"1", Octavos1.nombre, Octavos1.imgBandera, "block")
+    console.warn("posicion Octavos1")
+  } else if (Octavos1.nombre != "" && Octavos2.nombre != "") {
+    mostrarTextoBanderaOctavos(grupo+"1", Octavos1.nombre, Octavos1.imgBandera, "block")
+    mostrarTextoBanderaOctavos(grupo+"2", Octavos2.nombre, Octavos2.imgBandera, "block")
+    console.warn("posicion Octavos2")
+  } if (Octavos1.nombre === "") {
+    mostrarTextoBanderaOctavos(grupo+"1", grupo+"1", "", "none")
+    console.warn("limpiar Octavos1")
+  } 
+  
+  if (Octavos2.nombre === "") {
+    mostrarTextoBanderaOctavos(grupo+"2", grupo+"2", "", "none")
+    console.warn("limpiar Octavos2")
+  }
+}
+
+const mostrarPosicionGrupoBis = (posicion1, posicion2, pais) => {
+
+  if (posicion2.nombre === "") {
+    mostrarPosicionGrupo("", pais, "", "", "none")
+  }
+
+  if(posicion1.nombre != "" && posicion2.nombre === "") {
+    mostrarPosicionGrupo("1", posicion1.nombre, "black", "white", "block")
+  } else if (posicion1.nombre === "") {
+     mostrarPosicionGrupo("", pais, "", "", "none")
+  } else if (posicion1 != "" && posicion2 != "") {
+    mostrarPosicionGrupo("1", posicion1.nombre, "black", "white", "block")
+    mostrarPosicionGrupo("2", posicion2.nombre, "black", "white", "block")
+  }
+
+} 
+
+/*Funcion que tiene la logica para ver en Seccion Octavos nombre y bandera de paises seleccionados*/
+const paisSeleccionadoOctavosBis = (grupo, pais) => {
+
+  switch (grupo) {
+    case "A":
+      logicaOctavos(A1, A2, pais)
+      mostrarTextoBanderaOctavosBis("A", A1, A2, pais)
+      mostrarPosicionGrupoBis (A1, A2, pais)
+
+      break;
+    case "B":
+      logicaOctavos(B1, B2, pais)
+      mostrarTextoBanderaOctavosBis("B", B1, B2, pais)
+      mostrarPosicionGrupoBis (B1, B2, pais)
+
+      break;
+    case "C":
+      logicaOctavos(C1, C2, pais)
+      mostrarTextoBanderaOctavosBis("C", C1, C2, pais)
+      mostrarPosicionGrupoBis (C1, C2, pais)
+      break;
+    case "D":
+      logicaOctavos(D1, D2, pais)
+      mostrarTextoBanderaOctavosBis("D", D1, D2, pais)
+      mostrarPosicionGrupoBis (D1, D2, pais)
+      break
+    case "E":
+        logicaOctavos(E1, E2, pais)
+        mostrarTextoBanderaOctavosBis("E", E1, E2, pais)
+        mostrarPosicionGrupoBis (E1, E2, pais)
+      break
+    case "F":
+        logicaOctavos(F1, F2, pais)
+        mostrarTextoBanderaOctavosBis("F", F1, F2, pais)
+        mostrarPosicionGrupoBis (F1, F2, pais)
+      break
+    case "G":
+        logicaOctavos(G1, G2, pais)
+        mostrarTextoBanderaOctavosBis("G", G1, G2, pais)
+        mostrarPosicionGrupoBis (G1, G2, pais)
+      break
+    case "H":
+        logicaOctavos(H1, H2, pais)
+        mostrarTextoBanderaOctavosBis("H", H1, H2, pais)
+        mostrarPosicionGrupoBis (H1, H2, pais)
+      break
+    default:
+      console.warn("Error bis");
+      break;
+  }
+
 }
 
 /*Funcion muestra en Cuartos nombre y bandera de pais seleccionado*/
 const paisSeleccionadoCuartos = (pais, imgBandera, posicionCuartos) => {
-  switch (posicionCuartos){
-    case 'cuartosO1':
-      CuartosO1.nombre = pais
-      CuartosO1.imgBandera = imgBandera
-      document.getElementById("textCuartosO1").innerHTML = CuartosO1.nombre
-      document.getElementById("imgCuartosO1").src = CuartosO1.imgBandera
-      document.getElementById("imgCuartosO1").style.display = "block"
-      break
-    case 'cuartosO2':
-      CuartosO2.nombre = pais
-      CuartosO2.imgBandera = imgBandera
-      document.getElementById("textCuartosO2").innerHTML = CuartosO2.nombre
-      document.getElementById("imgCuartosO2").src = CuartosO2.imgBandera
-      document.getElementById("imgCuartosO2").style.display = "block"
-      break
-    case 'cuartosO5':
-      CuartosO5.nombre = pais
-      CuartosO5.imgBandera = imgBandera
-      document.getElementById("textCuartosO5").innerHTML = CuartosO5.nombre
-      document.getElementById("imgCuartosO5").src = CuartosO5.imgBandera
-      document.getElementById("imgCuartosO5").style.display = "block"
-      break
-    case 'cuartosO6':
-      CuartosO6.nombre = pais
-      CuartosO6.imgBandera = imgBandera
-      document.getElementById("textCuartosO6").innerHTML = CuartosO6.nombre
-      document.getElementById("imgCuartosO6").src = CuartosO6.imgBandera
-      document.getElementById("imgCuartosO6").style.display = "block"
-      break
+  switch (posicionCuartos) {
+    case "cuartosO1":
+      if(CuartosO1.nombre === pais) {
+        document.getElementById("textCuartosO1").innerHTML = "CUARTOS O1"
+        document.getElementById("imgCuartosO1").style.display = "none"
+      } else {
+        CuartosO1.nombre = pais;
+        CuartosO1.imgBandera = imgBandera;
+        document.getElementById("textCuartosO1").innerHTML = CuartosO1.nombre;
+        document.getElementById("imgCuartosO1").src = CuartosO1.imgBandera;
+        document.getElementById("imgCuartosO1").style.display = "block";
+      }
+      break;
+    case "cuartosO2":
+      CuartosO2.nombre = pais;
+      CuartosO2.imgBandera = imgBandera;
+      document.getElementById("textCuartosO2").innerHTML = CuartosO2.nombre;
+      document.getElementById("imgCuartosO2").src = CuartosO2.imgBandera;
+      document.getElementById("imgCuartosO2").style.display = "block";
+      break;
+    case "cuartosO3":
+      CuartosO3.nombre = pais;
+      CuartosO3.imgBandera = imgBandera;
+      document.getElementById("textCuartosO3").innerHTML = CuartosO3.nombre;
+      document.getElementById("imgCuartosO3").src = CuartosO3.imgBandera;
+      document.getElementById("imgCuartosO3").style.display = "block";
+      break;
+    case "cuartosO4":
+      CuartosO4.nombre = pais;
+      CuartosO4.imgBandera = imgBandera;
+      document.getElementById("textCuartosO4").innerHTML = CuartosO4.nombre;
+      document.getElementById("imgCuartosO4").src = CuartosO4.imgBandera;
+      document.getElementById("imgCuartosO4").style.display = "block";
+      break;
+    case "cuartosO5":
+      CuartosO5.nombre = pais;
+      CuartosO5.imgBandera = imgBandera;
+      document.getElementById("textCuartosO5").innerHTML = CuartosO5.nombre;
+      document.getElementById("imgCuartosO5").src = CuartosO5.imgBandera;
+      document.getElementById("imgCuartosO5").style.display = "block";
+      break;
+    case "cuartosO6":
+      CuartosO6.nombre = pais;
+      CuartosO6.imgBandera = imgBandera;
+      document.getElementById("textCuartosO6").innerHTML = CuartosO6.nombre;
+      document.getElementById("imgCuartosO6").src = CuartosO6.imgBandera;
+      document.getElementById("imgCuartosO6").style.display = "block";
+      break;
+    case "cuartosO7":
+      CuartosO7.nombre = pais;
+      CuartosO7.imgBandera = imgBandera;
+      document.getElementById("textCuartosO7").innerHTML = CuartosO7.nombre;
+      document.getElementById("imgCuartosO7").src = CuartosO7.imgBandera;
+      document.getElementById("imgCuartosO7").style.display = "block";
+      break;
+    case "cuartosO8":
+      CuartosO8.nombre = pais;
+      CuartosO8.imgBandera = imgBandera;
+      document.getElementById("textCuartosO8").innerHTML = CuartosO8.nombre;
+      document.getElementById("imgCuartosO8").src = CuartosO8.imgBandera;
+      document.getElementById("imgCuartosO8").style.display = "block";
+      break;
     default:
       break;
   }
-}
+};
 
 /*Llamada a funcion que muestra cantidad de dias restantes para inicio de mundial*/
 cantDiasComienzoMundial()
