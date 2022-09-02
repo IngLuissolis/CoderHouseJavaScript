@@ -6,7 +6,7 @@ const Senegal = new Pais ("Senegal", "./img/senegal.png")
 const PaisesBajos = new Pais ("PaisesBajos", "./img/netherlands.png")
 /*objetos paises Grupo B*/
 const Inglaterra = new Pais ("Inglaterra", "./img/england.png")
-const Iran = new Pais ("Iran", "./img/Iran.png")
+const Iran = new Pais ("Iran", "./img/iran.png")
 const EstadosUnidos = new Pais ("EstadosUnidos", "./img/united-states.png")
 const Gales = new Pais ("Gales", "./img/wales.png")
 /*objetos paises Grupo C*/
