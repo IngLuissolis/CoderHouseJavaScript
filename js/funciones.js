@@ -6,105 +6,101 @@ const cantDiasComienzoMundial = () => {
     document.getElementById("resultado").innerHTML = String(cantdias) + " dias Restantes para Inicio del Mundial"
 }
 
-/*Muestra en Seccion Octavos nombre de pais y bandera de pais seleccionado como 1er o 2do puesto  */
-const mostrarTextoBanderaOctavos = (posicionOctavos, nombreInner, imgBanderaSrc, imgBanderaStyleDisplay) => {
-  document.getElementById("textOctavos"+posicionOctavos).innerHTML = nombreInner
+/*Muestra en Seccion Octavos ID de pais y bandera de pais seleccionado como 1er o 2do puesto  */
+const mostrarTextoBanderaOctavos = (posicionOctavos, IDInner, imgBanderaSrc, imgBanderaStyleDisplay) => {
+  document.getElementById("textOctavos"+posicionOctavos).innerHTML = IDInner
   document.getElementById("imgOctavos"+posicionOctavos).src = imgBanderaSrc
   document.getElementById("imgOctavos"+posicionOctavos).style.display = imgBanderaStyleDisplay
 }
 
 /*Muestra en seccion Grupos Numero de clasificacion, 1 = primero del grupo, 2 = segundo del grupo */
-const mostrarPosicionGrupo = (posicionClasificacionGrupo, nombre, styleBackgroundColor, styleColor, styleDisplay) => {
-    document.getElementById("posicionGrupo"+nombre).innerHTML = posicionClasificacionGrupo
-    document.getElementById("posicionGrupo"+nombre).style.backgroundColor = styleBackgroundColor
-    document.getElementById("posicionGrupo"+nombre).style.color = styleColor
-    document.getElementById("posicionGrupo"+nombre).style.display = styleDisplay
+const mostrarPosicionGrupo = (posicionClasificacionGrupo, ID, styleBackgroundColor, styleColor, styleDisplay) => {
+    document.getElementById("posicionGrupo"+ID).innerHTML = posicionClasificacionGrupo
+    document.getElementById("posicionGrupo"+ID).style.backgroundColor = styleBackgroundColor
+    document.getElementById("posicionGrupo"+ID).style.color = styleColor
+    document.getElementById("posicionGrupo"+ID).style.display = styleDisplay
 }
 
 /*Algoritmo de seleccion para Octavos */
 const logicaOctavos = (Aux1, Aux2, pais) => {
-  if (Aux1.nombre === "" && Aux2.nombre === "") {
+  if (Aux1.ID === "" && Aux2.ID === "") {
     grupoTodos.forEach((Z) => {
-      if (Z.nombre === pais) {
-        Aux1.nombre = Z.nombre
+      if (Z.ID === pais) {
+        Aux1.ID = Z.ID
         Aux1.imgBandera = Z.imgBandera
+        Aux1.nombre = Z.nombre
       }
     });
-  } else if (Aux1.nombre != pais && Aux2.nombre === "") {
+  } else if (Aux1.ID != pais && Aux2.ID === "") {
       grupoTodos.forEach((Z) => {
-        if (Z.nombre === pais) {
-          Aux2.nombre = Z.nombre
+        if (Z.ID === pais) {
+          Aux2.ID = Z.ID
           Aux2.imgBandera = Z.imgBandera
+          Aux2.nombre = Z.nombre
         }
       });
-  } else if (Aux1.nombre === pais) {
-      Aux1.nombre = ""
+  } else if (Aux1.ID === pais) {
+      Aux1.ID = ""
       Aux1.imgBandera = ""
-  } else if (Aux2.nombre === pais) {
-      Aux2.nombre = ""
+      Aux1.nombre= ""
+  } else if (Aux2.ID === pais) {
+      Aux2.ID = ""
       Aux2.imgBandera = ""
-  } else if (Aux1.nombre === "" && Aux2.nombre != "") {
+      Aux2.nombre = ""
+  } else if (Aux1.ID === "" && Aux2.ID != "") {
       grupoTodos.forEach((Z) => {
-        if (Z.nombre === pais) {
-          Aux1.nombre = Z.nombre
+        if (Z.ID === pais) {
+          Aux1.ID = Z.ID
           Aux1.imgBandera = Z.imgBandera
+          Aux1.nombre = Z.nombre
         }
       });
-  } else if (Aux1.nombre != "" && Aux2.nombre != "") {
+  } else if (Aux1.ID != "" && Aux2.ID != "") {
       /*Primero y segundo puesto estan seleccionados, aparece mensaje por consola */
       console.warn("Primer y Segundo Puesto Grupo seleccionados");
   }
 }
 
-const mostrarTextoBanderaOctavosBis = (grupo, Octavos1, Octavos2, pais) => {
+const mostrarTextoBanderaOctavosBis = (grupo, Octavos1, Octavos2) => {
 
-  console.warn("Mostrar Octavos1: ", Octavos1)
-  console.warn("Mostrar Octavos2: ", Octavos2)
-
-  if(Octavos1.nombre != "" && Octavos2.nombre === "") {
+  if(Octavos1.ID != "" && Octavos2.ID === "") {
     mostrarTextoBanderaOctavos(grupo+"1", Octavos1.nombre, Octavos1.imgBandera, "block")
-    console.warn("posicion Octavos1")
-  } else if (Octavos1.nombre != "" && Octavos2.nombre != "") {
+  } else if (Octavos1.ID != "" && Octavos2.ID != "") {
     mostrarTextoBanderaOctavos(grupo+"1", Octavos1.nombre, Octavos1.imgBandera, "block")
     mostrarTextoBanderaOctavos(grupo+"2", Octavos2.nombre, Octavos2.imgBandera, "block")
-    console.warn("posicion Octavos2")
-  } if (Octavos1.nombre === "") {
+  } if (Octavos1.ID === "") {
     mostrarTextoBanderaOctavos(grupo+"1", grupo+"1", "", "none")
-    console.warn("limpiar Octavos1")
   } 
   
-  if (Octavos2.nombre === "") {
+  if (Octavos2.ID === "") {
     mostrarTextoBanderaOctavos(grupo+"2", grupo+"2", "", "none")
-    console.warn("limpiar Octavos2")
   }
 }
 
 const mostrarPosicionGrupoBis = (posicion1, posicion2, pais) => {
 
-  if (posicion2.nombre === "") {
+  if (posicion2.ID === "") {
     mostrarPosicionGrupo("", pais, "", "", "none")
   }
 
-  if(posicion1.nombre != "" && posicion2.nombre === "") {
-    mostrarPosicionGrupo("1", posicion1.nombre, "black", "white", "block")
-  } else if (posicion1.nombre === "") {
+  if(posicion1.ID != "" && posicion2.ID === "") {
+    mostrarPosicionGrupo("1", posicion1.ID, "black", "white", "block")
+  } else if (posicion1.ID === "") {
      mostrarPosicionGrupo("", pais, "", "", "none")
   } else if (posicion1 != "" && posicion2 != "") {
-    mostrarPosicionGrupo("1", posicion1.nombre, "black", "white", "block")
-    mostrarPosicionGrupo("2", posicion2.nombre, "black", "white", "block")
+    mostrarPosicionGrupo("1", posicion1.ID, "black", "white", "block")
+    mostrarPosicionGrupo("2", posicion2.ID, "black", "white", "block")
   }
 
 } 
 
-/*Funcion que tiene la logica para ver en Seccion Octavos nombre y bandera de paises seleccionados*/
-const paisSeleccionadoOctavosBis = (grupo, pais) => {
-
+/*Funcion que tiene la logica para ver en Seccion Octavos ID y bandera de paises seleccionados*/
+const paisSeleccionadoOctavos = (grupo, pais) => {
   switch (grupo) {
     case "A":
       logicaOctavos(A1, A2, pais)
       mostrarTextoBanderaOctavosBis("A", A1, A2, pais)
       mostrarPosicionGrupoBis (A1, A2, pais)
-
       break;
     case "B":
       logicaOctavos(B1, B2, pais)
@@ -149,95 +145,95 @@ const paisSeleccionadoOctavosBis = (grupo, pais) => {
 
 }
 
-/*Funcion muestra en Cuartos nombre y bandera de pais seleccionado*/
-const paisSeleccionadoCuartos = (pais, imgBandera, posicionCuartos) => {
-  switch (posicionCuartos) {
-    case "cuartosO1":
-      if(CuartosO1.nombre === pais) {
-        document.getElementById("textCuartosO1").innerHTML = "CUARTOS O1"
-        document.getElementById("imgCuartosO1").style.display = "none"
-      } else {
-        CuartosO1.nombre = pais;
-        CuartosO1.imgBandera = imgBandera;
-        document.getElementById("textCuartosO1").innerHTML = CuartosO1.nombre;
-        document.getElementById("imgCuartosO1").src = CuartosO1.imgBandera;
-        document.getElementById("imgCuartosO1").style.display = "block";
-      }
+const mostrarTextoBanderaFase = (pais, posicionFase, ganadorPartido, perdedorPartido) => {
+  document.getElementById("text"+posicionFase).innerHTML = pais.nombre
+  document.getElementById("img"+posicionFase).src = pais.imgBandera
+  document.getElementById("img"+posicionFase).style.display = "block"
+  document.getElementById("ganador"+ganadorPartido).style.display = "block"
+  document.getElementById("ganador"+perdedorPartido).style.display = "none"
+}
+
+
+/*Funcion muestra en Fase Cuartos - Semi y Final ID y bandera de pais seleccionado*/
+const paisSeleccionadoFase = (pais, posicionFase, ganadorPartido, perdedorPartido) => {
+  switch (posicionFase) {
+    case "CuartosO1":
+      Object.assign(CuartosO1, pais)
       break;
-    case "cuartosO2":
-      CuartosO2.nombre = pais;
-      CuartosO2.imgBandera = imgBandera;
-      document.getElementById("textCuartosO2").innerHTML = CuartosO2.nombre;
-      document.getElementById("imgCuartosO2").src = CuartosO2.imgBandera;
-      document.getElementById("imgCuartosO2").style.display = "block";
+    case "CuartosO2":
+      Object.assign(CuartosO2, pais)
       break;
-    case "cuartosO3":
-      CuartosO3.nombre = pais;
-      CuartosO3.imgBandera = imgBandera;
-      document.getElementById("textCuartosO3").innerHTML = CuartosO3.nombre;
-      document.getElementById("imgCuartosO3").src = CuartosO3.imgBandera;
-      document.getElementById("imgCuartosO3").style.display = "block";
+    case "CuartosO3":
+      Object.assign(CuartosO3, pais)
       break;
-    case "cuartosO4":
-      CuartosO4.nombre = pais;
-      CuartosO4.imgBandera = imgBandera;
-      document.getElementById("textCuartosO4").innerHTML = CuartosO4.nombre;
-      document.getElementById("imgCuartosO4").src = CuartosO4.imgBandera;
-      document.getElementById("imgCuartosO4").style.display = "block";
+    case "CuartosO4":
+      Object.assign(CuartosO4, pais)
       break;
-    case "cuartosO5":
-      CuartosO5.nombre = pais;
-      CuartosO5.imgBandera = imgBandera;
-      document.getElementById("textCuartosO5").innerHTML = CuartosO5.nombre;
-      document.getElementById("imgCuartosO5").src = CuartosO5.imgBandera;
-      document.getElementById("imgCuartosO5").style.display = "block";
+    case "CuartosO5":
+      Object.assign(CuartosO5, pais)
       break;
-    case "cuartosO6":
-      CuartosO6.nombre = pais;
-      CuartosO6.imgBandera = imgBandera;
-      document.getElementById("textCuartosO6").innerHTML = CuartosO6.nombre;
-      document.getElementById("imgCuartosO6").src = CuartosO6.imgBandera;
-      document.getElementById("imgCuartosO6").style.display = "block";
+    case "CuartosO6":
+      Object.assign(CuartosO6, pais)
       break;
-    case "cuartosO7":
-      CuartosO7.nombre = pais;
-      CuartosO7.imgBandera = imgBandera;
-      document.getElementById("textCuartosO7").innerHTML = CuartosO7.nombre;
-      document.getElementById("imgCuartosO7").src = CuartosO7.imgBandera;
-      document.getElementById("imgCuartosO7").style.display = "block";
+    case "CuartosO7":
+      Object.assign(CuartosO7, pais)
       break;
-    case "cuartosO8":
-      CuartosO8.nombre = pais;
-      CuartosO8.imgBandera = imgBandera;
-      document.getElementById("textCuartosO8").innerHTML = CuartosO8.nombre;
-      document.getElementById("imgCuartosO8").src = CuartosO8.imgBandera;
-      document.getElementById("imgCuartosO8").style.display = "block";
+    case "CuartosO8":
+      Object.assign(CuartosO8, pais)
       break;
+    case "Semi1":
+      Object.assign(Semi1, pais)
+      break;
+    case "Semi2":
+      Object.assign(Semi2, pais)
+      break;
+    case "Semi3":
+      Object.assign(Semi3, pais)
+      break;
+    case "Semi4":
+      Object.assign(Semi4, pais)
+      break;
+    case "Campeon":
+      Object.assign(Campeon, pais)
+      break
     default:
       break;
   }
-};
+
+  mostrarTextoBanderaFase(pais, posicionFase, ganadorPartido, perdedorPartido)
+}
+
+const paisSeleccionadoFinal = (posicionFinal, ganadorPartido, perdedorPartido) => {
+  switch (posicionFinal) {
+    case "Final1A":
+        Object.assign(Final1, Semi1)
+        Object.assign(Tercer1, Semi2)
+        mostrarTextoBanderaFase(Final1, "Final1", ganadorPartido, perdedorPartido)
+        mostrarTextoBanderaFase(Tercer1, "Tercer1", ganadorPartido, perdedorPartido)
+      break
+    case "Final1B":
+        Object.assign(Final1, Semi2)
+        Object.assign(Tercer1, Semi1)
+        mostrarTextoBanderaFase(Final1, "Final1", ganadorPartido, perdedorPartido)
+        mostrarTextoBanderaFase(Tercer1, "Tercer1", ganadorPartido, perdedorPartido)
+      break
+    case "Final2A":
+        Object.assign(Final2, Semi3)
+        Object.assign(Tercer2, Semi4)
+        mostrarTextoBanderaFase(Final2, "Final2", ganadorPartido, perdedorPartido)
+        mostrarTextoBanderaFase(Tercer2, "Tercer2", ganadorPartido, perdedorPartido)
+      break
+    case "Final2B":
+        Object.assign(Final2, Semi4)
+        Object.assign(Tercer2, Semi3)
+        mostrarTextoBanderaFase(Final2, "Final2", ganadorPartido, perdedorPartido)
+        mostrarTextoBanderaFase(Tercer2, "Tercer2", ganadorPartido, perdedorPartido)
+      break
+    default:
+      break
+  }
+}
 
 /*Llamada a funcion que muestra cantidad de dias restantes para inicio de mundial*/
 cantDiasComienzoMundial()
-
-/*Funcion muestra por consola primer y segundo puesto para grupos A y B */
-const seleccionadosProximaFase = () => {
-  if (A1 != "" && A2 != "") {
-      console.log("Grupo A - Primer Puesto: ", A1)
-      console.log("Grupo A - Segundo Puesto: ", A2)
-  } 
-  else {
-      console.error("Error - Falto seleccionar pais en grupo A")
-  }
-
-  if (B1 != "" && B2 != "") {
-      console.log("Grupo B - Primer Puesto: ", B1)
-      console.log("Grupo B - Segundo Puesto: ", B2)
-  } 
-  else {
-      console.error("Error - Falto seleccionar pais en grupo B")
-  }
-  console.log("-----") 
-}
 

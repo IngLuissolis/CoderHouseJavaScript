@@ -18,7 +18,8 @@ h1, h3 {
 }
 
 .grupo li:hover {
-    background: yellowgreen;
+    background: rgb(146, 21, 73);
+    color: white;
 }
 
 .grupo li button {
@@ -27,6 +28,7 @@ h1, h3 {
     background: none;
     border: none;
 }
+
 
 .grupo li img {
     height: 2rem;
@@ -43,7 +45,12 @@ h1, h3 {
 .octavos div button {
     width: 10rem;
     height: 4rem;
-    background: black;
+    background: white;
+    color: black;
+}
+
+.octavos div button:hover {
+    background:rgb(146, 21, 73);
 }
 
 .octavos div button img {
@@ -74,3 +81,22 @@ h1, h3 {
     #posicionGrupoCoreadelSur {
     display: none;
 }
+
+#ganadorOctavosA1, #ganadorOctavosA2, #ganadorOctavosB1, 
+    #ganadorOctavosB2, #ganadorOctavosC1, #ganadorOctavosC2,
+    #ganadorOctavosD1, #ganadorOctavosD2, #ganadorOctavosE1, 
+    #ganadorOctavosE2, #ganadorOctavosF1, #ganadorOctavosF2,
+    #ganadorOctavosG1, #ganadorOctavosG2, #ganadorOctavosH1,
+    #ganadorOctavosH2, #ganadorCuartosO1, #ganadorCuartosO2,
+    #ganadorCuartosO3, #ganadorCuartosO4, #ganadorCuartosO5,
+    #ganadorCuartosO6, #ganadorCuartosO7, #ganadorCuartosO8,
+    #ganadorSemi1, #ganadorSemi2, #ganadorSemi3, #ganadorSemi4,
+    #ganadorTercer1, #ganadorTercer2,
+    #ganadorFinal1, #ganadorFinal2 {
+        display: none;
+        background-color: yellow;
+        width: 1.2rem;
+        height: 1.2rem;
+        margin: 0.5rem;
+    }
+

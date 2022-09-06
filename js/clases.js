@@ -1,6 +1,7 @@
 /*Clase Pais*/
 class Pais {
-    constructor(nombre, imgBandera) {
+    constructor(ID, imgBandera, nombre) {
+        this.ID = ID
         this.nombre = nombre
         this.imgBandera = imgBandera
     }
