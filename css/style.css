@@ -59,6 +59,23 @@ h1, h3 {
     border-radius: 50%;
 }
 
+.cuartos div button {
+    width: 10rem;
+    height: 4rem;
+    background: white;
+    color: black;
+}
+
+.cuartos div button:hover {
+    background:rgb(146, 21, 73);
+}
+
+.cuartos div button img {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
 #imgOctavosA1, #imgOctavosA2, #imgOctavosB1, #imgOctavosB2,
     #imgOctavosC1, #imgOctavosC2, #imgOctavosD1, #imgOctavosD2,
     #imgOctavosE1, #imgOctavosE2, #imgOctavosF1, #imgOctavosF2,
@@ -100,3 +117,6 @@ h1, h3 {
         margin: 0.5rem;
     }
 
+button * {
+    pointer-events: none;
+}

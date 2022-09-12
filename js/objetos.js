@@ -50,33 +50,66 @@ const grupoTodos = [Qatar, Ecuador, Senegal, PaisesBajos,
     Brazil, Serbia, Suiza, Camerun,
     Portugal, Ghana, Uruguay, CoreaDelSur]
 
+const GrupoA = [Qatar, Ecuador, Senegal, PaisesBajos]
+const GrupoB = [Inglaterra, Iran, EstadosUnidos, Gales]
+const GrupoC = [Argentina, Arabia, Mexico, Polonia]
+const GrupoD = [Francia, Australia, Dinamarca, Tunez]
+const GrupoE = [España, CostaRica, Alemania, Japon]
+const GrupoF = [Belgica, Canada, Marruecos, Croacia]
+const GrupoG = [Brazil, Serbia, Suiza, Camerun]
+const GrupoH = [Portugal, Ghana, Uruguay, CoreaDelSur]
+
+const paisesTodos = [{nombre: "Grupo A", paises: GrupoA, grupo: "A"},
+                    {nombre: "Grupo B", paises: GrupoB, grupo: "B"},
+                    {nombre: "Grupo C", paises: GrupoC, grupo: "C"},
+                    {nombre: "Grupo D", paises: GrupoD, grupo: "D"},
+                    {nombre: "Grupo E", paises: GrupoE, grupo: "E"},
+                    {nombre: "Grupo F", paises: GrupoF, grupo: "F"},
+                    {nombre: "Grupo G", paises: GrupoG, grupo: "G"},
+                    {nombre: "Grupo H", paises: GrupoH, grupo: "H"}]
+
 /*Objetos Octavos*/
-const A1 = new Pais ("", "", "")
-const A2 = new Pais ("", "", "")
-const B1 = new Pais ("", "", "")
-const B2 = new Pais ("", "", "")
-const C1 = new Pais ("", "", "")
-const C2 = new Pais ("", "", "")
-const D1 = new Pais ("", "", "")
-const D2 = new Pais ("", "", "")
-const E1 = new Pais ("", "", "")
-const E2 = new Pais ("", "", "")
-const F1 = new Pais ("", "", "")
-const F2 = new Pais ("", "", "")
-const G1 = new Pais ("", "", "")
-const G2 = new Pais ("", "", "")
-const H1 = new Pais ("", "", "")
-const H2 = new Pais ("", "", "")
+/*const XX = new Pais ("ID", "imgBandera", "nombre", "posicionProximaFase", "ganadorPartido", 
+        "perdedorPartido", "faseActual")*/
+const A1 = new Pais ("", "", "A1", "CuartosO1", "OctavosA1", "OctavosB2", "A1")
+const A2 = new Pais ("", "", "A2", "CuartosO5", "OctavosA2", "OctavosB1", "A2")
+const B1 = new Pais ("", "", "B1", "CuartosO5", "OctavosB1", "OctavosA2", "B1")
+const B2 = new Pais ("", "", "B2", "CuartosO1", "OctavosB2", "OctavosA1", "B2")
+const C1 = new Pais ("", "", "C1", "CuartosO2", "OctavosC1", "OctavosD2", "C1")
+const C2 = new Pais ("", "", "C2", "CuartosO6", "OctavosC2", "OctavosD1", "C2")
+const D1 = new Pais ("", "", "D1", "CuartosO6", "OctavosD1", "OctavosC2", "D1")
+const D2 = new Pais ("", "", "D2", "CuartosO2", "OctavosD2", "OctavosC1", "D2")
+const E1 = new Pais ("", "", "E1", "CuartosO3", "OctavosE1", "OctavosF2", "E1")
+const E2 = new Pais ("", "", "E2", "CuartosO7", "OctavosE2", "OctavosF1", "E2")
+const F1 = new Pais ("", "", "F1", "CuartosO7", "OctavosF1", "OctavosE2", "F1")
+const F2 = new Pais ("", "", "F2", "CuartosO3", "OctavosF2", "OctavosE1", "F2")
+const G1 = new Pais ("", "", "G1", "CuartosO4", "OctavosG1", "OctavosH2", "G1")
+const G2 = new Pais ("", "", "G2", "CuartosO8", "OctavosG2", "OctavosH1", "G2")
+const H1 = new Pais ("", "", "H1", "CuartosO8", "OctavosH1", "OctavosG2", "H1")
+const H2 = new Pais ("", "", "H2", "CuartosO4", "OctavosH2", "OctavosG1", "H2")
+
+const OctavosIzquierdo = [A1,C1,E1,G1,A2,C2,E2,G2]
+const OctavosDerecho = [B2,D2,F2,H2,B1,D1,F1,H1]
+
+const Octavos = [A1,C1,E1,G1,A2,C2,E2,G2,B2,D2,F2,H2,B1,D1,F1,H1]
 
 /*Objetos Cuartos*/
-const CuartosO1 = new Pais ("", "", "")
-const CuartosO2 = new Pais ("", "", "")
-const CuartosO3 = new Pais ("", "", "")
-const CuartosO4 = new Pais ("", "", "")
-const CuartosO5 = new Pais ("", "", "")
-const CuartosO6 = new Pais ("", "", "")
-const CuartosO7 = new Pais ("", "", "")
-const CuartosO8 = new Pais ("", "", "")
+/*const XX = new Pais ("ID", "imgBandera", "nombre", "posicionProximaFase", "ganadorPartido", 
+        "perdedorPartido", "faseActual")*/
+const CuartosO1 = new Pais ("", "", "CuartosO1", 'Semi1', 'CuartosO1', 'CuartosO2', 'CuartosO1')
+const CuartosO2 = new Pais ("", "", "CuartosO2", 'Semi1', 'CuartosO2', 'CuartosO1', 'CuartosO2')
+const CuartosO3 = new Pais ("", "", "CuartosO3", 'Semi2', 'CuartosO3', 'CuartosO4', 'CuartosO3')
+const CuartosO4 = new Pais ("", "", "CuartosO4", 'Semi2', 'CuartosO4', 'CuartosO3', 'CuartosO4')
+const CuartosO5 = new Pais ("", "", "CuartosO5", 'Semi3', 'CuartosO5', 'CuartosO6', 'CuartosO5')
+const CuartosO6 = new Pais ("", "", "CuartosO6", 'Semi3', 'CuartosO6', 'CuartosO5', 'CuartosO6')
+const CuartosO7 = new Pais ("", "", "CuartosO7", 'Semi4', 'CuartosO7', 'CuartosO8', 'CuartosO7')
+const CuartosO8 = new Pais ("", "", "CuartosO8", 'Semi4', 'CuartosO8', 'CuartosO7', 'CuartosO8')
+
+const CuartosIzquierdo = [CuartosO1,CuartosO3,CuartosO5,CuartosO7]
+const CuartosDerecho = [CuartosO2,CuartosO4,CuartosO6,CuartosO8]
+
+const Cuartos = [CuartosO1,CuartosO3,CuartosO5,CuartosO7,
+    CuartosO2,CuartosO4,CuartosO6,CuartosO8]
 
 /*Objetos Semis*/
 const Semi1 = new Pais ("", "", "")
