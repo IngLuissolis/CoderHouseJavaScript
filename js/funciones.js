@@ -7,10 +7,10 @@ const cantDiasComienzoMundial = () => {
 }
 
 
-/*Algoritmo de seleccion para Octavos */
+/*Algoritmo de seleccion de pais desde Grupos a Octavos */
 const logicaOctavos = (Aux1, Aux2, pais) => {
   if (Aux1.ID === "" && Aux2.ID === "") {
-    grupoTodos.forEach((Z) => {
+      paisesTodos.forEach((Z) => {
       if (Z.ID === pais) {
         Aux1.ID = Z.ID
         Aux1.imgBandera = Z.imgBandera
@@ -18,7 +18,7 @@ const logicaOctavos = (Aux1, Aux2, pais) => {
       }
     });
   } else if (Aux1.ID != pais && Aux2.ID === "") {
-      grupoTodos.forEach((Z) => {
+      paisesTodos.forEach((Z) => {
         if (Z.ID === pais) {
           Aux2.ID = Z.ID
           Aux2.imgBandera = Z.imgBandera
@@ -34,7 +34,7 @@ const logicaOctavos = (Aux1, Aux2, pais) => {
       Aux2.imgBandera = ""
       Aux2.nombre = ""
   } else if (Aux1.ID === "" && Aux2.ID != "") {
-      grupoTodos.forEach((Z) => {
+      paisesTodos.forEach((Z) => {
         if (Z.ID === pais) {
           Aux1.ID = Z.ID
           Aux1.imgBandera = Z.imgBandera
@@ -149,8 +149,6 @@ const paisSeleccionadoOctavos = (grupo, pais) => {
 }
 
 const mostrarTextoBanderaFase = (pais, posicionProximaFase, ganadorPartido, perdedorPartido) => {
-  console.warn("Mostrar posicion Fase: ", posicionProximaFase)
-  console.warn("Mostrar posicion Fase: ", ganadorPartido)
   document.getElementById("text"+posicionProximaFase).innerHTML = pais.nombre
   document.getElementById("img"+posicionProximaFase).src = pais.imgBandera
   document.getElementById("img"+posicionProximaFase).style.display = "block"
@@ -162,90 +160,75 @@ const mostrarTextoBanderaFase = (pais, posicionProximaFase, ganadorPartido, perd
 /*Funcion muestra en Fase Cuartos - Semi y Final ID y bandera de pais seleccionado*/
 const paisSeleccionadoFase = (pais, posicionProximaFase, ganadorPartido, perdedorPartido) => {
 
-  const faseActual = posicionProximaFase
-  console.log("FaseActual1 " + faseActual)
-
   switch (posicionProximaFase) {
     case "CuartosO1":
       Object.assign(CuartosO1, pais)
-      CuartosO1.faseActual = posicionProximaFase
       CuartosO1.posicionProximaFase = "Semi1"
       CuartosO1.ganadorPartido = "CuartosO1"
       CuartosO1.perdedorPartido = "CuartosO2"
       break;
     case "CuartosO2":
       Object.assign(CuartosO2, pais)
-      CuartosO2.faseActual = posicionProximaFase
       CuartosO2.posicionProximaFase = "Semi1"
       CuartosO2.ganadorPartido = "CuartosO2"
       CuartosO2.perdedorPartido = "CuartosO1"
       break;
     case "CuartosO3":
       Object.assign(CuartosO3, pais)
-      CuartosO3.faseActual = posicionProximaFase
       CuartosO3.posicionProximaFase = "Semi2"
       CuartosO3.ganadorPartido = "CuartosO3"
       CuartosO3.perdedorPartido = "CuartosO4"
       break;
     case "CuartosO4":
       Object.assign(CuartosO4, pais)
-      CuartosO4.faseActual = posicionProximaFase
       CuartosO4.posicionProximaFase = "Semi2"
       CuartosO4.ganadorPartido = "CuartosO4"
       CuartosO4.perdedorPartido = "CuartosO3"
       break;
     case "CuartosO5":
       Object.assign(CuartosO5, pais)
-      CuartosO5.faseActual = posicionProximaFase
       CuartosO5.posicionProximaFase = "Semi3"
       CuartosO5.ganadorPartido = "CuartosO5"
       CuartosO5.perdedorPartido = "CuartosO6"
       break;
     case "CuartosO6":
       Object.assign(CuartosO6, pais)
-      CuartosO6.faseActual = posicionProximaFase
       CuartosO6.posicionProximaFase = "Semi3"
       CuartosO6.ganadorPartido = "CuartosO6"
       CuartosO6.perdedorPartido = "CuartosO5"
       break;
     case "CuartosO7":
       Object.assign(CuartosO7, pais)
-      CuartosO7.faseActual = posicionProximaFase
       CuartosO7.posicionProximaFase = "Semi4"
       CuartosO7.ganadorPartido = "CuartosO7"
       CuartosO7.perdedorPartido = "CuartosO8"
       break;
     case "CuartosO8":
       Object.assign(CuartosO8, pais)
-      CuartosO8.faseActual = posicionProximaFase
       CuartosO8.posicionProximaFase = "Semi4"
       CuartosO8.ganadorPartido = "CuartosO8"
       CuartosO8.perdedorPartido = "CuartosO7"
       break;
     case "Semi1":
       Object.assign(Semi1, pais)
-      Semi1.faseActual = posicionProximaFase
       Semi1.posicionProximaFase = "Final1"
       Semi1.ganadorPartido = "Semi1"
       Semi1.perdedorPartido = "Semi2"
       break;
     case "Semi2":
       Object.assign(Semi2, pais)
-      Semi2.faseActual = posicionProximaFase
       Semi2.posicionProximaFase = "Final1"
       Semi2.ganadorPartido = "Semi2"
       Semi2.perdedorPartido = "Semi1"
       break;
     case "Semi3":
       Object.assign(Semi3, pais)
-      Semi3.faseActual = posicionProximaFase
       Semi3.posicionProximaFase = "Final2"
       Semi3.ganadorPartido = "Semi3"
       Semi3.perdedorPartido = "Semi4"
       break;
     case "Semi4":
       Object.assign(Semi4, pais)
-      Semi4.faseActual = posicionProximaFase
       Semi4.posicionProximaFase = "Final2"
       Semi4.ganadorPartido = "Semi4"
       Semi4.perdedorPartido = "Semi3"
@@ -260,6 +243,7 @@ const paisSeleccionadoFase = (pais, posicionProximaFase, ganadorPartido, perdedo
 
   mostrarTextoBanderaFase(pais, posicionProximaFase, ganadorPartido, perdedorPartido)
 }
+
 
 const paisSeleccionadoFinal = (posicionFinal, ganadorPartido, perdedorPartido) => {
   switch (posicionFinal) {
@@ -292,7 +276,7 @@ const paisSeleccionadoFinal = (posicionFinal, ganadorPartido, perdedorPartido) =
   }
 }
 
-/*Funcion escuchar click en pais de Grupos*/
+/*Funcion escuchar click en pais de Seccion Grupos*/
 const escucharClickGrupo = () => {
   const botonesGrupo = document.querySelectorAll(".grupo button")
 
@@ -307,7 +291,6 @@ const escucharClickGrupo = () => {
       
     })
   })
-
 }
 
 /*Funcion escuchar click en Octavos*/
@@ -318,14 +301,10 @@ const escucharClickOctavos = () => {
     boton.addEventListener("click", (evento) => {
       const ganadorOctavos = evento.target.id
 
-      console.warn("ganador Octavos - Click ",ganadorOctavos)
-
       Octavos.forEach(octavo => {
-        if(octavo.faseActual == ganadorOctavos){
+        if(octavo.ganadorPartido == ganadorOctavos){
           paisSeleccionadoFase(octavo, octavo.posicionProximaFase, 
             octavo.ganadorPartido, octavo.perdedorPartido)
-
-          console.warn("Octavos - FaseActual ", octavo.faseActual)
         }
       })
     })
@@ -340,19 +319,12 @@ const escucharClickCuartos = () => {
     boton.addEventListener("click", (evento) => {
       const ganadorCuartos= evento.target.id
 
-      console.warn("ganador Cuartos - Click ",ganadorCuartos)
-
       Cuartos.forEach(cuarto => {
 
-        if(cuarto.faseActual == ganadorCuartos){
+        if(cuarto.ganadorPartido == ganadorCuartos){
           paisSeleccionadoFase(cuarto, cuarto.posicionProximaFase, 
             cuarto.ganadorPartido, cuarto.perdedorPartido)
-
-          console.warn("cuarto.faseActual: ",cuarto.faseActual)
-          console.warn("cuarto.ganadorPartido: ",cuarto.ganadorPartido)
-          console.warn("cuarto.perdedorPartido: ",cuarto.perdedorPartido)
         }
-
       })
     })
   })
@@ -361,7 +333,7 @@ const escucharClickCuartos = () => {
 /*Funcion que muestra grupos a traves de nodos - MOD en index.html*/
 const  mostrarGruposConNodos = () => {
 
-  for (let nombreGrupo of paisesTodos) {
+  for (let nombreGrupo of grupoTodos) {
 
     let div = document.createElement("div")
     let tituloGrupo = document.createElement("tituloGrupo")
@@ -408,7 +380,7 @@ const  mostrarOctavosConNodos = () => {
 
     contenedorOctavosPaisIzquierdo.innerHTML += `
     <div class="col d-flex justify-content-end p-1">
-      <button type="button" class="btn btn-success" id="${octavo.nombre}">
+      <button type="button" class="btn btn-success" id="Octavos${octavo.nombre}">
         <div class="d-flex justify-content-between align-items-center">
           <div id="textOctavos${octavo.nombre}">${octavo.nombre}</div>
           <img id="ganadorOctavos${octavo.nombre}" src="./img/star-fill.svg" alt="ganador""/>
@@ -423,7 +395,7 @@ const  mostrarOctavosConNodos = () => {
 
     contenedorOctavosPaisDerecho.innerHTML += `
     <div class="col d-flex justify-content-start p-1">
-      <button type="button" class="btn btn-success" id="${octavo.nombre}">
+      <button type="button" class="btn btn-success" id="Octavos${octavo.nombre}">
         <div class="d-flex justify-content-between align-items-center">
           <div id="textOctavos${octavo.nombre}">${octavo.nombre}</div>
           <img id="ganadorOctavos${octavo.nombre}" src="./img/star-fill.svg" alt="ganador"/>
