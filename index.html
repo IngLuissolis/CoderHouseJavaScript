@@ -65,27 +65,29 @@
         </div>
 
         <!--Diagrama Fase de Clasificacion-->
+        <!--Seccion Octavos de Final-->
         <div class="text-center">
             <h4 class="m-1 p-0">OCTAVOS DE FINAL</h4>
             <div class="d-flex row row-cols-2 m-1 p-1 octavos" id="contenedorOctavos"></div>
         </div>
 
-        <hr>
+        <hr class="m-1 p-1">
 
+        <!--Seccion Cuartos de Final-->
         <div class="text-center">
             <h4 class="m-1 p-0">CUARTOS DE FINAL</h4>
             <div class="d-flex row row-cols-2  m-1 p-1 cuartos" id="contenedorCuartos"></div>
         </div>
 
-        <hr>
+        <hr class="m-1 p-1">
 
+        <!--Seccion Semifinales-->
         <div class="text-center">
             <h4 class="m-1 p-0">SEMIFINALES</h4>
-            <div class="d-flex row row-cols-2  m-1 p-1 octavos">
+            <div class="d-flex row row-cols-2  m-1 p-1 semi">
 
                 <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="botonSemi1"
-                    onclick="paisSeleccionadoFinal('Final1A', 'Semi1', 'Semi2')">
+                    <button type="button" class="btn btn-success" id="Semi1">
                         <div class="d-flex justify-content-between align-items-center">
                             <div id="textSemi1">SEMIFINAL 1</div>
                             <img id="ganadorSemi1" src="./img/star-fill.svg" alt="ganador"/>
@@ -95,8 +97,7 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="botonSemi2"
-                    onclick="paisSeleccionadoFinal('Final1B', 'Semi2', 'Semi1')">
+                    <button type="button" class="btn btn-success" id="Semi2">
                         <div class="d-flex justify-content-between align-items-center">
                             <img id="imgSemi2" src="" alt="" />
                             <img id="ganadorSemi2" src="./img/star-fill.svg" alt="ganador"/>
@@ -106,8 +107,7 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="botonSemi3"
-                    onclick="paisSeleccionadoFinal('Final2A', 'Semi3', 'Semi4')">
+                    <button type="button" class="btn btn-success" id="Semi3">
                         <div class="d-flex justify-content-between align-items-center">
                             <div id="textSemi3">SEMIFINAL 3</div>
                             <img id="ganadorSemi3" src="./img/star-fill.svg" alt="ganador"/>
@@ -117,8 +117,7 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="botonSemi4"
-                    onclick="paisSeleccionadoFinal('Final2B', 'Semi4', 'Semi3')">
+                    <button type="button" class="btn btn-success" id="Semi4">
                         <div class="d-flex justify-content-between align-items-center">
                             <img id="imgSemi4" src="" alt="" />
                             <img id="ganadorSemi4" src="./img/star-fill.svg" alt="ganador"/>
@@ -130,13 +129,15 @@
             </div>
         </div>
 
+        <hr class="m-1 p-1">
+
+        <!--Seccion TercerPuesto-->
         <div class="text-center">
             <h4 class="m-1 p-0">TERCER PUESTO</h4>
-            <div class="d-flex row row-cols-2  m-1 p-1 octavos">
+            <div class="d-flex row row-cols-2  m-1 p-1 semi">
 
                 <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="botonTercer1"
-                    onclick="mostrarTextoBanderaFase(Tercer1, 'Tercer1', 'Tercer1', 'Tercer2')">
+                    <button type="button" class="btn btn-success" id="Tercer1">
                         <div class="d-flex justify-content-between align-items-center">
                             <div id="textTercer1">PS 1</div>
                             <img id="ganadorTercer1" src="./img/star-fill.svg" alt="ganador"/>
@@ -146,8 +147,7 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="botonTercer2"
-                    onclick="mostrarTextoBanderaFase(Tercer2, 'Tercer2', 'Tercer2', 'Tercer1')">
+                    <button type="button" class="btn btn-success" id="Tercer2">
                         <div class="d-flex justify-content-between align-items-center">
                             <img id="imgTercer2" src="" alt="" />
                             <img id="ganadorTercer2" src="./img/star-fill.svg" alt="ganador"/>
@@ -159,13 +159,19 @@
             </div>
         </div>
 
+        <!--Titulo Final-->
+        <div class="fase-de-grupos text-center m-1 p-0">
+            <h3 class="my-2 p-2 text-white">FINAL</h3>
+        </div>
+
+        <!--Seccion Final-->
         <div class="text-center">
-            <h4 class="m-1 p-0">FINAL</h4>
-            <div class="d-flex row row-cols-2  m-1 p-1 octavos">
+            <!--<h4 class="m-1 p-0">FINAL</h4>-->
+            <div class="d-flex row row-cols-2  m-1 p-1 semi">
 
                 <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="botonFinal1"
-                    onclick="paisSeleccionadoFase(Final1, 'Campeon', 'Final1', 'Final2')">
+                    <button type="button" class="btn btn-success" id="Final1">
+                    <!-- onclick="paisSeleccionadoFase(Final1, 'Campeon', 'Final1', 'Final2')"> -->
                         <div class="d-flex justify-content-between align-items-center">
                             <div id="textFinal1">FINAL 1</div>
                             <img id="ganadorFinal1" src="./img/star-fill.svg" alt="ganador"/>
@@ -175,8 +181,8 @@
                 </div>
 
                 <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="botonFinal2"
-                    onclick="paisSeleccionadoFase(Final2, 'Campeon', 'Final2', 'Final1')">
+                    <button type="button" class="btn btn-success" id="Final2">
+                    <!-- onclick="paisSeleccionadoFase(Final2, 'Campeon', 'Final2', 'Final1')"> -->
                         <div class="d-flex justify-content-between align-items-center">
                             <img id="imgFinal2" src="" alt="" />
                             <img id="ganadorFinal2" src="./img/star-fill.svg" alt="ganador"/>
@@ -188,13 +194,17 @@
             </div>
         </div>
 
+        <hr class="m-1 p-1">
+
+        <!--Seccion Campeon-->
         <div class="text-center">
             <h4 class="m-1 p-0">CAMPEON</h4>
-            <div class="m-1 p-1 octavos">
+            <div class="m-1 p-1 semi">
                 <div class="p-1 d-flex justify-content-center">
-                    <button type="button" class="btn btn-success" id="botonCampeon">
+                    <button type="button" class="btn btn-success" id="Campeon">
                         <div class="d-flex justify-content-between align-items-center">
                             <div id="textCampeon">CAMPEÓN</div>
+                            <img id="ganadorCampeon" src="./img/star-fill.svg" alt="campeon"/>
                             <img id="imgCampeon" src="" alt=""/>
                         </div>
                     </button>

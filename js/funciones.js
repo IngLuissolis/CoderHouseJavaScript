@@ -9,90 +9,107 @@ const cantDiasComienzoMundial = () => {
 
 /*Algoritmo de seleccion de pais desde Grupos a Octavos */
 const logicaOctavos = (Aux1, Aux2, pais) => {
-  if (Aux1.ID === "" && Aux2.ID === "") {
+
+  /*Se saca espacio de cadenas para que coincidan con id en imagen */
+  VarAux1 = reemplazarEspacioCadena(Aux1.nombre)
+  VarAux2 = reemplazarEspacioCadena(Aux2.nombre)
+
+  if(VarAux1 === pais) {
+    Aux1.nombre = VarAux1
+  }
+
+  if(VarAux2 === pais) {
+    Aux2.nombre = VarAux2
+  }
+
+  if (Aux1.nombre === "" && Aux2.nombre === "") {
       paisesTodos.forEach((Z) => {
       if (Z.ID === pais) {
-        Aux1.ID = Z.ID
         Aux1.imgBandera = Z.imgBandera
         Aux1.nombre = Z.nombre
       }
     });
-  } else if (Aux1.ID != pais && Aux2.ID === "") {
+  } else if (Aux1.nombre != pais && Aux2.nombre === "") {
       paisesTodos.forEach((Z) => {
         if (Z.ID === pais) {
-          Aux2.ID = Z.ID
           Aux2.imgBandera = Z.imgBandera
           Aux2.nombre = Z.nombre
         }
       });
-  } else if (Aux1.ID === pais) {
-      Aux1.ID = ""
+  } else if (Aux1.nombre === pais) {
       Aux1.imgBandera = ""
       Aux1.nombre= ""
-  } else if (Aux2.ID === pais) {
-      Aux2.ID = ""
+  } else if (Aux2.nombre === pais) {
       Aux2.imgBandera = ""
       Aux2.nombre = ""
-  } else if (Aux1.ID === "" && Aux2.ID != "") {
+  } else if (Aux1.nombre === "" && Aux2.nombre != "") {
       paisesTodos.forEach((Z) => {
         if (Z.ID === pais) {
-          Aux1.ID = Z.ID
           Aux1.imgBandera = Z.imgBandera
           Aux1.nombre = Z.nombre
         }
       });
-  } else if (Aux1.ID != "" && Aux2.ID != "") {
+  } else if (Aux1.nombre != "" && Aux2.nombre != "" && Aux1.nombre != pais && Aux2.nombre != pais){
       /*Primero y segundo puesto estan seleccionados, aparece mensaje por consola */
       console.warn("Primer y Segundo Puesto Grupo seleccionados");
   }
 
-  //
 }
 
 /*Muestra en Seccion Octavos ID de pais y bandera de pais seleccionado como 1er o 2do puesto  */
 const mostrarTextoBanderaOctavos = (posicionOctavos, IDInner, imgBanderaSrc, imgBanderaStyleDisplay) => {
-  document.getElementById("textOctavos"+posicionOctavos).innerHTML = IDInner
-  document.getElementById("imgOctavos"+posicionOctavos).src = imgBanderaSrc
-  document.getElementById("imgOctavos"+posicionOctavos).style.display = imgBanderaStyleDisplay
-}
-
-/*Muestra en seccion Grupos Numero de clasificacion, 1 = primero del grupo, 2 = segundo del grupo */
-const mostrarPosicionGrupo = (posicionClasificacionGrupo, ID, styleBackgroundColor, styleColor, styleDisplay) => {
-    document.getElementById("posicionGrupo"+ID).innerHTML = posicionClasificacionGrupo
-    document.getElementById("posicionGrupo"+ID).style.backgroundColor = styleBackgroundColor
-    document.getElementById("posicionGrupo"+ID).style.color = styleColor
-    document.getElementById("posicionGrupo"+ID).style.display = styleDisplay
+  document.getElementById("text"+posicionOctavos).innerHTML = IDInner
+  document.getElementById("img"+posicionOctavos).src = imgBanderaSrc
+  document.getElementById("img"+posicionOctavos).style.display = imgBanderaStyleDisplay
 }
 
 const mostrarTextoBanderaOctavosBis = (grupo, Octavos1, Octavos2) => {
 
-  if(Octavos1.ID != "" && Octavos2.ID === "") {
+  if(Octavos1.nombre != "" && Octavos2.nombre === "") {
     mostrarTextoBanderaOctavos(grupo+"1", Octavos1.nombre, Octavos1.imgBandera, "block")
-  } else if (Octavos1.ID != "" && Octavos2.ID != "") {
+  } else if (Octavos1.nombre != "" && Octavos2.nombre != "") {
     mostrarTextoBanderaOctavos(grupo+"1", Octavos1.nombre, Octavos1.imgBandera, "block")
     mostrarTextoBanderaOctavos(grupo+"2", Octavos2.nombre, Octavos2.imgBandera, "block")
-  } if (Octavos1.ID === "") {
+  } if (Octavos1.nombre === "") {
     mostrarTextoBanderaOctavos(grupo+"1", grupo+"1", "", "none")
   } 
   
-  if (Octavos2.ID === "") {
+  if (Octavos2.nombre === "") {
     mostrarTextoBanderaOctavos(grupo+"2", grupo+"2", "", "none")
   }
 }
 
+const reemplazarEspacioCadena = (cadena) => {
+
+  cadena = cadena.replace(" ", "")
+  cadena = cadena.replace(" ", "")
+
+  return cadena
+
+}
+
+/*Muestra en seccion Grupos Numero de clasificacion, 1 = primero del grupo, 2 = segundo del grupo */
+const mostrarPosicionGrupo = (posicionClasificacionGrupo, ID, styleBackgroundColor, styleColor, styleDisplay) => {
+  document.getElementById("posicionGrupo"+ID).innerHTML = posicionClasificacionGrupo
+  document.getElementById("posicionGrupo"+ID).style.backgroundColor = styleBackgroundColor
+  document.getElementById("posicionGrupo"+ID).style.color = styleColor
+  document.getElementById("posicionGrupo"+ID).style.display = styleDisplay
+}
+
 const mostrarPosicionGrupoBis = (posicion1, posicion2, pais) => {
 
-  if (posicion2.ID === "") {
-    mostrarPosicionGrupo("", pais, "", "", "none")
-  }
+  posicion1aux = reemplazarEspacioCadena(posicion1.nombre)
+  posicion2aux = reemplazarEspacioCadena(posicion2.nombre)
 
-  if(posicion1.ID != "" && posicion2.ID === "") {
-    mostrarPosicionGrupo("1", posicion1.ID, "black", "white", "block")
-  } else if (posicion1.ID === "") {
+  if(posicion1aux != "" && posicion1aux == pais && posicion2aux === "") {
+    mostrarPosicionGrupo("1", pais, "black", "white", "block")
+  } else if (posicion1aux === "") {
      mostrarPosicionGrupo("", pais, "", "", "none")
-  } else if (posicion1 != "" && posicion2 != "") {
-    mostrarPosicionGrupo("1", posicion1.ID, "black", "white", "block")
-    mostrarPosicionGrupo("2", posicion2.ID, "black", "white", "block")
+  } else if (posicion2aux === "") {
+    mostrarPosicionGrupo("2", pais, "", "", "none")
+  } else if (posicion1aux != "" && posicion2aux != "") {
+    mostrarPosicionGrupo("1", posicion1aux, "black", "white", "block")
+    mostrarPosicionGrupo("2", posicion2aux, "black", "white", "block")
   }
 
 } 
@@ -109,7 +126,6 @@ const paisSeleccionadoOctavos = (grupo, pais) => {
       logicaOctavos(B1, B2, pais)
       mostrarTextoBanderaOctavosBis("B", B1, B2, pais)
       mostrarPosicionGrupoBis (B1, B2, pais)
-
       break;
     case "C":
       logicaOctavos(C1, C2, pais)
@@ -146,13 +162,21 @@ const paisSeleccionadoOctavos = (grupo, pais) => {
       break;
   }
 
+  /*Se habilita escucharClickCuartos cuando se eligieron todos los ganadores de Octavos */
+  if( A1.nombre != "" && A2.nombre != "" && B1.nombre != "" && B2.nombre != ""
+  && C1.nombre != "" && C2.nombre != "" && D1.nombre != "" && D2.nombre != ""
+  && E1.nombre != "" && E2.nombre != "" && F1.nombre != "" && F2.nombre != ""
+  && G1.nombre != "" && G2.nombre != "" && H1.nombre != "" && H2.nombre != "") {
+    escucharClickCuartos()
+  }
+
 }
 
 const mostrarTextoBanderaFase = (pais, posicionProximaFase, ganadorPartido, perdedorPartido) => {
   document.getElementById("text"+posicionProximaFase).innerHTML = pais.nombre
   document.getElementById("img"+posicionProximaFase).src = pais.imgBandera
   document.getElementById("img"+posicionProximaFase).style.display = "block"
-  document.getElementById("ganador"+ganadorPartido).style.display = "block"
+  document.getElementById("ganador"+pais.ID).style.display = "block"
   document.getElementById("ganador"+perdedorPartido).style.display = "none"
 }
 
@@ -160,118 +184,113 @@ const mostrarTextoBanderaFase = (pais, posicionProximaFase, ganadorPartido, perd
 /*Funcion muestra en Fase Cuartos - Semi y Final ID y bandera de pais seleccionado*/
 const paisSeleccionadoFase = (pais, posicionProximaFase, ganadorPartido, perdedorPartido) => {
 
-  switch (posicionProximaFase) {
-    case "CuartosO1":
-      Object.assign(CuartosO1, pais)
-      CuartosO1.posicionProximaFase = "Semi1"
-      CuartosO1.ganadorPartido = "CuartosO1"
-      CuartosO1.perdedorPartido = "CuartosO2"
-      break;
-    case "CuartosO2":
-      Object.assign(CuartosO2, pais)
-      CuartosO2.posicionProximaFase = "Semi1"
-      CuartosO2.ganadorPartido = "CuartosO2"
-      CuartosO2.perdedorPartido = "CuartosO1"
-      break;
-    case "CuartosO3":
-      Object.assign(CuartosO3, pais)
-      CuartosO3.posicionProximaFase = "Semi2"
-      CuartosO3.ganadorPartido = "CuartosO3"
-      CuartosO3.perdedorPartido = "CuartosO4"
-      break;
-    case "CuartosO4":
-      Object.assign(CuartosO4, pais)
-      CuartosO4.posicionProximaFase = "Semi2"
-      CuartosO4.ganadorPartido = "CuartosO4"
-      CuartosO4.perdedorPartido = "CuartosO3"
-      break;
-    case "CuartosO5":
-      Object.assign(CuartosO5, pais)
-      CuartosO5.posicionProximaFase = "Semi3"
-      CuartosO5.ganadorPartido = "CuartosO5"
-      CuartosO5.perdedorPartido = "CuartosO6"
-      break;
-    case "CuartosO6":
-      Object.assign(CuartosO6, pais)
-      CuartosO6.posicionProximaFase = "Semi3"
-      CuartosO6.ganadorPartido = "CuartosO6"
-      CuartosO6.perdedorPartido = "CuartosO5"
-      break;
-    case "CuartosO7":
-      Object.assign(CuartosO7, pais)
-      CuartosO7.posicionProximaFase = "Semi4"
-      CuartosO7.ganadorPartido = "CuartosO7"
-      CuartosO7.perdedorPartido = "CuartosO8"
-      break;
-    case "CuartosO8":
-      Object.assign(CuartosO8, pais)
-      CuartosO8.posicionProximaFase = "Semi4"
-      CuartosO8.ganadorPartido = "CuartosO8"
-      CuartosO8.perdedorPartido = "CuartosO7"
-      break;
-    case "Semi1":
-      Object.assign(Semi1, pais)
-      Semi1.posicionProximaFase = "Final1"
-      Semi1.ganadorPartido = "Semi1"
-      Semi1.perdedorPartido = "Semi2"
-      break;
-    case "Semi2":
-      Object.assign(Semi2, pais)
-      Semi2.posicionProximaFase = "Final1"
-      Semi2.ganadorPartido = "Semi2"
-      Semi2.perdedorPartido = "Semi1"
-      break;
-    case "Semi3":
-      Object.assign(Semi3, pais)
-      Semi3.posicionProximaFase = "Final2"
-      Semi3.ganadorPartido = "Semi3"
-      Semi3.perdedorPartido = "Semi4"
-      break;
-    case "Semi4":
-      Object.assign(Semi4, pais)
-      Semi4.posicionProximaFase = "Final2"
-      Semi4.ganadorPartido = "Semi4"
-      Semi4.perdedorPartido = "Semi3"
-      break;
-    case "Campeon":
-      Object.assign(Campeon, pais)
-      Campeon.ganadorPartido = "Campeon"
-      break
-    default:
-      break;
-  }
+  if (pais.nombre === "") {
+    console.warn("Pais No seleccionado!!!")
+  } else {
+      switch (posicionProximaFase) {
+        case "CuartosO1":
+          CuartosO1.nombre = pais.nombre
+          CuartosO1.imgBandera = pais.imgBandera
+          break;
+        case "CuartosO2":
+          CuartosO2.nombre = pais.nombre
+          CuartosO2.imgBandera = pais.imgBandera
+          break;
+        case "CuartosO3":
+          CuartosO3.nombre = pais.nombre
+          CuartosO3.imgBandera = pais.imgBandera
+          break;
+        case "CuartosO4":
+          CuartosO4.nombre = pais.nombre
+          CuartosO4.imgBandera = pais.imgBandera
+          break;
+        case "CuartosO5":
+          CuartosO5.nombre = pais.nombre
+          CuartosO5.imgBandera = pais.imgBandera
+          break;
+        case "CuartosO6":
+          CuartosO6.nombre = pais.nombre
+          CuartosO6.imgBandera = pais.imgBandera
+          break;
+        case "CuartosO7":
+          CuartosO7.nombre = pais.nombre
+          CuartosO7.imgBandera = pais.imgBandera
+          break;
+        case "CuartosO8":
+          CuartosO8.nombre = pais.nombre
+          CuartosO8.imgBandera = pais.imgBandera
+          break;
+        case "Semi1":
+          Semi1.nombre = pais.nombre
+          Semi1.imgBandera = pais.imgBandera
+          break;
+        case "Semi2":
+          Semi2.nombre = pais.nombre
+          Semi2.imgBandera = pais.imgBandera
+          break;
+        case "Semi3":
+          Semi3.nombre = pais.nombre
+          Semi3.imgBandera = pais.imgBandera
+          break;
+        case "Semi4":
+          Semi4.nombre = pais.nombre
+          Semi4.imgBandera = pais.imgBandera
+          break
+        default:
+          break;
+      }
 
-  mostrarTextoBanderaFase(pais, posicionProximaFase, ganadorPartido, perdedorPartido)
+    mostrarTextoBanderaFase(pais, posicionProximaFase, ganadorPartido, perdedorPartido)
+
+    if (CuartosO1.nombre != "" && CuartosO2.nombre != "" && CuartosO3.nombre != "" && CuartosO4.nombre != ""
+    && CuartosO5.nombre != "" && CuartosO6.nombre != "" && CuartosO7.nombre != "" && CuartosO8.nombre != ""){
+      escucharClickSemi()
+      silenciarClickGrupo()
+    }
+  }
 }
 
 
-const paisSeleccionadoFinal = (posicionFinal, ganadorPartido, perdedorPartido) => {
+const paisSeleccionadoFinal = (pais, posicionFinal) => {
+
   switch (posicionFinal) {
     case "Final1A":
-        Object.assign(Final1, Semi1)
-        Object.assign(Tercer1, Semi2)
-        mostrarTextoBanderaFase(Final1, "Final1", ganadorPartido, perdedorPartido)
-        mostrarTextoBanderaFase(Tercer1, "Tercer1", ganadorPartido, perdedorPartido)
+      Final1.nombre = pais.nombre
+      Final1.imgBandera = pais.imgBandera
+      Tercer1.nombre = Semi2.nombre
+      Tercer1.imgBandera = Semi2.imgBandera
+      mostrarTextoBanderaFase(Semi2, "Tercer1", pais.perdedorPartido, pais.ID)
+      mostrarTextoBanderaFase(pais, "Final1", pais.ID, pais.perdedorPartido)
       break
     case "Final1B":
-        Object.assign(Final1, Semi2)
-        Object.assign(Tercer1, Semi1)
-        mostrarTextoBanderaFase(Final1, "Final1", ganadorPartido, perdedorPartido)
-        mostrarTextoBanderaFase(Tercer1, "Tercer1", ganadorPartido, perdedorPartido)
+      Final1.nombre = pais.nombre
+      Final1.imgBandera = pais.imgBandera
+      Tercer1.nombre = Semi1.nombre
+      Tercer1.imgBandera = Semi1.imgBandera
+      mostrarTextoBanderaFase(Semi1, "Tercer1", pais.perdedorPartido, pais.ID)
+      mostrarTextoBanderaFase(pais, "Final1", pais.ID, pais.perdedorPartido)
       break
     case "Final2A":
-        Object.assign(Final2, Semi3)
-        Object.assign(Tercer2, Semi4)
-        mostrarTextoBanderaFase(Final2, "Final2", ganadorPartido, perdedorPartido)
-        mostrarTextoBanderaFase(Tercer2, "Tercer2", ganadorPartido, perdedorPartido)
+      Final2.nombre = pais.nombre
+      Final2.imgBandera = pais.imgBandera
+      Tercer2.nombre = Semi4.nombre
+      Tercer2.imgBandera = Semi4.imgBandera
+      mostrarTextoBanderaFase(Semi4, "Tercer2", pais.perdedorPartido, pais.ID)
+      mostrarTextoBanderaFase(pais, "Final2", pais.ID, pais.perdedorPartido)
       break
     case "Final2B":
-        Object.assign(Final2, Semi4)
-        Object.assign(Tercer2, Semi3)
-        mostrarTextoBanderaFase(Final2, "Final2", ganadorPartido, perdedorPartido)
-        mostrarTextoBanderaFase(Tercer2, "Tercer2", ganadorPartido, perdedorPartido)
+      Final2.nombre = pais.nombre
+      Final2.imgBandera = pais.imgBandera
+      Tercer2.nombre = Semi3.nombre
+      Tercer2.imgBandera = Semi3.imgBandera
+      mostrarTextoBanderaFase(Semi3, "Tercer2", pais.perdedorPartido, pais.ID)
+      mostrarTextoBanderaFase(pais, "Final2", pais.ID, pais.perdedorPartido)
       break
+    case "Campeon":
+      mostrarTextoBanderaFase(pais, "Campeon", pais.ID, pais.perdedorPartido)
+      document.getElementById("ganadorCampeon").style.display = "block"
     default:
+      mostrarTextoBanderaFase(pais, pais.ID, pais.ID, pais.perdedorPartido)
       break
   }
 }
@@ -280,16 +299,29 @@ const paisSeleccionadoFinal = (posicionFinal, ganadorPartido, perdedorPartido) =
 const escucharClickGrupo = () => {
   const botonesGrupo = document.querySelectorAll(".grupo button")
 
- botonesGrupo.forEach(boton => {
-    boton.addEventListener("click", (evento) => {
+  botonesGrupo.forEach(boton => {
+      boton.addEventListener("click", (evento) => {
 
-      var stringGrupo = evento.target.id
-      var stringPais = evento.target.id
-      /*Extraer primer valor de cadena, Grupo - stringGrupo.substring(0,1)*/
-      /*resto de cadena es Pais - substring(1)*/
-      paisSeleccionadoOctavos(stringGrupo.substring(0,1), stringPais.substring(1))
-      
+        var stringGrupo = evento.target.id
+        var stringPais = evento.target.id
+        /*Extraer primer valor de cadena, Grupo - stringGrupo.substring(0,1)*/
+        /*resto de cadena es Pais - substring(1)*/
+        paisSeleccionadoOctavos(stringGrupo.substring(0,1), stringPais.substring(1))
+        console.warn("click Pais: ", stringPais.substring(1))
+      })
     })
+}
+
+/*Dejar de escuchar click en Seccion Grupos*/
+const silenciarClickGrupo = () => {
+  const botonesGrupo = document.querySelectorAll(".grupo button")
+
+  console.warn("Silenciar Click Grupo")
+
+  botonesGrupo.forEach(boton => {
+    console.warn("Silenciar Click Pais")
+    boton.disabled = true
+    //boton.removeEventListener("click", escucharClickGrupo)
   })
 }
 
@@ -301,13 +333,27 @@ const escucharClickOctavos = () => {
     boton.addEventListener("click", (evento) => {
       const ganadorOctavos = evento.target.id
 
+      console.warn("Click - evento octavos: ", ganadorOctavos)
+
       Octavos.forEach(octavo => {
-        if(octavo.ganadorPartido == ganadorOctavos){
+        if(octavo.ID == ganadorOctavos){
           paisSeleccionadoFase(octavo, octavo.posicionProximaFase, 
-            octavo.ganadorPartido, octavo.perdedorPartido)
+            octavo.ID, octavo.perdedorPartido)
         }
       })
     })
+  })
+}
+
+/*Dejar de escuchar click en Seccion Octavos
+const silenciarClickOctavos = () => {
+  const botonesOctavos = document.querySelectorAll(".octavos button")
+
+  console.warn("Silenciar Click Octavos")
+
+  botonesOctavos.forEach(boton => {
+    boton.disabled = true
+    //boton.removeEventListener("click", escucharClickGrupo)
   })
 }
 
@@ -319,11 +365,32 @@ const escucharClickCuartos = () => {
     boton.addEventListener("click", (evento) => {
       const ganadorCuartos= evento.target.id
 
+      console.warn("Click - evento cuartos: ", ganadorCuartos)
+
       Cuartos.forEach(cuarto => {
 
-        if(cuarto.ganadorPartido == ganadorCuartos){
-          paisSeleccionadoFase(cuarto, cuarto.posicionProximaFase, 
-            cuarto.ganadorPartido, cuarto.perdedorPartido)
+        if(cuarto.ID == ganadorCuartos){
+          paisSeleccionadoFase(cuarto, cuarto.posicionProximaFase,
+            cuarto.ID, cuarto.perdedorPartido)
+        }
+      })
+    })
+  })
+}
+
+/*Funcion escuchar click en Semi*/
+const escucharClickSemi = () => {
+  const botonesSemi = document.querySelectorAll(".semi button")
+
+  botonesSemi.forEach(boton => {
+    boton.addEventListener("click", (evento) => {
+      const ganadorSemi = evento.target.id
+
+      console.warn("Click - evento semi: ", ganadorSemi)
+
+      Semi.forEach(semi => {
+        if(semi.ID == ganadorSemi){
+          paisSeleccionadoFinal(semi, semi.posicionProximaFase)
         }
       })
     })
@@ -380,11 +447,11 @@ const  mostrarOctavosConNodos = () => {
 
     contenedorOctavosPaisIzquierdo.innerHTML += `
     <div class="col d-flex justify-content-end p-1">
-      <button type="button" class="btn btn-success" id="Octavos${octavo.nombre}">
+      <button type="button" class="btn btn-success" id="${octavo.ID}">
         <div class="d-flex justify-content-between align-items-center">
-          <div id="textOctavos${octavo.nombre}">${octavo.nombre}</div>
-          <img id="ganadorOctavos${octavo.nombre}" src="./img/star-fill.svg" alt="ganador""/>
-          <img id="imgOctavos${octavo.nombre}" src="" alt=""/>
+          <div id="text${octavo.ID}">${octavo.ID}</div>
+          <img id="ganador${octavo.ID}" src="./img/star-fill.svg" alt="ganador""/>
+          <img id="img${octavo.ID}" src="" alt=""/>
         </div>
       </button>
     </div>`
@@ -395,11 +462,11 @@ const  mostrarOctavosConNodos = () => {
 
     contenedorOctavosPaisDerecho.innerHTML += `
     <div class="col d-flex justify-content-start p-1">
-      <button type="button" class="btn btn-success" id="Octavos${octavo.nombre}">
+      <button type="button" class="btn btn-success" id="${octavo.ID}">
         <div class="d-flex justify-content-between align-items-center">
-          <div id="textOctavos${octavo.nombre}">${octavo.nombre}</div>
-          <img id="ganadorOctavos${octavo.nombre}" src="./img/star-fill.svg" alt="ganador"/>
-          <img id="imgOctavos${octavo.nombre}" src="" alt=""/>
+          <div id="text${octavo.ID}">${octavo.ID}</div>
+          <img id="ganador${octavo.ID}" src="./img/star-fill.svg" alt="ganador"/>
+          <img id="img${octavo.ID}" src="" alt=""/>
         </div>
       </button>
     </div>`
@@ -424,11 +491,11 @@ const  mostrarCuartosConNodos = () => {
 
     contenedorCuartosIzquierdo.innerHTML += `
     <div class="col d-flex justify-content-end p-1">
-      <button type="button" class="btn btn-success" id="${cuarto.nombre}">
+      <button type="button" class="btn btn-success" id="${cuarto.ID}">
         <div class="d-flex justify-content-between align-items-center">
-          <div id="text${cuarto.nombre}">${cuarto.nombre}</div>
-          <img id="ganador${cuarto.nombre}" src="./img/star-fill.svg" alt="ganador"/>
-          <img id="img${cuarto.nombre}" src="" alt=""/>
+          <div id="text${cuarto.ID}">${cuarto.ID}</div>
+          <img id="ganador${cuarto.ID}" src="./img/star-fill.svg" alt="ganador"/>
+          <img id="img${cuarto.ID}" src="" alt=""/>
         </div>
       </button>
     </div>`
@@ -439,11 +506,11 @@ const  mostrarCuartosConNodos = () => {
 
     contenedorCuartosDerecho.innerHTML += `
     <div class="col d-flex justify-content-start p-1">
-      <button type="button" class="btn btn-success" id="${cuarto.nombre}">
+      <button type="button" class="btn btn-success" id="${cuarto.ID}">
         <div class="d-flex justify-content-between align-items-center">
-          <div id="text${cuarto.nombre}">${cuarto.nombre}</div>
-          <img id="ganador${cuarto.nombre}" src="./img/star-fill.svg" alt="ganador"/>
-          <img id="img${cuarto.nombre}" src="" alt=""/>
+          <div id="text${cuarto.ID}">${cuarto.ID}</div>
+          <img id="ganador${cuarto.ID}" src="./img/star-fill.svg" alt="ganador"/>
+          <img id="img${cuarto.ID}" src="" alt=""/>
         </div>
       </button>
     </div>`
@@ -456,7 +523,6 @@ const  mostrarCuartosConNodos = () => {
   document.getElementById("contenedorCuartos").appendChild(contenedorCuartosIzquierdo)
   document.getElementById("contenedorCuartos").appendChild(contenedorCuartosDerecho)
 
-  escucharClickCuartos()
 }
 
 /*Llamada a funcion plantilla Grupos*/

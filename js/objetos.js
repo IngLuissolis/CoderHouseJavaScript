@@ -63,7 +63,7 @@ const Canada = new Pais ("Canada", "./img/canada.png", "Canada")
 const Marruecos = new Pais ("Marruecos", "./img/morocco.png", "Marruecos")
 const Croacia = new Pais ("Croacia", "./img/croatia.png", "Croacia")
 /*objetos paises Grupo G*/
-const Brazil = new Pais ("Brazil", "./img/brazil-flag.png", "Brasil")
+const Brasil = new Pais ("Brasil", "./img/brazil-flag.png", "Brasil")
 const Serbia = new Pais ("Serbia", "./img/serbia.png", "Serbia")
 const Suiza = new Pais ("Suiza", "./img/switzerland.png", "Suiza")
 const Camerun = new Pais ("Camerun", "./img/cameroon.png", "Camerun")
@@ -80,7 +80,7 @@ const paisesTodos = [Qatar, Ecuador, Senegal, PaisesBajos,
     Francia, Australia, Dinamarca, Tunez,
     España, CostaRica, Alemania, Japon,
     Belgica, Canada, Marruecos, Croacia,
-    Brazil, Serbia, Suiza, Camerun,
+    Brasil, Serbia, Suiza, Camerun,
     Portugal, Ghana, Uruguay, CoreaDelSur]
 
 const GrupoA = [Qatar, Ecuador, Senegal, PaisesBajos]
@@ -89,7 +89,7 @@ const GrupoC = [Argentina, Arabia, Mexico, Polonia]
 const GrupoD = [Francia, Australia, Dinamarca, Tunez]
 const GrupoE = [España, CostaRica, Alemania, Japon]
 const GrupoF = [Belgica, Canada, Marruecos, Croacia]
-const GrupoG = [Brazil, Serbia, Suiza, Camerun]
+const GrupoG = [Brasil, Serbia, Suiza, Camerun]
 const GrupoH = [Portugal, Ghana, Uruguay, CoreaDelSur]
 
 const grupoTodos = [{nombre: "Grupo A", paises: GrupoA, grupo: "A"},
@@ -101,25 +101,24 @@ const grupoTodos = [{nombre: "Grupo A", paises: GrupoA, grupo: "A"},
                     {nombre: "Grupo G", paises: GrupoG, grupo: "G"},
                     {nombre: "Grupo H", paises: GrupoH, grupo: "H"}]
 
-/*Objetos Octavos*/
-/*const XX = new Pais ("ID", "imgBandera", "nombre", "posicionProximaFase", "ganadorPartido", 
-        "perdedorPartido")*/
-const A1 = new Pais ("", "", "A1", "CuartosO1", "OctavosA1", "OctavosB2")
-const A2 = new Pais ("", "", "A2", "CuartosO5", "OctavosA2", "OctavosB1")
-const B1 = new Pais ("", "", "B1", "CuartosO5", "OctavosB1", "OctavosA2")
-const B2 = new Pais ("", "", "B2", "CuartosO1", "OctavosB2", "OctavosA1")
-const C1 = new Pais ("", "", "C1", "CuartosO2", "OctavosC1", "OctavosD2")
-const C2 = new Pais ("", "", "C2", "CuartosO6", "OctavosC2", "OctavosD1")
-const D1 = new Pais ("", "", "D1", "CuartosO6", "OctavosD1", "OctavosC2")
-const D2 = new Pais ("", "", "D2", "CuartosO2", "OctavosD2", "OctavosC1")
-const E1 = new Pais ("", "", "E1", "CuartosO3", "OctavosE1", "OctavosF2")
-const E2 = new Pais ("", "", "E2", "CuartosO7", "OctavosE2", "OctavosF1")
-const F1 = new Pais ("", "", "F1", "CuartosO7", "OctavosF1", "OctavosE2")
-const F2 = new Pais ("", "", "F2", "CuartosO3", "OctavosF2", "OctavosE1")
-const G1 = new Pais ("", "", "G1", "CuartosO4", "OctavosG1", "OctavosH2")
-const G2 = new Pais ("", "", "G2", "CuartosO8", "OctavosG2", "OctavosH1")
-const H1 = new Pais ("", "", "H1", "CuartosO8", "OctavosH1", "OctavosG2")
-const H2 = new Pais ("", "", "H2", "CuartosO4", "OctavosH2", "OctavosG1")
+/*Objetos */
+/*const XX = new Pais ("ID", "imgBandera", "nombre", "posicionProximaFase", "perdedorPartido")*/
+const A1 = new Pais ("A1", "", "", "CuartosO1", "B2")
+const A2 = new Pais ("A2", "", "", "CuartosO5", "B1")
+const B1 = new Pais ("B1", "", "", "CuartosO5", "A2")
+const B2 = new Pais ("B2", "", "", "CuartosO1", "A1")
+const C1 = new Pais ("C1", "", "", "CuartosO2", "D2")
+const C2 = new Pais ("C2", "", "", "CuartosO6", "D1")
+const D1 = new Pais ("D1", "", "", "CuartosO6", "C2")
+const D2 = new Pais ("D2", "", "", "CuartosO2", "C1")
+const E1 = new Pais ("E1", "", "", "CuartosO3", "F2")
+const E2 = new Pais ("E2", "", "", "CuartosO7", "F1")
+const F1 = new Pais ("F1", "", "", "CuartosO7", "E2")
+const F2 = new Pais ("F2", "", "", "CuartosO3", "E1")
+const G1 = new Pais ("G1", "", "", "CuartosO4", "H2")
+const G2 = new Pais ("G2", "", "", "CuartosO8", "H1")
+const H1 = new Pais ("H1", "", "", "CuartosO8", "G2")
+const H2 = new Pais ("H2", "", "", "CuartosO4", "G1")
 
 const OctavosIzquierdo = [A1,C1,E1,G1,A2,C2,E2,G2]
 const OctavosDerecho = [B2,D2,F2,H2,B1,D1,F1,H1]
@@ -127,16 +126,15 @@ const OctavosDerecho = [B2,D2,F2,H2,B1,D1,F1,H1]
 const Octavos = [A1,C1,E1,G1,A2,C2,E2,G2,B2,D2,F2,H2,B1,D1,F1,H1]
 
 /*Objetos Cuartos*/
-/*const XX = new Pais ("ID", "imgBandera", "nombre", "posicionProximaFase", "ganadorPartido", 
-        "perdedorPartido")*/
-const CuartosO1 = new Pais ("", "", "CuartosO1", 'Semi1', 'CuartosO1', 'CuartosO2')
-const CuartosO2 = new Pais ("", "", "CuartosO2", 'Semi1', 'CuartosO2', 'CuartosO1')
-const CuartosO3 = new Pais ("", "", "CuartosO3", 'Semi2', 'CuartosO3', 'CuartosO4')
-const CuartosO4 = new Pais ("", "", "CuartosO4", 'Semi2', 'CuartosO4', 'CuartosO3')
-const CuartosO5 = new Pais ("", "", "CuartosO5", 'Semi3', 'CuartosO5', 'CuartosO6')
-const CuartosO6 = new Pais ("", "", "CuartosO6", 'Semi3', 'CuartosO6', 'CuartosO5')
-const CuartosO7 = new Pais ("", "", "CuartosO7", 'Semi4', 'CuartosO7', 'CuartosO8')
-const CuartosO8 = new Pais ("", "", "CuartosO8", 'Semi4', 'CuartosO8', 'CuartosO7')
+/*const XX = new Pais ("ID", "imgBandera", "nombre", "posicionProximaFase", "perdedorPartido")*/
+const CuartosO1 = new Pais ("CuartosO1", "", "", 'Semi1', 'CuartosO2')
+const CuartosO2 = new Pais ("CuartosO2", "", "", 'Semi1', 'CuartosO1')
+const CuartosO3 = new Pais ("CuartosO3", "", "", 'Semi2', 'CuartosO4')
+const CuartosO4 = new Pais ("CuartosO4", "", "", 'Semi2', 'CuartosO3')
+const CuartosO5 = new Pais ("CuartosO5", "", "", 'Semi3', 'CuartosO6')
+const CuartosO6 = new Pais ("CuartosO6", "", "", 'Semi3', 'CuartosO5')
+const CuartosO7 = new Pais ("CuartosO7", "", "", 'Semi4', 'CuartosO8')
+const CuartosO8 = new Pais ("CuartosO8", "", "", 'Semi4', 'CuartosO7')
 
 const CuartosIzquierdo = [CuartosO1,CuartosO3,CuartosO5,CuartosO7]
 const CuartosDerecho = [CuartosO2,CuartosO4,CuartosO6,CuartosO8]
@@ -145,17 +143,21 @@ const Cuartos = [CuartosO1,CuartosO3,CuartosO5,CuartosO7,
     CuartosO2,CuartosO4,CuartosO6,CuartosO8]
 
 /*Objetos Semis*/
-const Semi1 = new Pais ("", "", "")
-const Semi2 = new Pais ("", "", "")
-const Semi3 = new Pais ("", "", "")
-const Semi4 = new Pais ("", "", "")
+const Semi1 = new Pais ("Semi1", "", "", "Final1A", "Semi2")
+const Semi2 = new Pais ("Semi2", "", "", "Final1B", "Semi1")
+const Semi3 = new Pais ("Semi3", "", "", "Final2A", "Semi4")
+const Semi4 = new Pais ("Semi4", "", "", "Final2B", "Semi3")
 
 /*Objetos Final*/
-const Final1 = new Pais ("", "", "")
-const Final2 = new Pais ("", "", "")
+const Final1 = new Pais ("Final1", "", "", "Campeon", "Final2")
+const Final2 = new Pais ("Final2", "", "", "Campeon", "Final1")
+
 
 /*Objetos TercerPuesto*/
-const Tercer1 = new Pais ("", "", "")
-const Tercer2 = new Pais ("", "", "")
+/*const XX = new Pais ("ID", "imgBandera", "nombre", "posicionProximaFase", "perdedorPartido")*/
+const Tercer1 = new Pais ("Tercer1", "", "", "Tercer1", "Tercer2")
+const Tercer2 = new Pais ("Tercer2", "", "", "Tercer2", "Tercer1")
 
-const Campeon = new Pais ("", "", "")
+const Campeon = new Pais ("Campeon", "", "", "Campeon")
+
+const Semi = [Semi1, Semi2, Semi3, Semi4, Tercer1, Tercer2, Final1, Final2, Campeon]

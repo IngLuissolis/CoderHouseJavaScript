@@ -29,12 +29,12 @@ h1, h3 {
     border: none;
 }
 
-
 .grupo li img {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
     margin: 0.15rem;
+    border: 0.15rem solid gold;
 }
 
 .grupo li div {
@@ -57,6 +57,7 @@ h1, h3 {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
+    border: 0.15rem solid gold;
 }
 
 .cuartos div button {
@@ -74,12 +75,31 @@ h1, h3 {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
+    border: 0.15rem solid gold;
 }
 
-#imgOctavosA1, #imgOctavosA2, #imgOctavosB1, #imgOctavosB2,
-    #imgOctavosC1, #imgOctavosC2, #imgOctavosD1, #imgOctavosD2,
-    #imgOctavosE1, #imgOctavosE2, #imgOctavosF1, #imgOctavosF2,
-    #imgOctavosG1, #imgOctavosG2, #imgOctavosH1, #imgOctavosH2,
+.semi div button {
+    width: 10rem;
+    height: 4rem;
+    background: white;
+    color: black;
+}
+
+.semi div button:hover {
+    background:rgb(146, 21, 73);
+}
+
+.semi div button img {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 0.15rem solid gold;
+}
+
+#imgA1, #imgA2, #imgB1, #imgB2,
+    #imgC1, #imgC2, #imgD1, #imgD2,
+    #imgE1, #imgE2, #imgF1, #imgF2,
+    #imgG1, #imgG2, #imgH1, #imgH2,
     #imgCuartosO1, #imgCuartosO2, #imgCuartosO3, #imgCuartosO4, 
     #imgCuartosO5, #imgCuartosO6, #imgCuartosO7, #imgCuartosO8,
     #imgSemi1, #imgSemi2, #imgSemi3, #imgSemi4,
@@ -92,24 +112,24 @@ h1, h3 {
     #posicionGrupoTunez, #posicionGrupoEspaña, #posicionGrupoCostaRica, 
     #posicionGrupoAlemania,
     #posicionGrupoJapon, #posicionGrupoBelgica, #posicionGrupoCanada,
-    #posicionGrupoMarruecos, #posicionGrupoCroacia, #posicionGrupoBrazil,
+    #posicionGrupoMarruecos, #posicionGrupoCroacia, #posicionGrupoBrasil,
     #posicionGrupoSerbia, #posicionGrupoSuiza, #posicionGrupoCamerun,
     #posicionGrupoPortugal, #posicionGrupoGhana, #posicionGrupoUruguay,
     #posicionGrupoCoreadelSur {
     display: none;
 }
 
-#ganadorOctavosA1, #ganadorOctavosA2, #ganadorOctavosB1, 
-    #ganadorOctavosB2, #ganadorOctavosC1, #ganadorOctavosC2,
-    #ganadorOctavosD1, #ganadorOctavosD2, #ganadorOctavosE1, 
-    #ganadorOctavosE2, #ganadorOctavosF1, #ganadorOctavosF2,
-    #ganadorOctavosG1, #ganadorOctavosG2, #ganadorOctavosH1,
-    #ganadorOctavosH2, #ganadorCuartosO1, #ganadorCuartosO2,
+#ganadorA1, #ganadorA2, #ganadorB1, 
+    #ganadorB2, #ganadorC1, #ganadorC2,
+    #ganadorD1, #ganadorD2, #ganadorE1, 
+    #ganadorE2, #ganadorF1, #ganadorF2,
+    #ganadorG1, #ganadorG2, #ganadorH1,
+    #ganadorH2, #ganadorCuartosO1, #ganadorCuartosO2,
     #ganadorCuartosO3, #ganadorCuartosO4, #ganadorCuartosO5,
     #ganadorCuartosO6, #ganadorCuartosO7, #ganadorCuartosO8,
     #ganadorSemi1, #ganadorSemi2, #ganadorSemi3, #ganadorSemi4,
     #ganadorTercer1, #ganadorTercer2,
-    #ganadorFinal1, #ganadorFinal2 {
+    #ganadorFinal1, #ganadorFinal2, #ganadorCampeon {
         display: none;
         background-color: yellow;
         width: 1.2rem;
