@@ -12,24 +12,34 @@ h1, h3 {
     background-image: url("../img/fondo-titulo-secundario.jpg");
 }
 
-.fase-de-grupos div img {
-    height: 5vh;
-    width: 100%;
+#navbarContenedor {
+    background-image: url("../img/fondo-titulo-secundario.jpg");
+    border-radius: 0.3rem;
 }
 
-.grupo li:hover {
+button * {
+    pointer-events: none;
+}
+
+.jqueryGrupo li {
+    border-radius: 0.3rem;
+    border: 0.1rem solid rgb(201, 201, 201);
+}
+
+
+.jqueryGrupo li:hover {
     background: rgb(146, 21, 73);
-    color: white;
 }
 
-.grupo li button {
+
+.jqueryGrupo li button {
     width: 100%;
     height: 100%;
     background: none;
     border: none;
 }
 
-.grupo li img {
+.jqueryGrupo li img {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
@@ -37,59 +47,21 @@ h1, h3 {
     border: 0.15rem solid gold;
 }
 
-.grupo li div {
-    border-radius: 0.3rem;
-    width: 1.5rem;
-}
-
-.octavos div button {
+.jqueryOctavos div button, .jqueryCuartos div button, .jquerySemi div button,
+.jqueryTercer div button, .jqueryFinal div button, .jqueryCampeon div button {
     width: 10rem;
     height: 4rem;
     background: white;
     color: black;
 }
 
-.octavos div button:hover {
-    background:rgb(146, 21, 73);
+.jqueryOctavos div button:hover,  .jqueryCuartos div button:hover, .jquerySemi button:hover,
+.jqueryTercer button:hover, .jqueryFinal button:hover, .jqueryCampeon button:hover{
+    background:rgb(146, 21, 73) !important;
 }
 
-.octavos div button img {
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    border: 0.15rem solid gold;
-}
-
-.cuartos div button {
-    width: 10rem;
-    height: 4rem;
-    background: white;
-    color: black;
-}
-
-.cuartos div button:hover {
-    background:rgb(146, 21, 73);
-}
-
-.cuartos div button img {
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    border: 0.15rem solid gold;
-}
-
-.semi div button {
-    width: 10rem;
-    height: 4rem;
-    background: white;
-    color: black;
-}
-
-.semi div button:hover {
-    background:rgb(146, 21, 73);
-}
-
-.semi div button img {
+.jqueryOctavos div button img, .jqueryCuartos div button img, .jquerySemi div button img,
+.jqueryTercer div button img, .jqueryFinal div button img, .jqueryCampeon div button img{
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
@@ -136,7 +108,3 @@ h1, h3 {
         height: 1.2rem;
         margin: 0.5rem;
     }
-
-button * {
-    pointer-events: none;
-}

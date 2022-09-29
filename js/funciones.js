@@ -172,7 +172,7 @@ const paisSeleccionadoOctavos = (grupo, pais) => {
 
 }
 
-const mostrarTextoBanderaFase = (pais, posicionProximaFase, ganadorPartido, perdedorPartido) => {
+const mostrarTextoBanderaFase = (pais, posicionProximaFase, perdedorPartido) => {
   document.getElementById("text"+posicionProximaFase).innerHTML = pais.nombre
   document.getElementById("img"+posicionProximaFase).src = pais.imgBandera
   document.getElementById("img"+posicionProximaFase).style.display = "block"
@@ -182,7 +182,7 @@ const mostrarTextoBanderaFase = (pais, posicionProximaFase, ganadorPartido, perd
 
 
 /*Funcion muestra en Fase Cuartos - Semi y Final ID y bandera de pais seleccionado*/
-const paisSeleccionadoFase = (pais, posicionProximaFase, ganadorPartido, perdedorPartido) => {
+const paisSeleccionadoFase = (pais, posicionProximaFase, perdedorPartido) => {
 
   if (pais.nombre === "") {
     console.warn("Pais No seleccionado!!!")
@@ -240,12 +240,16 @@ const paisSeleccionadoFase = (pais, posicionProximaFase, ganadorPartido, perdedo
           break;
       }
 
-    mostrarTextoBanderaFase(pais, posicionProximaFase, ganadorPartido, perdedorPartido)
+    mostrarTextoBanderaFase(pais, posicionProximaFase, perdedorPartido)
 
     if (CuartosO1.nombre != "" && CuartosO2.nombre != "" && CuartosO3.nombre != "" && CuartosO4.nombre != ""
     && CuartosO5.nombre != "" && CuartosO6.nombre != "" && CuartosO7.nombre != "" && CuartosO8.nombre != ""){
       escucharClickSemi()
       silenciarClickGrupo()
+    }
+
+    if (Semi1.nombre != "" && Semi2.nombre != "" && Semi3.nombre != "" && Semi4.nombre !=""){
+      silenciarClickOctavos()
     }
   }
 }
@@ -259,38 +263,38 @@ const paisSeleccionadoFinal = (pais, posicionFinal) => {
       Final1.imgBandera = pais.imgBandera
       Tercer1.nombre = Semi2.nombre
       Tercer1.imgBandera = Semi2.imgBandera
-      mostrarTextoBanderaFase(Semi2, "Tercer1", pais.perdedorPartido, pais.ID)
-      mostrarTextoBanderaFase(pais, "Final1", pais.ID, pais.perdedorPartido)
+      mostrarTextoBanderaFase(Semi2, "Tercer1", pais.ID)
+      mostrarTextoBanderaFase(pais, "Final1", pais.perdedorPartido)
       break
     case "Final1B":
       Final1.nombre = pais.nombre
       Final1.imgBandera = pais.imgBandera
       Tercer1.nombre = Semi1.nombre
       Tercer1.imgBandera = Semi1.imgBandera
-      mostrarTextoBanderaFase(Semi1, "Tercer1", pais.perdedorPartido, pais.ID)
-      mostrarTextoBanderaFase(pais, "Final1", pais.ID, pais.perdedorPartido)
+      mostrarTextoBanderaFase(Semi1, "Tercer1", pais.ID)
+      mostrarTextoBanderaFase(pais, "Final1", pais.perdedorPartido)
       break
     case "Final2A":
       Final2.nombre = pais.nombre
       Final2.imgBandera = pais.imgBandera
       Tercer2.nombre = Semi4.nombre
       Tercer2.imgBandera = Semi4.imgBandera
-      mostrarTextoBanderaFase(Semi4, "Tercer2", pais.perdedorPartido, pais.ID)
-      mostrarTextoBanderaFase(pais, "Final2", pais.ID, pais.perdedorPartido)
+      mostrarTextoBanderaFase(Semi4, "Tercer2", pais.ID)
+      mostrarTextoBanderaFase(pais, "Final2", pais.perdedorPartido)
       break
     case "Final2B":
       Final2.nombre = pais.nombre
       Final2.imgBandera = pais.imgBandera
       Tercer2.nombre = Semi3.nombre
       Tercer2.imgBandera = Semi3.imgBandera
-      mostrarTextoBanderaFase(Semi3, "Tercer2", pais.perdedorPartido, pais.ID)
-      mostrarTextoBanderaFase(pais, "Final2", pais.ID, pais.perdedorPartido)
+      mostrarTextoBanderaFase(Semi3, "Tercer2", pais.ID)
+      mostrarTextoBanderaFase(pais, "Final2", pais.perdedorPartido)
       break
     case "Campeon":
-      mostrarTextoBanderaFase(pais, "Campeon", pais.ID, pais.perdedorPartido)
+      mostrarTextoBanderaFase(pais, "Campeon", pais.perdedorPartido)
       document.getElementById("ganadorCampeon").style.display = "block"
     default:
-      mostrarTextoBanderaFase(pais, pais.ID, pais.ID, pais.perdedorPartido)
+      mostrarTextoBanderaFase(pais, pais.ID, pais.perdedorPartido)
       break
   }
 }
@@ -321,6 +325,7 @@ const silenciarClickGrupo = () => {
   botonesGrupo.forEach(boton => {
     console.warn("Silenciar Click Pais")
     boton.disabled = true
+    boton.style.color = "black"
     //boton.removeEventListener("click", escucharClickGrupo)
   })
 }
@@ -337,15 +342,14 @@ const escucharClickOctavos = () => {
 
       Octavos.forEach(octavo => {
         if(octavo.ID == ganadorOctavos){
-          paisSeleccionadoFase(octavo, octavo.posicionProximaFase, 
-            octavo.ID, octavo.perdedorPartido)
+          paisSeleccionadoFase(octavo, octavo.posicionProximaFase, octavo.perdedorPartido)
         }
       })
     })
   })
 }
 
-/*Dejar de escuchar click en Seccion Octavos
+/*Dejar de escuchar click en Seccion Octavos*/
 const silenciarClickOctavos = () => {
   const botonesOctavos = document.querySelectorAll(".octavos button")
 
@@ -353,6 +357,8 @@ const silenciarClickOctavos = () => {
 
   botonesOctavos.forEach(boton => {
     boton.disabled = true
+    boton.style.background = "white"
+    boton.style.color = "black"
     //boton.removeEventListener("click", escucharClickGrupo)
   })
 }
@@ -370,8 +376,7 @@ const escucharClickCuartos = () => {
       Cuartos.forEach(cuarto => {
 
         if(cuarto.ID == ganadorCuartos){
-          paisSeleccionadoFase(cuarto, cuarto.posicionProximaFase,
-            cuarto.ID, cuarto.perdedorPartido)
+          paisSeleccionadoFase(cuarto, cuarto.posicionProximaFase, cuarto.perdedorPartido)
         }
       })
     })

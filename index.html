@@ -9,12 +9,19 @@
         <!--link favicon-->
         <link rel="shortcut icon" type="image/x-icon" href="./img/diamond-hard.svg">
 
+        <!--libreria jQuery a traves de CDN-->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
         <!--link para aplicar CSS-->
         <link rel="stylesheet" href="./css/style.css">
 
         <!--link para aplicar bootstrap-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+        </script>
 
         <!--link para aplicar JavaScript variables-->
         <script defer src="js/variables.js"></script>
@@ -22,11 +29,18 @@
         <!--link para aplicar JavaScript clases-->
         <script defer src="js/clases.js"></script>
 
-        <!--link para aplicar JavaScript objetos-->
+        <!--link para aplicar JavaScript objetos y Arrays-->
         <script defer src="js/objetos.js"></script>
 
         <!--link para aplicar JavaScript funciones-->
-        <script defer src="js/funciones.js"></script>
+        <!-- <script defer src="js/funciones.js"></script> -->
+
+        <!--link para aplicar Libreria sweet alert por CDN-->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!--link para aplicar Libreria jquery por CDN-->
+        <script src="js/appjquery.js"></script>
+
     </head>
 
     <body class="m-0 p-0">
@@ -40,15 +54,37 @@
             <div class="alert alert-primary m-0 p-2 text-white" role="alert" id="resultado">
                 dias Restantes
             </div>
-            <h2 class="m-0 p-2 text-info">Menu navbar - Pendiente a desarrollar</h2>
+            <diV id="navbarContenedor">
+                <nav class="m-0 p-2">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#scrollspyHeading1">Grupos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#scrollspyHeading2">Octavos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#scrollspyHeading3">Cuartos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#scrollspyHeading4">SemiFinales</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#scrollspyHeading5">Final</a>
+                    </li>
+                </ul>
+                </nav>
+            </diV>
         </div>
 
-        <!--Titulo Fase de Grupos-->
+        <!--Armado de maqueta con jquery-->
+        <hr class="m-1 p-1">
+
         <div class="fase-de-grupos text-center m-1 p-0">
-            <h3 class="my-2 p-2 text-white">Fase de Grupos</h3>
+            <h3 class="my-2 p-2 text-white">Fase de Grupos utilizando jquery</h3>
         </div>
 
-        <!--Instrucciones-->
+        <!--Instrucciones jquery-->
         <div class="fase-de-grupos text-center text-info bg-dark m-1 p-0">
             <h6 class="my-2 p-1">Seleccionar primero y segundo de cada grupo haciendo 
                 click en las banderas de los paises
@@ -56,8 +92,11 @@
         </div>
 
         <!--Grupos-->
-        <div class="d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 m-2" id="contenedorGrupo">
+        <div class="d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 m-2" 
+        id="jqueryContenedorGrupo">
         </div>
+
+        <hr class="m-1 p-1">
 
         <!--Titulo Fase de Clasificacion-->
         <div class="fase-de-grupos text-center m-1 p-0">
@@ -68,7 +107,10 @@
         <!--Seccion Octavos de Final-->
         <div class="text-center">
             <h4 class="m-1 p-0">OCTAVOS DE FINAL</h4>
-            <div class="d-flex row row-cols-2 m-1 p-1 octavos" id="contenedorOctavos"></div>
+            <div class="d-flex row row-cols-2 m-1 p-1 jqueryOctavos">
+                <div class="m-0 p-0" id="jqueryContenedorOctavosIzq"></div>
+                <div class="m-0 p-0" id="jqueryContenedorOctavosDer"></div>
+            </div>
         </div>
 
         <hr class="m-1 p-1">
@@ -76,7 +118,10 @@
         <!--Seccion Cuartos de Final-->
         <div class="text-center">
             <h4 class="m-1 p-0">CUARTOS DE FINAL</h4>
-            <div class="d-flex row row-cols-2  m-1 p-1 cuartos" id="contenedorCuartos"></div>
+            <div class="d-flex row row-cols-2 m-1 p-1 jqueryCuartos">
+                <div class="m-0 p-0" id="jqueryContenedorCuartosIzq"></div>
+                <div class="m-0 p-0" id="jqueryContenedorCuartosDer"></div>
+            </div>
         </div>
 
         <hr class="m-1 p-1">
@@ -84,78 +129,20 @@
         <!--Seccion Semifinales-->
         <div class="text-center">
             <h4 class="m-1 p-0">SEMIFINALES</h4>
-            <div class="d-flex row row-cols-2  m-1 p-1 semi">
-
-                <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="Semi1">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div id="textSemi1">SEMIFINAL 1</div>
-                            <img id="ganadorSemi1" src="./img/star-fill.svg" alt="ganador"/>
-                            <img id="imgSemi1" src="" alt=""/>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="Semi2">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <img id="imgSemi2" src="" alt="" />
-                            <img id="ganadorSemi2" src="./img/star-fill.svg" alt="ganador"/>
-                            <div id="textSemi2">SEMIFINAL 2</div>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="Semi3">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div id="textSemi3">SEMIFINAL 3</div>
-                            <img id="ganadorSemi3" src="./img/star-fill.svg" alt="ganador"/>
-                            <img id="imgSemi3" src="" alt=""/>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="Semi4">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <img id="imgSemi4" src="" alt="" />
-                            <img id="ganadorSemi4" src="./img/star-fill.svg" alt="ganador"/>
-                            <div id="textSemi4">SEMIFINAL 4</div>
-                        </div>
-                    </button>
-                </div>
-
+            <div class="d-flex row row-cols-2 m-1 p-1 jquerySemi">
+                <div class="m-0 p-0" id="jqueryContenedorSemiIzq"></div>
+                <div class="m-0 p-0" id="jqueryContenedorSemiDer"></div>
             </div>
         </div>
 
         <hr class="m-1 p-1">
 
-        <!--Seccion TercerPuesto-->
+        <!--Seccion Tercer Puesto-->
         <div class="text-center">
             <h4 class="m-1 p-0">TERCER PUESTO</h4>
-            <div class="d-flex row row-cols-2  m-1 p-1 semi">
-
-                <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="Tercer1">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div id="textTercer1">PS 1</div>
-                            <img id="ganadorTercer1" src="./img/star-fill.svg" alt="ganador"/>
-                            <img id="imgTercer1" src="" alt=""/>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="Tercer2">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <img id="imgTercer2" src="" alt="" />
-                            <img id="ganadorTercer2" src="./img/star-fill.svg" alt="ganador"/>
-                            <div id="textTercer2">PS 2</div>
-                        </div>
-                    </button>
-                </div>
-
+            <div class="d-flex row row-cols-2 m-1 p-1 jqueryTercer">
+                <div class="m-0 p-0" id="jqueryContenedorTercerIzq"></div>
+                <div class="m-0 p-0" id="jqueryContenedorTercerDer"></div>
             </div>
         </div>
 
@@ -166,31 +153,9 @@
 
         <!--Seccion Final-->
         <div class="text-center">
-            <!--<h4 class="m-1 p-0">FINAL</h4>-->
-            <div class="d-flex row row-cols-2  m-1 p-1 semi">
-
-                <div class="col p-1 d-flex justify-content-end">
-                    <button type="button" class="btn btn-success" id="Final1">
-                    <!-- onclick="paisSeleccionadoFase(Final1, 'Campeon', 'Final1', 'Final2')"> -->
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div id="textFinal1">FINAL 1</div>
-                            <img id="ganadorFinal1" src="./img/star-fill.svg" alt="ganador"/>
-                            <img id="imgFinal1" src="" alt=""/>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="col p-1 d-flex justify-content-start">
-                    <button type="button" class="btn btn-success" id="Final2">
-                    <!-- onclick="paisSeleccionadoFase(Final2, 'Campeon', 'Final2', 'Final1')"> -->
-                        <div class="d-flex justify-content-between align-items-center">
-                            <img id="imgFinal2" src="" alt="" />
-                            <img id="ganadorFinal2" src="./img/star-fill.svg" alt="ganador"/>
-                            <div id="textFinal2">FINAL 2</div>
-                        </div>
-                    </button>
-                </div>
-
+            <div class="d-flex row row-cols-2 m-1 p-1 jqueryFinal">
+                <div class="m-0 p-0" id="jqueryContenedorFinalIzq"></div>
+                <div class="m-0 p-0" id="jqueryContenedorFinalDer"></div>
             </div>
         </div>
 
@@ -199,7 +164,7 @@
         <!--Seccion Campeon-->
         <div class="text-center">
             <h4 class="m-1 p-0">CAMPEON</h4>
-            <div class="m-1 p-1 semi">
+            <div class="m-1 p-1 jqueryCampeon">
                 <div class="p-1 d-flex justify-content-center">
                     <button type="button" class="btn btn-success" id="Campeon">
                         <div class="d-flex justify-content-between align-items-center">
@@ -211,6 +176,3 @@
                 </div>
             </div>
         </div>
-
-    </body>
-</html>

@@ -18,7 +18,6 @@ const EcuadorJSON = JSON.stringify(EcuadorObjeto)
 const SenegalJSON = JSON.stringify(SenegalObjeto)
 const PaisesBajosJSON = JSON.stringify(PaisesBajosObjeto)
 
-
 /*Guardar JSON en localStorage */
 localStorage.setItem("Qatar", QatarJSON)
 localStorage.setItem("Ecuador", EcuadorJSON)
@@ -73,16 +72,7 @@ const Ghana = new Pais ("Ghana", "./img/ghana.png", "Ghana")
 const Uruguay = new Pais ("Uruguay", "./img/uruguay.png", "Uruguay")
 const CoreaDelSur = new Pais ("CoreadelSur", "./img/south-korea.png", "Corea del Sur")
 
-// /*Array de Objetos Paises*/
-const paisesTodos = [Qatar, Ecuador, Senegal, PaisesBajos,
-    Inglaterra, Iran, EstadosUnidos, Gales,
-    Argentina, Arabia, Mexico, Polonia,
-    Francia, Australia, Dinamarca, Tunez,
-    España, CostaRica, Alemania, Japon,
-    Belgica, Canada, Marruecos, Croacia,
-    Brasil, Serbia, Suiza, Camerun,
-    Portugal, Ghana, Uruguay, CoreaDelSur]
-
+/*Arrays Grupos */
 const GrupoA = [Qatar, Ecuador, Senegal, PaisesBajos]
 const GrupoB = [Inglaterra, Iran, EstadosUnidos, Gales]
 const GrupoC = [Argentina, Arabia, Mexico, Polonia]
@@ -120,10 +110,12 @@ const G2 = new Pais ("G2", "", "", "CuartosO8", "H1")
 const H1 = new Pais ("H1", "", "", "CuartosO8", "G2")
 const H2 = new Pais ("H2", "", "", "CuartosO4", "G1")
 
+/*Array que se utiliza para armar plantilla en DOM*/
 const OctavosIzquierdo = [A1,C1,E1,G1,A2,C2,E2,G2]
 const OctavosDerecho = [B2,D2,F2,H2,B1,D1,F1,H1]
 
-const Octavos = [A1,C1,E1,G1,A2,C2,E2,G2,B2,D2,F2,H2,B1,D1,F1,H1]
+/*Array que se recorre en funcion jqueryLogicaFase() */
+const Octavos = [A1,A2,B1,B2,C1,C2,D1,D2,E1,E2,F1,F2,G1,G2,H1,H2]
 
 /*Objetos Cuartos*/
 /*const XX = new Pais ("ID", "imgBandera", "nombre", "posicionProximaFase", "perdedorPartido")*/
@@ -143,21 +135,38 @@ const Cuartos = [CuartosO1,CuartosO3,CuartosO5,CuartosO7,
     CuartosO2,CuartosO4,CuartosO6,CuartosO8]
 
 /*Objetos Semis*/
-const Semi1 = new Pais ("Semi1", "", "", "Final1A", "Semi2")
-const Semi2 = new Pais ("Semi2", "", "", "Final1B", "Semi1")
-const Semi3 = new Pais ("Semi3", "", "", "Final2A", "Semi4")
-const Semi4 = new Pais ("Semi4", "", "", "Final2B", "Semi3")
+const Semi1 = new Pais ("Semi1", "", "", "Final1", "Semi2", "Tercer1")
+const Semi2 = new Pais ("Semi2", "", "", "Final1", "Semi1", "Tercer1")
+const Semi3 = new Pais ("Semi3", "", "", "Final2", "Semi4", "Tercer2")
+const Semi4 = new Pais ("Semi4", "", "", "Final2", "Semi3", "Tercer2")
+
+const SemiIzquierdo = [Semi1, Semi3]
+const SemiDerecho = [Semi2, Semi4]
+
+const Semi = [Semi1, Semi2, Semi3, Semi4]
+
+/*Objetos TercerPuesto*/
+/*const XX = new Pais ("ID", "imgBandera", "nombre", "posicionProximaFase", "perdedorPartido")*/
+const Tercer1 = new Pais ("Tercer1", "", "", "", "Tercer2")
+const Tercer2 = new Pais ("Tercer2", "", "", "", "Tercer1")
+
+const TercerIzquierdo = [Tercer1]
+const TercerDerecho = [Tercer2]
+
+const Tercer = [Tercer1, Tercer2]
 
 /*Objetos Final*/
 const Final1 = new Pais ("Final1", "", "", "Campeon", "Final2")
 const Final2 = new Pais ("Final2", "", "", "Campeon", "Final1")
 
+const FinalIzquierdo = [Final1]
+const FinalDerecho = [Final2]
 
-/*Objetos TercerPuesto*/
-/*const XX = new Pais ("ID", "imgBandera", "nombre", "posicionProximaFase", "perdedorPartido")*/
-const Tercer1 = new Pais ("Tercer1", "", "", "Tercer1", "Tercer2")
-const Tercer2 = new Pais ("Tercer2", "", "", "Tercer2", "Tercer1")
+const Final = [Final1, Final2]
 
-const Campeon = new Pais ("Campeon", "", "", "Campeon")
+/*Array Campeon */
 
-const Semi = [Semi1, Semi2, Semi3, Semi4, Tercer1, Tercer2, Final1, Final2, Campeon]
+const Campeon = [{ID: "Campeon", imgBandera: "", nombre: "", posicionProximaFase: "Campeon"}]
+
+/*jquery Array */
+// const jqueryOctavos = [A1,A2,B1,B2,C1,C2,D1,D2,E1,E2,F1,F2,G1,G2,H1,H2]
