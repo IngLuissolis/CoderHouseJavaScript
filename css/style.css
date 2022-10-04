@@ -10,11 +10,35 @@ h1, h3 {
 
 #resultado {
     background-image: url("../img/fondo-titulo-secundario.jpg");
+    border-radius: 0.3rem;
 }
 
 #navbarContenedor {
     background-image: url("../img/fondo-titulo-secundario.jpg");
     border-radius: 0.3rem;
+    height: 3rem;
+    position: fixed;
+    top: 0;
+    display: none;
+    opacity: 0;
+    transition: top 0.3s;
+    z-index: 1;
+}
+
+#navbarContenedor a {
+    border-radius: 0.3rem;
+}
+
+#navbarContenedor a:hover {
+    background-color: white;
+    color: black !important;
+    border-radius: 0.3rem;
+}
+
+#instrucciones {
+    border-radius: 0.3rem;
+    background-color: black;
+    color: white;
 }
 
 button * {
@@ -26,11 +50,9 @@ button * {
     border: 0.1rem solid rgb(201, 201, 201);
 }
 
-
 .jqueryGrupo li:hover {
     background: rgb(146, 21, 73);
 }
-
 
 .jqueryGrupo li button {
     width: 100%;
@@ -47,12 +69,18 @@ button * {
     border: 0.15rem solid gold;
 }
 
+
+.jqueryGrupo li div {
+    border-radius: 0.3rem;
+} 
+
 .jqueryOctavos div button, .jqueryCuartos div button, .jquerySemi div button,
 .jqueryTercer div button, .jqueryFinal div button, .jqueryCampeon div button {
     width: 10rem;
     height: 4rem;
     background: white;
     color: black;
+    border: 0.1rem solid grey !important;
 }
 
 .jqueryOctavos div button:hover,  .jqueryCuartos div button:hover, .jquerySemi button:hover,
@@ -108,3 +136,10 @@ button * {
         height: 1.2rem;
         margin: 0.5rem;
     }
+
+#imgWeatherIcon {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: none;
+}

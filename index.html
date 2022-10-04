@@ -15,13 +15,12 @@
         <!--link para aplicar CSS-->
         <link rel="stylesheet" href="./css/style.css">
 
-        <!--link para aplicar bootstrap-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <!-- Development version -->
+        <!-- <script defer src="https://unpkg.com/@popperjs/core@2"></script> -->
 
-        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-        </script>
+        <!--link para aplicar bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
         <!--link para aplicar JavaScript variables-->
         <script defer src="js/variables.js"></script>
@@ -30,62 +29,76 @@
         <script defer src="js/clases.js"></script>
 
         <!--link para aplicar JavaScript objetos y Arrays-->
-        <script defer src="js/objetos.js"></script>
-
-        <!--link para aplicar JavaScript funciones-->
-        <!-- <script defer src="js/funciones.js"></script> -->
+        <script defer src="js/objetosArrays.js"></script>
 
         <!--link para aplicar Libreria sweet alert por CDN-->
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!--link para aplicar Libreria jquery por CDN-->
-        <script src="js/appjquery.js"></script>
+        <script defer src="js/appjquery.js"></script>
+
+        <!--link para aplicar JavaScript APIWeather-->
+        <script defer src="js/APIWeather.js"></script>
 
     </head>
 
     <body class="m-0 p-0">
+
+
         <!--Titulo Principal-->
-        <div class="text-center text-white m-1 p-0">
+        <div class="text-center text-white m-0 p-1" id="Titulo">
             <h1 class="m-0 p-1">Simulador Pronostico Mundial Qatar 2022</h1>
         </div>
 
-        <!--Menu Botones-->
-        <div class="d-flex justify-content-between align-items-center m-1 p-0">
-            <div class="alert alert-primary m-0 p-2 text-white" role="alert" id="resultado">
-                dias Restantes
-            </div>
-            <diV id="navbarContenedor">
-                <nav class="m-0 p-2">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#scrollspyHeading1">Grupos</a>
+        <!--NavBar-->
+        <div class="d-flex justify-content-center align-items-center m-0 p-0" >
+            <nav class="m-1 p-1 d-flex justify-content-center align-items-center" id="navbarContenedor">
+                <ul class="nav d-flex row-cols-4 align-items-center">
+                    <li class="nav-item d-flex justify-content-center m-0 p-1">
+                        <a class="nav-link text-white" href="#scrollspyHeading1">Grupos</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#scrollspyHeading2">Octavos</a>
+                    <li class="nav-item d-flex justify-content-center m-0 p-1">
+                        <a class="nav-link text-white" href="#scrollspyHeading2">Octavos</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#scrollspyHeading3">Cuartos</a>
+                    <li class="nav-item d-flex justify-content-center m-0 p-1">
+                        <a class="nav-link text-white" href="#scrollspyHeading3">Cuartos</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item m-0 p-1">
                         <a class="nav-link" href="#scrollspyHeading4">SemiFinales</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#scrollspyHeading5">Final</a>
+                    </li> -->
+                    <li class="nav-item d-flex justify-content-center m-0 p-1">
+                        <a class="nav-link text-white" href="#scrollspyHeading5">Final</a>
                     </li>
                 </ul>
-                </nav>
-            </diV>
+            </nav>
         </div>
+
+
+        <!--Dias restantes-->
+        <div class="d-flex justify-content-center align-items-center text-white mb-2 mx-1 p-1" id="resultado">
+        </div>
+
+        <div class="card mx-1 mb-2 p-1">
+            <div class="d-flex justify-content-between align-items-center m-1 p-1 text-center">
+                <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com"></a>
+                <h6 class="card-content m-1 p-0" id="WeatherCity">Ciudad</h6>
+                <h6 class="card-content m-0 p-0" id="WeatherTemp">Temperatura °C</h6>
+                <img class="m-0 p-0" src="" id='imgWeatherIcon' alt="">
+            </div>
+        </div>
+
 
         <!--Armado de maqueta con jquery-->
-        <hr class="m-1 p-1">
+        <hr class="m-1 p-0">
 
-        <div class="fase-de-grupos text-center m-1 p-0">
-            <h3 class="my-2 p-2 text-white">Fase de Grupos utilizando jquery</h3>
-        </div>
+        <div class="text-center m-0 p-1" id="scrollspyHeading1">
+            <h3 class="m-0 p-1 text-white">
+                Fase de Grupos
+            </h3>
+            </div>
 
-        <!--Instrucciones jquery-->
-        <div class="fase-de-grupos text-center text-info bg-dark m-1 p-0">
+        <!--Instrucciones para seleccionar 1ero u 2do fase de Grupos-->
+        <div class="text-center mx-1 p-0" id="instrucciones">
             <h6 class="my-2 p-1">Seleccionar primero y segundo de cada grupo haciendo 
                 click en las banderas de los paises
             </h6>
@@ -96,16 +109,21 @@
         id="jqueryContenedorGrupo">
         </div>
 
-        <hr class="m-1 p-1">
+        <div class="d-flex justify-content-center mb-3 p-0">
+            <button class="btn btn-info btnLimpiarGruposEnAdelante">
+                Limpiar
+            </button>
+        </div>
 
         <!--Titulo Fase de Clasificacion-->
-        <div class="fase-de-grupos text-center m-1 p-0">
+        <div class="text-center mx-1 p-0">
+
             <h3 class="my-2 p-2 text-white">Fase de Clasificación</h3>
         </div>
 
         <!--Diagrama Fase de Clasificacion-->
         <!--Seccion Octavos de Final-->
-        <div class="text-center">
+        <div class="text-center" id="scrollspyHeading2">
             <h4 class="m-1 p-0">OCTAVOS DE FINAL</h4>
             <div class="d-flex row row-cols-2 m-1 p-1 jqueryOctavos">
                 <div class="m-0 p-0" id="jqueryContenedorOctavosIzq"></div>
@@ -116,8 +134,13 @@
         <hr class="m-1 p-1">
 
         <!--Seccion Cuartos de Final-->
-        <div class="text-center">
+        <div class="text-center" id="scrollspyHeading3">
             <h4 class="m-1 p-0">CUARTOS DE FINAL</h4>
+            <div class="d-flex justify-content-center m-2 p-0">
+                <button class="btn btn-info btnLimpiarCuartosAdelante">
+                    Limpiar
+                </button>
+            </div>
             <div class="d-flex row row-cols-2 m-1 p-1 jqueryCuartos">
                 <div class="m-0 p-0" id="jqueryContenedorCuartosIzq"></div>
                 <div class="m-0 p-0" id="jqueryContenedorCuartosDer"></div>
@@ -129,6 +152,11 @@
         <!--Seccion Semifinales-->
         <div class="text-center">
             <h4 class="m-1 p-0">SEMIFINALES</h4>
+            <div class="d-flex justify-content-center m-2 p-0">
+                <button class="btn btn-info btnLimpiarSemiAdelante">
+                    Limpiar
+                </button>
+            </div>
             <div class="d-flex row row-cols-2 m-1 p-1 jquerySemi">
                 <div class="m-0 p-0" id="jqueryContenedorSemiIzq"></div>
                 <div class="m-0 p-0" id="jqueryContenedorSemiDer"></div>
@@ -147,7 +175,7 @@
         </div>
 
         <!--Titulo Final-->
-        <div class="fase-de-grupos text-center m-1 p-0">
+        <div class="text-center m-1 p-0" id="scrollspyHeading5">
             <h3 class="my-2 p-2 text-white">FINAL</h3>
         </div>
 
@@ -168,7 +196,7 @@
                 <div class="p-1 d-flex justify-content-center">
                     <button type="button" class="btn btn-success" id="Campeon">
                         <div class="d-flex justify-content-between align-items-center">
-                            <div id="textCampeon">CAMPEÓN</div>
+                            <div id="textCampeon">CAMPEON</div>
                             <img id="ganadorCampeon" src="./img/star-fill.svg" alt="campeon"/>
                             <img id="imgCampeon" src="" alt=""/>
                         </div>
@@ -176,3 +204,7 @@
                 </div>
             </div>
         </div>
+    
+    </body>
+    
+</html>

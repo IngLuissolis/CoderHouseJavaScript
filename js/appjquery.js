@@ -21,8 +21,9 @@ jQuery(function() {
             const posicion = "posicionGrupo"+paisGrupo.ID
 
             /*Agrega elementos Paises a grupo */
-            $('<li class="d-flex align-items-center m-1 p-1"><button class="d-flex justify-content-between align-items-center"id='+
-            paisGrupo.ID+'><p  class="m-0 p-1">'+
+            $('<li data-toggle="popover" class="d-flex align-items-center m-1 p-1" id="li'+
+            paisGrupo.ID+'"><button class="d-flex justify-content-between align-items-center" id='+
+            paisGrupo.ID+'><p class="m-0 p-1">'+
             paisGrupo.nombre+'</p><img src='+paisGrupo.imgBandera+
             ' class="me-3"></button><div id='+posicion+' class=" text-center m-1 p-1"></div></li>').appendTo(elementoPaisGrupo)
         })
@@ -35,17 +36,56 @@ jQuery(function() {
     })
 
     /*Funcion Escuchar click en Seccion Fase de Grupos */
-    jqueryEscucharClickGrupo = () => 
+    const jqueryEscucharClickGrupo = () => 
     {
         $('.jqueryGrupo button').on('click', function (e) {
+            let banderaCuartos = false
+            let banderaSemi = false
+
             console.log('click: ', e.target.id)
-            jqueryLogicaGrupo(e.target.id)
-            e.preventDefault();
+
+            /*Se asegura que no tenga paises mostrados en Cuartos*/
+            banderaCuartos = mostrandoBanderaFase(Cuartos)
+            /*Se asegura que no tenga paises mostrados en Semi*/
+            banderaSemi = mostrandoBanderaFase(Semi)
+
+            if(banderaCuartos === false && banderaSemi === false){
+                jqueryLogicaGrupo(e.target.id)
+                e.preventDefault();
+            } else if (banderaSemi === true){
+                desplegarVentanaAdvertencia('SemiFinales')
+            } else if (banderaCuartos === true ){
+                desplegarVentanaAdvertencia('Cuartos')
+            } 
+            
         })
     }
 
-    jqueryLogicaGrupo = (jqueryPaisSeleccionado) =>
+    /*Consulta si hay paises mostrados en la Fase, Ejemplo: Cuartos */
+    mostrandoBanderaFase = (Fase) => {
+        let bandera = false
+        $.each(Fase,(i, paisFase) => {
+            if(paisFase.nombre != ''){
+                bandera = true
+                return false
+            }
+        })
+        return bandera
+    }
+
+    /*Despliega ventana emergente de Advertencia */
+    desplegarVentanaAdvertencia = (fase) => {
+        Swal.fire({
+            title: "Paises Seleccionados en "+fase+" \n Limpiar Fase "+fase,
+            icon: "warning",
+            showConfirmButton: true
+            });
+    }
+
+    const jqueryLogicaGrupo = (jqueryPaisSeleccionado) =>
     {
+        let posicion1aux
+        let posicion2aux
         /*Recorre array grupoTodos */
         $.each(grupoTodos, (i, nombreGrupo) => 
         {
@@ -55,39 +95,56 @@ jQuery(function() {
                 {
                     $.each(Octavos, (z, octavo) =>
                     {
-                        if(octavo.ID.includes(nombreGrupo.grupo))
-                        {
-                            if(octavo.nombre === paisGrupo.nombre)
-                            {
-                                octavo.nombre = ""
-                                octavo.imgBandera = ""
-
-                                /*Setea posicion en seccion Grupos */
-                                $("#posicionGrupo"+paisGrupo.ID).hide()
-                                
-                                /*Setea texto y Bandera en Seccion Octavos */
-                                $("#text"+octavo.ID).html(octavo.ID)
-                                $("#img"+octavo.ID).hide()
-
-                                return false
-
-                            } else if (octavo.nombre === "")
-                            {
-                                octavo.nombre = paisGrupo.nombre
-                                octavo.imgBandera = paisGrupo.imgBandera
-
-                                /*Mostrar posicion en Seccion Grupos */
-                                $("#posicionGrupo"+paisGrupo.ID).show()
-                                $("#posicionGrupo"+paisGrupo.ID).css({"background-color": "black", "color": "white"})
-                                $("#posicionGrupo"+paisGrupo.ID).html(octavo.ID.substr(1,1))
-
-                                /*Mostrar texto y bandera en Seccion Octavos */
-                                $("#text"+octavo.ID).html(octavo.nombre)
-                                $("#img"+octavo.ID).show()
-                                $("#img"+octavo.ID).attr("src", octavo.imgBandera)
-
-                                return false
+                        if(octavo.ID.includes(nombreGrupo.grupo)) {
+                            if(octavo.ID.substr(1,1) == 1){
+                                posicion1aux = octavo
+                            } else {
+                                posicion2aux = octavo
                             }
+                        }
+                    })
+
+                    /*Algoritmo para seleccionar 1ra y 2da posicion en fase de grupos*/
+                    if (
+                      posicion1aux.nombre === "" &&
+                      posicion2aux.nombre != paisGrupo.nombre
+                    ) {
+                      posicion1aux.nombre = paisGrupo.nombre;
+                      posicion1aux.imgBandera = paisGrupo.imgBandera;
+                      /*Mostrar posicion en Seccion Grupos */
+                      mostrarPosicionGrupo(paisGrupo.ID, 1)
+                    } else if (
+                      posicion1aux.nombre != "" &&
+                      posicion2aux.nombre == "" &&
+                      posicion1aux.nombre != paisGrupo.nombre
+                    ) {
+                      posicion2aux.nombre = paisGrupo.nombre;
+                      posicion2aux.imgBandera = paisGrupo.imgBandera;
+                      /*Mostrar posicion en Seccion Grupos */
+                      mostrarPosicionGrupo(paisGrupo.ID, 2)
+                    } else if (posicion1aux.nombre === paisGrupo.nombre) {
+                      posicion1aux.nombre = "";
+                      posicion1aux.imgBandera = "";
+                      /*Setea posicion en seccion Grupos */
+                      $("#posicionGrupo" + paisGrupo.ID).hide()
+                    } else if (posicion2aux.nombre === paisGrupo.nombre) {
+                      posicion2aux.nombre = "";
+                      posicion2aux.imgBandera = "";
+                      /*Setea posicion en seccion Grupos */
+                      $("#posicionGrupo" + paisGrupo.ID).hide();
+                    }
+
+                    /*guarda en A1 y A2 posicion1aux y A2 posicion2aux respectivamente*/
+                    $.each(Octavos, (z, octavo) =>{
+                        if(octavo.ID.includes(nombreGrupo.grupo)) {
+                            if(octavo.ID.substr(1,1) == 1){     //Ingresa si es A1
+                                octavo = posicion1aux
+                                mostrarTextoBanderaOctavos(octavo)
+                            } else {                            //Ingresa si es A2
+                                octavo = posicion2aux
+                                mostrarTextoBanderaOctavos(octavo)
+                            }
+
                         }
                     })
 
@@ -97,22 +154,67 @@ jQuery(function() {
         console.log("------------------")
     }
 
+    const mostrarPosicionGrupo = (pais, posicion) => {
+        /*Mostrar posicion en Seccion Grupos */
+        $("#posicionGrupo" + pais).show();
+        $("#posicionGrupo" + pais).css({
+          "background-color": "black",
+          color: "white",
+        });
+        $("#posicionGrupo" + pais).html(posicion);
+    }
+
+    const mostrarTextoBanderaOctavos = (octavo) => {
+      if (octavo.nombre === "") {
+        /*Setea texto y Bandera en Seccion Octavos */
+        $("#text" + octavo.ID).html(octavo.ID);
+        $("#img" + octavo.ID).hide();
+      } else {
+        /*Mostrar texto y bandera en Seccion Octavos */
+        $("#text" + octavo.ID).html(octavo.nombre);
+        $("#img" + octavo.ID).show();
+        $("#img" + octavo.ID).attr("src", octavo.imgBandera);
+      }
+    }
+
     /*Funcion Escuchar click en Secciones de Proxima Fase (Octavos, Cuartos, ... , etc)*/
-    jqueryEscucharClickFase = (faseActual, faseProxima, nroFaseActual, nombreFaseActual) => {
+    const jqueryEscucharClickFase = (faseActual, faseProxima, nroFaseActual, nombreFaseActual) => {
         var contador = 0
+        
         $(".jquery"+nombreFaseActual+" button").on("click", function (e) {
+
+            let banderaSemi = false
+            let banderaFinal = false
+
+            switch (nombreFaseActual) {
+                case 'Octavos':
+                    /*Se asegura que no tenga paises mostrados en Semi*/
+                    banderaSemi = mostrandoBanderaFase(Semi)
+                    break
+                case 'Cuartos':
+                    /*Se asegura que no tenga paises mostrados en Final*/
+                    banderaFinal = mostrandoBanderaFase(Final)
+                default:
+                    break
+
+            }
+
             $.each(faseActual, (i, objeto) => {
               /* */
               if (objeto.nombre != "") {
-                contador = contador + 1;
+                contador ++;
               }
             });
-            // console.log("contador: ", contador)
-            // console.log("nroFaseActual: ", nroFaseActual)
+
             if (contador == nroFaseActual) {
-              jqueryLogicaFase(faseActual, faseProxima, e.target.id);
+                if (banderaSemi === false && banderaFinal === false) {
+                    jqueryLogicaFase(faseActual, faseProxima, e.target.id);
+                } else if (banderaFinal === true) {
+                    desplegarVentanaAdvertencia('Final')
+                } else if (banderaSemi === true) {
+                    desplegarVentanaAdvertencia('SemiFinales')
+                }
             } else {
-              console.warn("Falta seleccionar pais");
               Swal.fire({
                 title: "Falta seleccionar Pais en Fase",
                 icon: "warning",
@@ -125,12 +227,11 @@ jQuery(function() {
           });
     }
 
-    jqueryLogicaFase = (faseActual, faseProxima, jqueryPaisSeleccionado) => {
+    const jqueryLogicaFase = (faseActual, faseProxima, jqueryPaisSeleccionado) => {
         $.each(faseActual, (i, actual) => {
             if(actual.ID == jqueryPaisSeleccionado)
             {
                 console.log("click: ", actual.ID)
-                // console.log("actual.proximaFase: ", actual.posicionProximaFase)
 
                 if(faseProxima != "")
                 {
@@ -193,7 +294,7 @@ jQuery(function() {
     }
 
     /*Mostrar Fase de Grupos Lado Izquierdo (A1, CuartosO1,..., FINAL 1) con nodos desde jquery*/
-    maquetaFaseGrupoIzq = (contenedor,nodoIzq) => 
+    const maquetaFaseGrupoIzq = (contenedor,nodoIzq) => 
     {
         var elementoIzq = $()
 
@@ -217,7 +318,7 @@ jQuery(function() {
     }
 
     /*Mostrar Fase de Grupos Lado Derecho (A2, CuartosO2,..., FINAL 2) con nodos desde jquery*/
-    maquetaFaseGrupoDer = (contenedor, nodoDer) => 
+    const maquetaFaseGrupoDer = (contenedor, nodoDer) => 
     {
         var elementoDer = $()
 
@@ -264,16 +365,108 @@ jQuery(function() {
     jqueryEscucharClickFase(Tercer, "", 2, "Tercer")
     jqueryEscucharClickFase(Final, Campeon, 2, "Final")
 
+    /*Click Boton Limpiar Cuartos en adelante */
+    $(".btnLimpiarCuartosAdelante").on("click", () => {
+        limpiarFase(Campeon)
+        limpiarFase(Final)
+        limpiarFase(Tercer)
+        limpiarFase(Semi)
+        limpiarFase(Cuartos)
+        limpiarGanadorFaseAnterior(Octavos)
+    });
+
+    /*Click Boton Limpiar SemiFinales en adelante */
+    $(".btnLimpiarSemiAdelante").on("click", () => {
+        limpiarFase(Campeon)
+        limpiarFase(Final)
+        limpiarFase(Tercer)
+        limpiarFase(Semi)
+        limpiarGanadorFaseAnterior(Cuartos)
+    });
+
+    /*Click Boton Limpiar Grupos en adelante */
+    $(".btnLimpiarGruposEnAdelante").on("click", () => {
+        limpiarFase(Campeon)
+        limpiarFase(Final)
+        limpiarFase(Tercer)
+        limpiarFase(Semi)
+        limpiarFase(Cuartos)
+        limpiarFase(Octavos)
+        $.each(grupoTodos, (i, nombreGrupo) => {
+            $.each(nombreGrupo.paises, (j, paisGrupo) => {
+                $("#posicionGrupo" + paisGrupo.ID).hide();
+            })
+        })
+    });
+
+    /*Funcion que limpia valores en Objetos y elementos html de Fase*/
+    const limpiarFase = (faseLimpiar) => {
+        /*Recorre Array */
+        $.each(faseLimpiar, (i, fase) => {
+            fase.nombre = ""
+            fase.imgBandera = ""
+            /* */
+            $("#text"+fase.ID).html(fase.ID)
+            $("#ganador"+fase.ID).hide()
+            $("#img"+fase.ID).hide()
+        })
+    }
+
+    /*Funcion que limpia ganador fase anterior */
+    const limpiarGanadorFaseAnterior = (faseAnterior) => {
+        /*Recorre Array */
+        $.each(faseAnterior, (j, fase) => {
+            $("#ganador"+fase.ID).hide()
+        })
+    }
+
     /*funcion que calcula cantidad de dias restantes para el mundial*/
     const cantDiasComienzoMundial = () => {
         let diferencia = fechaComienzoMundial.getTime()-hoy.getTime()
         let cantdias = Math.floor(diferencia/(1000*3600*24))
         console.log("Dias Restantes para Mundial: ", cantdias)
-        document.getElementById("resultado").innerHTML = String(cantdias) + " dias Restantes para Inicio del Mundial"
+        document.getElementById("resultado").innerHTML = String(cantdias) + " dias Restan para Inicio del Mundial"
     }
+
+    /*Funcion que oculta muestra navbar*/
+   var prevScrollPos = window.pageYOffset
+
+   window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollPos > currentScrollPos) {
+        document.getElementById("navbarContenedor").style.top = "-60px";
+      } else {
+        document.getElementById("navbarContenedor").style.top = "0";
+        document.getElementById("navbarContenedor").style.opacity = '0.9'
+      }
+      prevScrollPos = currentScrollPos;
+    }
+
+    /*Popover Fase de Grupos */
+    // $(() => {
+    //     let partido = {rival: "Qatar vs Ecuador", dia: "Domingo 20/11", horario: "13 hrs"}
+    //     $('#liQatar').popover({
+    //         title: "Partidos",
+    //         content: partido.rival,
+    //         trigger: "hover",
+    //         placement: "bottom",
+    //     });
+    // })
+
+    /*Popover btnLimpiarGruposEnAdelante */
+    $(".btnLimpiarGruposEnAdelante").popover({
+      title: "",
+      content: "Limpia Fase de Grupos en Adelante",
+      trigger: "hover",
+      placement: "left",
+    });
     
     /*Llamada a funcion que muestra cantidad de dias restantes para inicio de mundial*/
     cantDiasComienzoMundial()
+
+    /**Llamada a funcion APIWeatherService*/
+    APIWeatherService()
+
 })
 
 
