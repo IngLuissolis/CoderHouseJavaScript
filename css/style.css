@@ -153,8 +153,8 @@ button * {
     background: rgb(146, 21, 73);
 }
 
-.arrow {
-}
+/* .arrow {
+} */
 
 .popoverHeader{
     color: white;
@@ -163,6 +163,6 @@ button * {
     margin: 0.5rem;
 }
 
-.popoverBody {
+/* .popoverBody {
 
-}
+} */
