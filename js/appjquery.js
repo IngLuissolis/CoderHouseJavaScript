@@ -1,5 +1,4 @@
-jQuery(function() { 
-    // console.log('funcionando jquery')
+(function() { 
 
     var elementoPaisGrupo = $()
 
@@ -9,7 +8,7 @@ jQuery(function() {
     {
         /*Agrega elemento Nombre de Grupo, ejemplo "Grupo A" a la seccion fase de Grupos */
         elementoPaisGrupo = elementoPaisGrupo.add(
-          '<div class="text-center col m-0 p-2 jqueryGrupo"><h5 class="text-center m-1 p-0">' +
+          '<div class="text-center col m-0 p-2 ContenedorGrupo"><h5 class="text-center m-1 p-0">' +
             nombreGrupo.nombre +
             "</h5></div>"
         )
@@ -29,16 +28,16 @@ jQuery(function() {
         })
 
         /*Visualizacion de plantilla grupo */
-        $("#jqueryContenedorGrupo").append(elementoPaisGrupo)
+        $("#ContenedorGrupo").append(elementoPaisGrupo)
 
         elementoPaisGrupo = $()
 
     })
 
     /*Funcion Escuchar click en Seccion Fase de Grupos */
-    const jqueryEscucharClickGrupo = () => 
+    const EscucharClickGrupo = () => 
     {
-        $('.jqueryGrupo button').on('click', function (e) {
+        $('.ContenedorGrupo button').on('click', function (e) {
             let banderaCuartos = false
             let banderaSemi = false
 
@@ -50,7 +49,7 @@ jQuery(function() {
             banderaSemi = mostrandoBanderaFase(Semi)
 
             if(banderaCuartos === false && banderaSemi === false){
-                jqueryLogicaGrupo(e.target.id)
+                LogicaGrupo(e.target.id)
                 e.preventDefault();
             } else if (banderaSemi === true){
                 desplegarVentanaAdvertencia('SemiFinales')
@@ -82,7 +81,7 @@ jQuery(function() {
             });
     }
 
-    const jqueryLogicaGrupo = (jqueryPaisSeleccionado) =>
+    const LogicaGrupo = (PaisSeleccionado) =>
     {
         let posicion1aux
         let posicion2aux
@@ -91,7 +90,7 @@ jQuery(function() {
         {
             $.each(nombreGrupo.paises, (j, paisGrupo) => 
             {
-                if (jqueryPaisSeleccionado == paisGrupo.ID) 
+                if (PaisSeleccionado == paisGrupo.ID) 
                 {
                     $.each(Octavos, (z, octavo) =>
                     {
@@ -178,10 +177,10 @@ jQuery(function() {
     }
 
     /*Funcion Escuchar click en Secciones de Proxima Fase (Octavos, Cuartos, ... , etc)*/
-    const jqueryEscucharClickFase = (faseActual, faseProxima, nroFaseActual, nombreFaseActual) => {
+    const EscucharClickFase = (faseActual, faseProxima, nroFaseActual, nombreFaseActual) => {
         var contador = 0
         
-        $(".jquery"+nombreFaseActual+" button").on("click", function (e) {
+        $("."+nombreFaseActual+" button").on("click", function (e) {
 
             let banderaSemi = false
             let banderaFinal = false
@@ -208,7 +207,7 @@ jQuery(function() {
 
             if (contador == nroFaseActual) {
                 if (banderaSemi === false && banderaFinal === false) {
-                    jqueryLogicaFase(faseActual, faseProxima, e.target.id);
+                    LogicaFase(faseActual, faseProxima, e.target.id);
                 } else if (banderaFinal === true) {
                     desplegarVentanaAdvertencia('Final')
                 } else if (banderaSemi === true) {
@@ -227,9 +226,9 @@ jQuery(function() {
           });
     }
 
-    const jqueryLogicaFase = (faseActual, faseProxima, jqueryPaisSeleccionado) => {
+    const LogicaFase = (faseActual, faseProxima, PaisSeleccionado) => {
         $.each(faseActual, (i, actual) => {
-            if(actual.ID == jqueryPaisSeleccionado)
+            if(actual.ID == PaisSeleccionado)
             {
                 console.log("click: ", actual.ID)
 
@@ -243,13 +242,20 @@ jQuery(function() {
     
                             /*Muestra estrella en pais ganador de fase actual*/
                             $("#ganador"+actual.ID).show()
+                            $("#img"+actual.ID).css({"-webkit-filter": 'grayscale(0%)',
+                                '-moz-filter': 'grayscale(0%)',
+                                'filter': 'grayscale(0%)'});
                             /*Oculta estrella en pais perdedor de fase actual*/
                             $("#ganador"+actual.perdedorPartido).hide()
+                            $("#img"+actual.perdedorPartido).css({"-webkit-filter": 'grayscale(100%)',
+                            '-moz-filter': 'grayscale(100%)',
+                            'filter': 'grayscale(100%)'});
     
                             /*Muestra pais ganador (nombre y bandera) en proxima fase*/
                             $("#text"+proxima.ID).html(proxima.nombre)
                             $("#img"+proxima.ID).show()
                             $("#img"+proxima.ID).attr("src", proxima.imgBandera)
+
     
                             /*Muestra pais perdedor en seccion Tercer Puesto*/
                             if(actual.perdedorSemi != ""){
@@ -276,7 +282,10 @@ jQuery(function() {
                                 $("#ganador"+proxima.ID).show()
                                 Swal.fire({
                                     title: "Campeón "+proxima.nombre+"",
-                                    imageUrl: "./img/trofeo-campeon.png",
+                                    background: "../img/fondo-titulo-secundario.jpg",
+                                    padding: '2rem',
+                                    imageUrl: "./img/trofeo-fifa.jpg",
+                                    imageWidth: '90%',
                                     showConfirmButton: true
                                     });
                             }
@@ -285,15 +294,21 @@ jQuery(function() {
                 } else {
                     /*Muestra estrella en pais ganador de seccion Tercer Puesto*/
                     $("#ganador"+actual.ID).show()
+                    $("#img"+actual.ID).css({"-webkit-filter": 'grayscale(0%)',
+                                '-moz-filter': 'grayscale(0%)',
+                                'filter': 'grayscale(0%)'});
                     /*Oculta estrella en pais perdedor de seccion Tercer Puesto*/
                     $("#ganador"+actual.perdedorPartido).hide()
+                    $("#img"+actual.perdedorPartido).css({"-webkit-filter": 'grayscale(100%)',
+                            '-moz-filter': 'grayscale(100%)',
+                            'filter': 'grayscale(100%)'});
                 }            
             }
         })
 
     }
 
-    /*Mostrar Fase de Grupos Lado Izquierdo (A1, CuartosO1,..., FINAL 1) con nodos desde jquery*/
+    /*Mostrar Fase de Grupos Lado Izquierdo (A1, CuartosO1,..., FINAL 1) con nodos desde */
     const maquetaFaseGrupoIzq = (contenedor,nodoIzq) => 
     {
         var elementoIzq = $()
@@ -317,7 +332,7 @@ jQuery(function() {
           $(contenedor).append(elementoIzq)
     }
 
-    /*Mostrar Fase de Grupos Lado Derecho (A2, CuartosO2,..., FINAL 2) con nodos desde jquery*/
+    /*Mostrar Fase de Grupos Lado Derecho (A2, CuartosO2,..., FINAL 2) con nodos desde */
     const maquetaFaseGrupoDer = (contenedor, nodoDer) => 
     {
         var elementoDer = $()
@@ -342,28 +357,28 @@ jQuery(function() {
     }
 
     /*Visualizacion de plantilla Fase de Grupos en MOD*/
-    maquetaFaseGrupoIzq("#jqueryContenedorOctavosIzq",OctavosIzquierdo)
-    maquetaFaseGrupoDer("#jqueryContenedorOctavosDer",OctavosDerecho)
+    maquetaFaseGrupoIzq("#ContenedorOctavosIzq",OctavosIzquierdo)
+    maquetaFaseGrupoDer("#ContenedorOctavosDer",OctavosDerecho)
 
-    maquetaFaseGrupoIzq("#jqueryContenedorCuartosIzq",CuartosIzquierdo)
-    maquetaFaseGrupoDer("#jqueryContenedorCuartosDer",CuartosDerecho)
+    maquetaFaseGrupoIzq("#ContenedorCuartosIzq",CuartosIzquierdo)
+    maquetaFaseGrupoDer("#ContenedorCuartosDer",CuartosDerecho)
 
-    maquetaFaseGrupoIzq("#jqueryContenedorSemiIzq",SemiIzquierdo)
-    maquetaFaseGrupoDer("#jqueryContenedorSemiDer",SemiDerecho)
+    maquetaFaseGrupoIzq("#ContenedorSemiIzq",SemiIzquierdo)
+    maquetaFaseGrupoDer("#ContenedorSemiDer",SemiDerecho)
 
-    maquetaFaseGrupoIzq("#jqueryContenedorTercerIzq",TercerIzquierdo)
-    maquetaFaseGrupoDer("#jqueryContenedorTercerDer",TercerDerecho)
+    maquetaFaseGrupoIzq("#ContenedorTercerIzq",TercerIzquierdo)
+    maquetaFaseGrupoDer("#ContenedorTercerDer",TercerDerecho)
 
-    maquetaFaseGrupoIzq("#jqueryContenedorFinalIzq",FinalIzquierdo)
-    maquetaFaseGrupoDer("#jqueryContenedorFinalDer",FinalDerecho)
+    maquetaFaseGrupoIzq("#ContenedorFinalIzq",FinalIzquierdo)
+    maquetaFaseGrupoDer("#ContenedorFinalDer",FinalDerecho)
 
     /*Llamada a funciones que esperan click*/
-    jqueryEscucharClickGrupo()
-    jqueryEscucharClickFase(Octavos, Cuartos, 16, "Octavos")
-    jqueryEscucharClickFase(Cuartos, Semi, 8, "Cuartos")
-    jqueryEscucharClickFase(Semi, Final, 4, "Semi")
-    jqueryEscucharClickFase(Tercer, "", 2, "Tercer")
-    jqueryEscucharClickFase(Final, Campeon, 2, "Final")
+    EscucharClickGrupo()
+    EscucharClickFase(Octavos, Cuartos, 16, "Octavos")
+    EscucharClickFase(Cuartos, Semi, 8, "Cuartos")
+    EscucharClickFase(Semi, Final, 4, "Semi")
+    EscucharClickFase(Tercer, "", 2, "Tercer")
+    EscucharClickFase(Final, Campeon, 2, "Final")
 
     /*Click Boton Limpiar Cuartos en adelante */
     $(".btnLimpiarCuartosAdelante").on("click", () => {
@@ -443,15 +458,15 @@ jQuery(function() {
     }
 
     /*Popover Fase de Grupos */
-    // $(() => {
-    //     let partido = {rival: "Qatar vs Ecuador", dia: "Domingo 20/11", horario: "13 hrs"}
-    //     $('#liQatar').popover({
-    //         title: "Partidos",
-    //         content: partido.rival,
-    //         trigger: "hover",
-    //         placement: "bottom",
-    //     });
-    // })
+    $(() => {
+        let partido = {rival: "Qatar vs Ecuador", dia: "Domingo 20/11", horario: "13 hrs"}
+        $('#liQatar').popover({
+            title: "Partidos",
+            content: partido.rival,
+            trigger: "hover",
+            placement: "bottom",
+        });
+    })
 
     /*Popover btnLimpiarGruposEnAdelante */
     $(".btnLimpiarGruposEnAdelante").popover({
@@ -468,6 +483,3 @@ jQuery(function() {
     APIWeatherService()
 
 })
-
-
-

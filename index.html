@@ -9,18 +9,18 @@
         <!--link favicon-->
         <link rel="shortcut icon" type="image/x-icon" href="./img/diamond-hard.svg">
 
-        <!--libreria jQuery a traves de CDN-->
+        <!-- libreria jQuery a traves de CDN -->
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-
-        <!--link para aplicar CSS-->
-        <link rel="stylesheet" href="./css/style.css">
-
-        <!-- Development version -->
-        <!-- <script defer src="https://unpkg.com/@popperjs/core@2"></script> -->
-
+        
         <!--link para aplicar bootstrap-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+        <!--link para aplicar Libreria sweet alert por CDN-->
+        <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!--link para aplicar CSS-->
+        <link rel="stylesheet" href="./css/style.css">
 
         <!--link para aplicar JavaScript variables-->
         <script defer src="js/variables.js"></script>
@@ -31,11 +31,14 @@
         <!--link para aplicar JavaScript objetos y Arrays-->
         <script defer src="js/objetosArrays.js"></script>
 
-        <!--link para aplicar Libreria sweet alert por CDN-->
-        <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!--link para aplicar JavaScript maquetarDOM-->
+        <script defer src="js/maquetarDOM.js"></script>
 
-        <!--link para aplicar Libreria jquery por CDN-->
-        <script defer src="js/appjquery.js"></script>
+        <script defer src="js/funcionesBotonesLimpiar.js"></script>
+
+        <script defer src="js/algoritmoSelecGrupo.js"></script>
+
+        <script defer src="js/algoritmoSelecFase.js"></script>
 
         <!--link para aplicar JavaScript APIWeather-->
         <script defer src="js/APIWeather.js"></script>
@@ -79,16 +82,16 @@
         </div>
 
         <div class="card mx-1 mb-2 p-1">
-            <div class="d-flex justify-content-between align-items-center m-1 p-1 text-center">
+            <div class="d-flex m-1 p-1 text-center justify-content-center justify-content-sm-between align-items-center row row-cols-1 row-cols-sm-5">
                 <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com"></a>
-                <h6 class="card-content m-1 p-0" id="WeatherCity">Ciudad</h6>
-                <h6 class="card-content m-0 p-0" id="WeatherTemp">Temperatura °C</h6>
-                <img class="m-0 p-0" src="" id='imgWeatherIcon' alt="">
+                <h6 class="card-content m-1 p-1" id="WeatherCity">Ciudad</h6>
+                <h6 class="card-content m-1 p-1" id="WeatherTime">Actualización</h6>
+                <h6 class="card-content m-0 p-1" id="WeatherTemp">Temperatura °C</h6>
+                <img class="m-0 p-1" src="" id='imgWeatherIcon' alt="">
             </div>
         </div>
 
-
-        <!--Armado de maqueta con jquery-->
+        <!--Armado de maqueta-->
         <hr class="m-1 p-0">
 
         <div class="text-center m-0 p-1" id="scrollspyHeading1">
@@ -106,11 +109,11 @@
 
         <!--Grupos-->
         <div class="d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 m-2" 
-        id="jqueryContenedorGrupo">
+        id="ContenedorGrupo">
         </div>
 
         <div class="d-flex justify-content-center mb-3 p-0">
-            <button class="btn btn-info btnLimpiarGruposEnAdelante">
+            <button class="btn btn-info btnLimpiarGruposEnAdelante" data-toggle="btnLimpiarGrupoHover">
                 Limpiar
             </button>
         </div>
@@ -125,9 +128,9 @@
         <!--Seccion Octavos de Final-->
         <div class="text-center" id="scrollspyHeading2">
             <h4 class="m-1 p-0">OCTAVOS DE FINAL</h4>
-            <div class="d-flex row row-cols-2 m-1 p-1 jqueryOctavos">
-                <div class="m-0 p-0" id="jqueryContenedorOctavosIzq"></div>
-                <div class="m-0 p-0" id="jqueryContenedorOctavosDer"></div>
+            <div class="d-flex row row-cols-2 m-1 p-1 ContenedorOctavos">
+                <div class="m-0 p-0" id="ContenedorOctavosIzq"></div>
+                <div class="m-0 p-0" id="ContenedorOctavosDer"></div>
             </div>
         </div>
 
@@ -141,9 +144,9 @@
                     Limpiar
                 </button>
             </div>
-            <div class="d-flex row row-cols-2 m-1 p-1 jqueryCuartos">
-                <div class="m-0 p-0" id="jqueryContenedorCuartosIzq"></div>
-                <div class="m-0 p-0" id="jqueryContenedorCuartosDer"></div>
+            <div class="d-flex row row-cols-2 m-1 p-1 ContenedorCuartos">
+                <div class="m-0 p-0" id="ContenedorCuartosIzq"></div>
+                <div class="m-0 p-0" id="ContenedorCuartosDer"></div>
             </div>
         </div>
 
@@ -157,9 +160,9 @@
                     Limpiar
                 </button>
             </div>
-            <div class="d-flex row row-cols-2 m-1 p-1 jquerySemi">
-                <div class="m-0 p-0" id="jqueryContenedorSemiIzq"></div>
-                <div class="m-0 p-0" id="jqueryContenedorSemiDer"></div>
+            <div class="d-flex row row-cols-2 m-1 p-1 ContenedorSemi">
+                <div class="m-0 p-0" id="ContenedorSemiIzq"></div>
+                <div class="m-0 p-0" id="ContenedorSemiDer"></div>
             </div>
         </div>
 
@@ -168,9 +171,9 @@
         <!--Seccion Tercer Puesto-->
         <div class="text-center">
             <h4 class="m-1 p-0">TERCER PUESTO</h4>
-            <div class="d-flex row row-cols-2 m-1 p-1 jqueryTercer">
-                <div class="m-0 p-0" id="jqueryContenedorTercerIzq"></div>
-                <div class="m-0 p-0" id="jqueryContenedorTercerDer"></div>
+            <div class="d-flex row row-cols-2 m-1 p-1 ContenedorTercer">
+                <div class="m-0 p-0" id="ContenedorTercerIzq"></div>
+                <div class="m-0 p-0" id="ContenedorTercerDer"></div>
             </div>
         </div>
 
@@ -179,11 +182,17 @@
             <h3 class="my-2 p-2 text-white">FINAL</h3>
         </div>
 
+        <div class="d-flex justify-content-center m-2 p-0">
+            <button class="btn btn-info btnLimpiarFinal">
+                Limpiar
+            </button>
+        </div>
+
         <!--Seccion Final-->
         <div class="text-center">
-            <div class="d-flex row row-cols-2 m-1 p-1 jqueryFinal">
-                <div class="m-0 p-0" id="jqueryContenedorFinalIzq"></div>
-                <div class="m-0 p-0" id="jqueryContenedorFinalDer"></div>
+            <div class="d-flex row row-cols-2 m-1 p-1 ContenedorFinal">
+                <div class="m-0 p-0" id="ContenedorFinalIzq"></div>
+                <div class="m-0 p-0" id="ContenedorFinalDer"></div>
             </div>
         </div>
 
@@ -192,7 +201,7 @@
         <!--Seccion Campeon-->
         <div class="text-center">
             <h4 class="m-1 p-0">CAMPEON</h4>
-            <div class="m-1 p-1 jqueryCampeon">
+            <div class="m-1 p-1 ContenedorCampeon">
                 <div class="p-1 d-flex justify-content-center">
                     <button type="button" class="btn btn-success" id="Campeon">
                         <div class="d-flex justify-content-between align-items-center">

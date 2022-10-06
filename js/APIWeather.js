@@ -2,17 +2,22 @@ APIWeatherService = () => {
     fetch('https://api.weatherapi.com/v1/current.json?key=98b904deb7bb443b992141315220210&q=Qatar&aqi=no')
       .then((response) => response.json())
       .then((response) => {
-        imgWeather = response.current.condition.icon
-        $('#imgWeatherIcon').attr('src', response.current.condition.icon)
-        $('#imgWeatherIcon').show()
-        $('#WeatherCity').html(response.location.name)
-        $('#WeatherTemp').html(response.current.temp_c+' °C')
+        document.getElementById('imgWeatherIcon').src = response.current.condition.icon
+        document.getElementById('imgWeatherIcon').style.display = 'block'
+        document.getElementById('WeatherCity').innerHTML = response.location.name
+        document.getElementById('WeatherTemp').innerHTML = "Temp: "+response.current.temp_c+' °C'
+        var ultimaActualizacion = new Date(response.current.last_updated_epoch*1000)
+        document.getElementById('WeatherTime').innerHTML = 'Ultima Actualización: '+ultimaActualizacion.toLocaleTimeString()
       })
       .catch((err) => {
-        console.error("Error",err)
+        console.error("Error ",err)
       })
-  };
+};
 
+/**Llamada a funcion APIWeatherService*/
+APIWeatherService()
+
+/*Respuesta de WeatherAPI */
 /*Response Body */
 //   {
 //     "location": {
@@ -77,3 +82,18 @@ APIWeatherService = () => {
   //   "Date": "Sun, 02 Oct 2022 18:59:15 GMT",
   //   "Server": "BunnyCDN-FR-947"
   // }
+
+/*Fetch utilizando libreria jquery */
+//   APIWeatherService = () => {
+//     fetch('https://api.weatherapi.com/v1/current.json?key=98b904deb7bb443b992141315220210&q=Qatar&aqi=no')
+//       .then((response) => response.json())
+//       .then((response) => {
+//         $('#imgWeatherIcon').attr('src', response.current.condition.icon)
+//         $('#imgWeatherIcon').show()
+//         $('#WeatherCity').html(response.location.name)
+//         $('#WeatherTemp').html("Temp: "+response.current.temp_c+' °C')
+//       })
+//       .catch((err) => {
+//         console.error("Error ",err)
+//       })
+// };

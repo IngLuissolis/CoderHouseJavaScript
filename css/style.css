@@ -45,23 +45,27 @@ button * {
     pointer-events: none;
 }
 
-.jqueryGrupo li {
+.ContenedorGrupo li {
     border-radius: 0.3rem;
     border: 0.1rem solid rgb(201, 201, 201);
 }
 
-.jqueryGrupo li:hover {
+.ContenedorGrupo li:hover {
     background: rgb(146, 21, 73);
 }
 
-.jqueryGrupo li button {
+.ContenedorGrupo button:hover {
+    color: white;
+}
+
+.ContenedorGrupo li button {
     width: 100%;
     height: 100%;
     background: none;
     border: none;
 }
 
-.jqueryGrupo li img {
+.ContenedorGrupo li img {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
@@ -70,12 +74,12 @@ button * {
 }
 
 
-.jqueryGrupo li div {
+.ContenedorGrupo li div {
     border-radius: 0.3rem;
 } 
 
-.jqueryOctavos div button, .jqueryCuartos div button, .jquerySemi div button,
-.jqueryTercer div button, .jqueryFinal div button, .jqueryCampeon div button {
+.ContenedorOctavos div button, .ContenedorCuartos div button, .ContenedorSemi div button,
+.ContenedorTercer div button, .ContenedorFinal div button, .ContenedorCampeon div button {
     width: 10rem;
     height: 4rem;
     background: white;
@@ -83,13 +87,13 @@ button * {
     border: 0.1rem solid grey !important;
 }
 
-.jqueryOctavos div button:hover,  .jqueryCuartos div button:hover, .jquerySemi button:hover,
-.jqueryTercer button:hover, .jqueryFinal button:hover, .jqueryCampeon button:hover{
+.ContenedorOctavos div button:hover,  .ContenedorCuartos div button:hover, .ContenedorSemi button:hover,
+.ContenedorTercer button:hover, .ContenedorFinal button:hover, .ContenedorCampeon button:hover{
     background:rgb(146, 21, 73) !important;
 }
 
-.jqueryOctavos div button img, .jqueryCuartos div button img, .jquerySemi div button img,
-.jqueryTercer div button img, .jqueryFinal div button img, .jqueryCampeon div button img{
+.ContenedorOctavos div button img, .ContenedorCuartos div button img, .ContenedorSemi div button img,
+.ContenedorTercer div button img, .ContenedorFinal div button img, .ContenedorCampeon div button img{
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
@@ -142,4 +146,23 @@ button * {
     width: 3rem;
     border-radius: 50%;
     display: none;
+}
+
+/*Estilos popover*/
+.popover {
+    background: rgb(146, 21, 73);
+}
+
+.arrow {
+}
+
+.popoverHeader{
+    color: white;
+    font-size: 1rem;
+    padding: auto;
+    margin: 0.5rem;
+}
+
+.popoverBody {
+
 }
