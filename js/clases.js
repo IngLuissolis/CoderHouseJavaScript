@@ -1,5 +1,5 @@
-/*Clase Pais*/
-class Pais {
+/*Clase Elemento*/
+class Elemento {
     constructor(ID, imgBandera, nombre, posicionProximaFase, 
         perdedorPartido, perdedorSemi) {
         this.ID = ID

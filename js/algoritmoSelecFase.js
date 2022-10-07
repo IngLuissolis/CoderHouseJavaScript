@@ -1,3 +1,76 @@
+/*Funcion Escuchar click en Secciones Fase de Grupos (Octavos, Cuartos, ... , etc)*/
+/*Se pasan dos array como parametros*/
+/*un numero para saber en que fase estamos*/
+/*un string correspondiente al elemento contenedor en html*/
+/*Ejemplo EscucharClickFase(Octavos, Cuartos, 16, "ContenedorOctavos") */
+const EscucharClickFase = (faseActual,faseProxima, nroFaseActual,nombreFaseActual) => {
+  let contador = 0;
+
+  const botonesFase = document.querySelectorAll("." + nombreFaseActual + " button");
+
+  botonesFase.forEach((boton) => {
+    boton.addEventListener("click", (evento) => {
+      /*Variables que se utilizan para asegurarse que no esten mostrados paises en la correspondiente Fase*/
+      let banderaSemi = false;
+      let banderaFinal = false;
+      let banderaTercer = false;
+      let banderaCampeon = false;
+
+      switch (nombreFaseActual) {
+        case "ContenedorOctavos":
+          /*Se asegura que no tenga paises mostrados en Semi*/
+          banderaSemi = mostrandoBanderaFase(Semi);
+          banderaFinal = mostrandoBanderaFase(Final);
+          break;
+        case "ContenedorCuartos":
+          /*Se asegura que no tenga paises mostrados en Final*/
+          banderaFinal = mostrandoBanderaFase(Final);
+        case "ContenedorSemi":
+          /*Se asegura que no tenga paises ganadores en Campeon y Tercer Puesto*/
+          banderaCampeon = mostrandoBanderaFase(Campeon);
+          banderaTercer = mostrandoBanderaFase(Tercer);
+        default:
+          break;
+      }
+      /*Recorre array, Ejemplo: Octavos*/
+      faseActual.forEach((objeto) => {
+        /*Ingresa solo si todas objetos del array tienen variable nombre cargado */
+        /*Ejemplo: array Octavos tiene 16 objetos [A1, A2, ..., H2]*/
+        /*A su vez A1.nombre tiene que tener string != "" para ingresar a sentencia if */
+        if (objeto.nombre != "") {
+          contador++;
+        }
+      });
+      /*Ingresa a sentencia if si contador = 16 para ejemplo que venimos mostrando*/
+      if (contador == nroFaseActual) {
+        /*Ingresa a sentencia if si no hay paises mostrados en Secciones Campeon, Tercer, Final y Semi*/
+        if (banderaSemi === false && banderaFinal === false && banderaTercer === false && banderaCampeon === false) {
+          /*llamada a funcion donde se ejecuta la logica para seleccionar pais ganador */
+          /*Ejemplo: LogicaFase(Octavos, Cuartos, A1) */
+          LogicaFase(faseActual, faseProxima, evento.target.id);
+        } else if (banderaCampeon === true) {
+          desplegarVentanaAdvertencia("Final");
+        } else if (banderaFinal === true) {
+          desplegarVentanaAdvertencia("Final");
+        } else if (banderaTercer === true) {
+          desplegarVentanaAdvertencia("Tercer");
+        } else if (banderaSemi === true) {
+          desplegarVentanaAdvertencia("SemiFinales");
+        }
+      } else {
+        Swal.fire({
+          title: "Falta seleccionar Pais en Fase",
+          icon: "warning",
+          showConfirmButton: true,
+        });
+      }
+      evento.preventDefault();
+      contador = 0;
+    });
+  });
+};
+
+/*Funcion que paso objetos como parametros, Ejempo: LogicaFase(Octavos, Cuartos, A1) */
 const LogicaFase = (faseActual, faseProxima, PaisSeleccionado) => {
   faseActual.forEach((actual) => {
     if (actual.ID == PaisSeleccionado) {
@@ -53,79 +126,6 @@ const LogicaFase = (faseActual, faseProxima, PaisSeleccionado) => {
   });
 };
 
-/*Funcion Escuchar click en Secciones de Proxima Fase (Octavos, Cuartos, ... , etc)*/
-const EscucharClickFase = (
-  faseActual,
-  faseProxima,
-  nroFaseActual,
-  nombreFaseActual
-) => {
-  let contador = 0;
-
-  const botonesFase = document.querySelectorAll(
-    "." + nombreFaseActual + " button"
-  );
-
-  botonesFase.forEach((boton) => {
-    boton.addEventListener("click", (evento) => {
-      let banderaSemi = false;
-      let banderaFinal = false;
-      let banderaCampeon = false;
-      let banderaTercer = false;
-
-      switch (nombreFaseActual) {
-        case "ContenedorOctavos":
-          /*Se asegura que no tenga paises mostrados en Semi*/
-          banderaSemi = mostrandoBanderaFase(Semi);
-          banderaFinal = mostrandoBanderaFase(Final);
-          break;
-        case "ContenedorCuartos":
-          /*Se asegura que no tenga paises mostrados en Final*/
-          banderaFinal = mostrandoBanderaFase(Final);
-        case "ContenedorSemi":
-          /*Se asegura que no tenga paises ganadores en Campeon y Tercer Puesto*/
-          banderaCampeon = mostrandoBanderaFase(Campeon);
-          banderaTercer = mostrandoBanderaFase(Tercer);
-        default:
-          break;
-      }
-
-      faseActual.forEach((objeto) => {
-        /* */
-        if (objeto.nombre != "") {
-          contador++;
-        }
-      });
-      if (contador == nroFaseActual) {
-        if (
-          banderaSemi === false &&
-          banderaFinal === false &&
-          banderaTercer === false &&
-          banderaCampeon === false
-        ) {
-          LogicaFase(faseActual, faseProxima, evento.target.id);
-        } else if (banderaCampeon === true) {
-          desplegarVentanaAdvertencia("Final");
-        } else if (banderaFinal === true) {
-          desplegarVentanaAdvertencia("Final");
-        } else if (banderaTercer === true) {
-          desplegarVentanaAdvertencia("Tercer");
-        } else if (banderaSemi === true) {
-          desplegarVentanaAdvertencia("SemiFinales");
-        }
-      } else {
-        Swal.fire({
-          title: "Falta seleccionar Pais en Fase",
-          icon: "warning",
-          showConfirmButton: true,
-        });
-      }
-      evento.preventDefault();
-      contador = 0;
-    });
-  });
-};
-
 /*Muestra estrella en pais ganador  / Oculta estrella en pais perdedor de fase actual*/
 mostrarOcultarEstrella = (paisGanador, paisPerdedor) => {
   /*Muestra estrella en pais ganador de fase actual*/
@@ -144,6 +144,7 @@ mostrarTextoBandera = (paisID, paisNombre, paisImgBandera) => {
   document.getElementById("img" + paisID).src = paisImgBandera;
 };
 
+/*Llamada a funciones */
 EscucharClickFase(Octavos, Cuartos, 16, "ContenedorOctavos");
 EscucharClickFase(Cuartos, Semi, 8, "ContenedorCuartos");
 EscucharClickFase(Semi, Final, 4, "ContenedorSemi");

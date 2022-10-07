@@ -1,0 +1,209 @@
+[
+  {
+    "grupo": "A",
+    "nombre": "Grupo A",
+    "paises": [
+      { "ID": "Qatar",
+      "imgBandera": "./img/qatar.png",
+      "nombre": "Qatar"
+      },
+      {
+        "ID": "Ecuador",
+        "imgBandera": "./img/ecuador.png",
+        "nombre": "Ecuador"
+      },
+      {
+        "ID": "Senegal",
+        "imgBandera": "./img/senegal.png",
+        "nombre": "Senegal"
+      },
+      {
+        "ID": "PaisesBajos",
+        "imgBandera": "./img/netherlands.png",
+        "nombre": "Paises Bajos"
+      }
+    ]
+  },
+  {
+    "grupo": "B",
+    "nombre": "Grupo B",
+    "paises": [
+      {
+        "ID": "Inglaterra",
+        "imgBandera": "./img/england.png",
+        "nombre": "Inglaterra"
+      },
+      {
+        "ID": "Iran",
+        "imgBandera": "./img/iran.png",
+        "nombre": "Iran"
+      },
+      {
+        "ID": "EstadosUnidos",
+        "imgBandera": "./img/united-states.png",
+        "nombre": "Estados Unidos"
+      },
+      {
+        "ID": "Gales",
+        "imgBandera": "./img/wales.png",
+        "nombre": "Gales"
+      }
+    ]
+  },
+  {
+    "grupo": "C",
+    "nombre": "Grupo C",
+    "paises": [
+      {
+        "ID": "Argentina",
+        "imgBandera": "./img/argentina.png",
+        "nombre": "Argentina"
+      },
+      {
+        "ID": "ArabiaSaudita",
+        "imgBandera": "./img/saudi-arabia.png",
+        "nombre": "Arabia Saudita"
+      },
+      {
+        "ID": "Mexico",
+        "imgBandera": "./img/mexico.png",
+        "nombre": "Mexico"
+      },
+      {
+        "ID": "Polonia",
+        "imgBandera": "./img/poland.png",
+        "nombre": "Polonia"
+      }
+    ]
+  },
+  {
+    "grupo": "D",
+    "nombre": "Grupo D",
+    "paises": [
+      {
+        "ID": "Francia",
+        "imgBandera": "./img/france.png",
+        "nombre": "Francia"
+      },
+      {
+        "ID": "Australia",
+        "imgBandera": "./img/australia.png",
+        "nombre": "Australia"
+      },
+      {
+        "ID": "Dinamarca",
+        "imgBandera": "./img/denmark.png",
+        "nombre": "Dinamarca"
+      },
+      {
+        "ID": "Tunez",
+        "imgBandera": "./img/tunisia.png",
+        "nombre": "Tunez"
+      }
+    ]
+  },
+  {
+    "grupo": "E",
+    "nombre": "Grupo E",
+    "paises": [
+      {
+        "ID": "España",
+        "imgBandera": "./img/spain.png",
+        "nombre": "España"
+      },
+      {
+        "ID": "CostaRica",
+        "imgBandera": "./img/costa-rica.png",
+        "nombre": "Costa Rica"
+      },
+      {
+        "ID": "Alemania",
+        "imgBandera": "./img/germany.png",
+        "nombre": "Alemania"
+      },
+      {
+        "ID": "Japon",
+        "imgBandera": "./img/japan.png",
+        "nombre": "Japon"
+      }
+    ]
+  },
+  {
+    "grupo": "F",
+    "nombre": "Grupo F",
+    "paises": [
+      {
+        "ID": "Belgica",
+        "imgBandera": "./img/belgium.png",
+        "nombre": "Belgica"
+      },
+      {
+        "ID": "Canada",
+        "imgBandera": "./img/canada.png",
+        "nombre": "Canada"
+      },
+      {
+        "ID": "Marruecos",
+        "imgBandera": "./img/morocco.png",
+        "nombre": "Marruecos"
+      },
+      {
+        "ID": "Croacia",
+        "imgBandera": "./img/croatia.png",
+        "nombre": "Croacia"
+      }
+    ]
+  },
+  {
+    "grupo": "G",
+    "nombre": "Grupo G",
+    "paises": [
+      {
+        "ID": "Brasil",
+        "imgBandera": "./img/brazil-flag.png",
+        "nombre": "Brasil"
+      },
+      {
+        "ID": "Serbia",
+        "imgBandera": "./img/serbia.png",
+        "nombre": "Serbia"
+      },
+      {
+        "ID": "Suiza",
+        "imgBandera": "./img/switzerland.png",
+        "nombre": "Suiza"
+      },
+      {
+        "ID": "Camerun",
+        "imgBandera": "./img/cameroon.png",
+        "nombre": "Camerun"
+      }
+    ]
+  },
+  {
+    "grupo": "H",
+    "nombre": "Grupo H",
+    "paises": [
+      {
+        "ID": "Portugal",
+        "imgBandera": "./img/portugal.png",
+        "nombre": "Portugal"
+      },
+      {
+        "ID": "Ghana",
+        "imgBandera": "./img/ghana.png",
+        "nombre": "Ghana"
+      },
+      {
+        "ID": "Uruguay",
+        "imgBandera": "./img/uruguay.png",
+        "nombre": "Uruguay"
+      },
+      {
+        "ID": "CoreadelSur",
+        "imgBandera": "./img/south-korea.png",
+        "nombre": "Corea del Sur"
+      }
+    ]
+  }
+]

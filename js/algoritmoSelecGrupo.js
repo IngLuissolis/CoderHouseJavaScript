@@ -1,3 +1,36 @@
+/*Funcion Escuchar click en Seccion Fase de Grupos*/
+const EscucharClickGrupo = () => {
+  const botonesGrupo = document.querySelectorAll(".ContenedorGrupo button")
+
+  botonesGrupo.forEach((boton) => {
+    boton.addEventListener("click", (evento) => {
+      let banderaCuartos = false
+      let banderaSemi = false
+      let banderaFinal = false
+
+      console.log("click: ", evento.target.id);
+
+      /*Se asegura que no tenga paises mostrados en Cuartos*/
+      banderaCuartos = mostrandoBanderaFase(Cuartos);
+      /*Se asegura que no tenga paises mostrados en Semi*/
+      banderaSemi = mostrandoBanderaFase(Semi);
+      /*Se asegura que no tenga paises mostrados en Semi*/
+      banderaFinal = mostrandoBanderaFase(Final);
+
+      if (banderaCuartos === false && banderaSemi === false && banderaFinal === false) {
+        LogicaGrupo(evento.target.id);
+        evento.preventDefault();
+      } else if (banderaFinal === true) {
+        desplegarVentanaAdvertencia("Final")
+      } else if (banderaSemi === true) {
+        desplegarVentanaAdvertencia("SemiFinales");
+      } else if (banderaCuartos === true) {
+        desplegarVentanaAdvertencia("Cuartos");
+      }
+    })
+  })
+}
+
 const LogicaGrupo = (PaisSeleccionado) => {
   let posicion1aux;
   let posicion2aux;
@@ -7,6 +40,7 @@ const LogicaGrupo = (PaisSeleccionado) => {
       if (PaisSeleccionado == paisGrupo.ID) {
         Octavos.forEach((octavo) => {
           /*Guarda en variable auxiliar pais seleccionado */
+          // console.warn("nombreGrupo.grupo: ", nombreGrupo.grupo)
           if (octavo.ID.includes(nombreGrupo.grupo)) {
             if (octavo.ID.substr(1, 1) == 1) {
               posicion1aux = octavo;
@@ -121,41 +155,6 @@ desplegarVentanaAdvertencia = (fase) => {
           });
   }
 
-/*Funcion Escuchar click en Seccion Fase de Grupos */
-const EscucharClickGrupo = () => {
-  const botonesGrupo = document.querySelectorAll(".ContenedorGrupo button")
-
-  botonesGrupo.forEach((boton) => {
-    boton.addEventListener("click", (evento) => {
-      let banderaCuartos = false
-      let banderaSemi = false
-      let banderaFinal = false
-
-      console.log("click: ", evento.target.id);
-
-      /*Se asegura que no tenga paises mostrados en Cuartos*/
-      banderaCuartos = mostrandoBanderaFase(Cuartos);
-      /*Se asegura que no tenga paises mostrados en Semi*/
-      banderaSemi = mostrandoBanderaFase(Semi);
-      /*Se asegura que no tenga paises mostrados en Semi*/
-      banderaFinal = mostrandoBanderaFase(Final);
-
-      if (banderaCuartos === false && banderaSemi === false && banderaFinal === false) {
-        LogicaGrupo(evento.target.id);
-        evento.preventDefault();
-      } else if (banderaFinal === true) {
-        desplegarVentanaAdvertencia("Final")
-      } else if (banderaSemi === true) {
-        desplegarVentanaAdvertencia("SemiFinales");
-      } else if (banderaCuartos === true) {
-        desplegarVentanaAdvertencia("Cuartos");
-      }
-    })
-  })
-}
-
-EscucharClickGrupo()
-
 /*Extraer atributo de elemento html */
 extraerAtributo = (Fase) => {
   let atributo
@@ -164,3 +163,5 @@ extraerAtributo = (Fase) => {
     console.log("paisFase.ID: ", paisFase.ID," - Atributo obtenido: ", atributo)
   })
 }
+
+// EscucharClickGrupo()

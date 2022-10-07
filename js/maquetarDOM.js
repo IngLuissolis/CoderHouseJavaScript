@@ -1,33 +1,46 @@
 /*Maquetar grupos con nodos*/
 const maquetarGrupoDOM = () => {
 
-    grupoTodos.forEach((nombreGrupo) => {
+  grupoTodos.forEach((nombreGrupo) => {
 
-        let elementoDivGrupo = document.createElement("elementoDivGrupo")
-        let elementoNombreGrupo = document.createElement("elementoNombreGrupo")
-        let elementoPaisGrupo = document.createElement('elementoPaisGrupo')
+    let elementoDivGrupo = document.createElement("elementoDivGrupo");
+    let elementoNombreGrupo = document.createElement("elementoNombreGrupo");
+    let elementoPaisGrupo = document.createElement("elementoPaisGrupo");
 
-        /*Agrega clase ContenedorGrupo al elemento elementoDivGrupo */
-        elementoDivGrupo.classList.add('ContenedorGrupo')
+    /*Agrega clase ContenedorGrupo al elemento elementoDivGrupo */
+    elementoDivGrupo.classList.add("ContenedorGrupo");
 
-        /*Agrega elemento Nombre de Grupo, ejemplo "Grupo A" a la seccion fase de Grupos*/
-        elementoNombreGrupo.innerHTML = '<h5 class="text-center m-1 p-0">'+nombreGrupo.nombre+'</h5>'
+    /*Agrega elemento Nombre de Grupo, ejemplo "Grupo A" a la seccion fase de Grupos*/
+    elementoNombreGrupo.innerHTML =
+      '<h5 class="text-center m-1 p-0">' + nombreGrupo.nombre + "</h5>";
 
-        /*Recorre array Grupo, ejemplo GrupoA = [Qatar, Ecuador, Senegal, PaisesBajos]*/
-        /*Qatar es un objeto, Qatar = {ID: "Qatar", imgBandera: "./img/qatar.png", nombre: "Qatar"} */
-        nombreGrupo.paises.forEach((paisGrupo) =>{
-            const posicion = "posicionGrupo"+paisGrupo.ID
+    /*Recorre array Grupo, ejemplo GrupoA = [Qatar, Ecuador, Senegal, PaisesBajos]*/
+    /*Qatar es un objeto, Qatar = {ID: "Qatar", imgBandera: "./img/qatar.png", nombre: "Qatar"} */
+    nombreGrupo.paises.forEach((paisGrupo) => {
+      const posicion = "posicionGrupo" + paisGrupo.ID;
 
-            /*Agrega elementos Paises a grupo */
-            elementoPaisGrupo.innerHTML += '<li class="d-flex align-items-center m-1 p-1" id="li'+
-            paisGrupo.ID+'"><button class="d-flex justify-content-between align-items-center" id='+paisGrupo.ID+'><p class="m-0 p-1">'+
-            paisGrupo.nombre+'</p><img src='+paisGrupo.imgBandera+
-            ' class="me-3"></button><div id='+posicion+' class=" text-center m-1 p-1"></div></li>'
-        })
+      /*Agrega elementos Paises a grupo */
+      elementoPaisGrupo.innerHTML +=
+        '<li class="d-flex align-items-center m-1 p-1" id="li' +
+        paisGrupo.ID +
+        '"><button class="d-flex justify-content-between align-items-center" id=' +
+        paisGrupo.ID +
+        '><p class="m-0 p-1">' +
+        paisGrupo.nombre +
+        "</p><img src=" +
+        paisGrupo.imgBandera +
+        ' class="me-3"></button><div id=' +
+        posicion +
+        ' class=" text-center m-1 p-1"></div></li>';
+    });
 
-        /*Visualizacion de plantilla grupo */
-        document.getElementById("ContenedorGrupo").appendChild(elementoDivGrupo).appendChild(elementoNombreGrupo).appendChild(elementoPaisGrupo)
-    })
+    /*Visualizacion de plantilla grupo */
+    document
+      .getElementById("ContenedorGrupo")
+      .appendChild(elementoDivGrupo)
+      .appendChild(elementoNombreGrupo)
+      .appendChild(elementoPaisGrupo);
+  });
 }
 
 /*Mostrar Fase de Grupos Lado Izquierdo (A1, CuartosO1,..., FINAL 1) con nodos*/
@@ -73,7 +86,7 @@ const maquetaFaseGrupoDer = (contenedor, nodoDer) => {
 };
 
 /*Visualizacion de plantilla Grupos en MOD*/
-maquetarGrupoDOM()
+// maquetarGrupoDOM()
 
 /*Visualizacion de plantilla Fase de Grupos en MOD (Octavos, Cuartos, etc.)*/
 maquetaFaseGrupoIzq("ContenedorOctavosIzq",OctavosIzquierdo)
