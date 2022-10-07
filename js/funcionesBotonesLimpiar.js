@@ -50,13 +50,13 @@ btnLimpiarFinal.addEventListener("click", () => {
 const limpiarFase = (faseLimpiar) => {
   /*Recorre Array */
   faseLimpiar.forEach((fase) => {
-    fase.nombre = "";
-    fase.imgBandera = "";
+    fase.borrarElementoFase()
     /* */
     document.getElementById("img" + fase.ID).style.display = "none";
+    document.getElementById("img" + fase.ID).style.filter = "grayscale(0%)";
     document.getElementById("ganador" + fase.ID).style.display = "none";
     document.getElementById("text" + fase.ID).innerHTML = fase.ID;
-    document.getElementById("img" + fase.ID).style.filter = "grayscale(0%)";
+
   });
 };
 

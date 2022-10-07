@@ -114,7 +114,7 @@ const H2 = new Pais ("H2", "", "", "CuartosO4", "G1")
 const OctavosIzquierdo = [A1,C1,E1,G1,A2,C2,E2,G2]
 const OctavosDerecho = [B2,D2,F2,H2,B1,D1,F1,H1]
 
-/*Array que se recorre en funcion jqueryLogicaFase() */
+/*Array que se recorre en funcion LogicaFase() */
 const Octavos = [A1,A2,B1,B2,C1,C2,D1,D2,E1,E2,F1,F2,G1,G2,H1,H2]
 
 /*Objetos Cuartos*/
@@ -128,9 +128,11 @@ const CuartosO6 = new Pais ("CuartosO6", "", "", 'Semi3', 'CuartosO5')
 const CuartosO7 = new Pais ("CuartosO7", "", "", 'Semi4', 'CuartosO8')
 const CuartosO8 = new Pais ("CuartosO8", "", "", 'Semi4', 'CuartosO7')
 
+/*Array que se utiliza para armar plantilla en DOM*/
 const CuartosIzquierdo = [CuartosO1,CuartosO3,CuartosO5,CuartosO7]
 const CuartosDerecho = [CuartosO2,CuartosO4,CuartosO6,CuartosO8]
 
+/*Array que se recorre en funcion LogicaFase() */
 const Cuartos = [CuartosO1,CuartosO3,CuartosO5,CuartosO7,
     CuartosO2,CuartosO4,CuartosO6,CuartosO8]
 
@@ -140,6 +142,7 @@ const Semi2 = new Pais ("Semi2", "", "", "Final1", "Semi1", "Tercer1")
 const Semi3 = new Pais ("Semi3", "", "", "Final2", "Semi4", "Tercer2")
 const Semi4 = new Pais ("Semi4", "", "", "Final2", "Semi3", "Tercer2")
 
+/*Array que se utiliza para armar plantilla en DOM*/
 const SemiIzquierdo = [Semi1, Semi3]
 const SemiDerecho = [Semi2, Semi4]
 
@@ -164,6 +167,9 @@ const FinalDerecho = [Final2]
 
 const Final = [Final1, Final2]
 
+/*Objeto Campeon*/
+const ObjetoCampeon = new Pais ("Campeon", "", "", "Campeon")
+
 /*Array Campeon */
 
-const Campeon = [{ID: "Campeon", imgBandera: "", nombre: "", posicionProximaFase: "Campeon"}]
+const Campeon = [ObjetoCampeon]
