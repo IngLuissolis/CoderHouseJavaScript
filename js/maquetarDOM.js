@@ -1,4 +1,5 @@
 /*Maquetar grupos con nodos*/
+/*Dicha Funcion se llama en archivo APIPaises.js cuando se recibe respuesta de Base de datos Local (paises.json) */
 const maquetarGrupoDOM = () => {
 
   grupoTodos.forEach((nombreGrupo) => {
@@ -43,80 +44,64 @@ const maquetarGrupoDOM = () => {
   });
 }
 
-/*Mostrar Fase de Grupos Lado Izquierdo (A1, CuartosO1,..., FINAL 1) con nodos*/
-const maquetaFaseGrupoIzq = (contenedor, nodoIzq) => {
+/*Arma plantilla para Fase de Grupos separado por Seccion y en dos grupos de elementos*/
+const maquetaFaseGrupo = (contenedor, arrayFase) => {
+  let elemento = document.createElement("elemento")
   let elementoIzq = document.createElement("elementoIzq");
-
-  nodoIzq.forEach((Izq) => {
-    elementoIzq.innerHTML +=
-      '<div class="col d-flex justify-content-end p-1"><button type="button" class="btn btn-success" id=' +
-      Izq.ID +
-      '><div class="d-flex justify-content-between align-items-center"><div id="text' +
-      Izq.ID +
-      '">' +
-      Izq.ID +
-      '</div><img id="ganador' +
-      Izq.ID +
-      '" src="./img/star-fill.svg" alt="ganador""/><img id="img' +
-      Izq.ID +
-      '" src="" alt=""/></div></button></div>';
-  });
-  document.getElementById(contenedor).appendChild(elementoIzq);
-};
-
-/*Mostrar Fase de Grupos Lado Derecho (A2, CuartosO2,..., FINAL 2) con nodos*/
-const maquetaFaseGrupoDer = (contenedor, nodoDer) => {
   let elementoDer = document.createElement("elementoDer");
+  let numero = 1
+  let claseDiv =""
+  
+  arrayFase.forEach((elementoFase) => {
+    (numero % 2  == 0) ? 
+    (claseDiv = "start")     /*Par - Elementos Lado Derecha*/
+    : (claseDiv = "end")  /*Impar - Elementos Lado Izquierdo*/
 
-  nodoDer.forEach((Der) => {
-    elementoDer.innerHTML +=
-      '<div class="col d-flex justify-content-start p-1"><button type="button" class="btn btn-success" id=' +
-      Der.ID +
+    elemento =
+      '<div class="col d-flex justify-content-' +
+      claseDiv +
+      ' p-1"><button type="button" class="btn btn-success" id=' +
+      elementoFase.ID +
       '><div class="d-flex justify-content-between align-items-center"><div id="text' +
-      Der.ID +
+      elementoFase.ID +
       '">' +
-      Der.ID +
+      elementoFase.ID +
       '</div><img id="ganador' +
-      Der.ID +
+      elementoFase.ID +
       '" src="./img/star-fill.svg" alt="ganador""/><img id="img' +
-      Der.ID +
+      elementoFase.ID +
       '" src="" alt=""/></div></button></div>';
-  });
-  document.getElementById(contenedor).appendChild(elementoDer);
-};
 
-/*Visualizacion de plantilla Grupos en MOD*/
-// maquetarGrupoDOM()
+    (numero % 2  == 0) ? 
+    elementoDer.innerHTML += elemento     /*Par - Elementos Lado Derecha*/
+    : elementoIzq.innerHTML += elemento;  /*Impar - Elementos Lado Izquierdo*/
+
+    numero++;
+  })
+  document.getElementById(contenedor+"Izq").appendChild(elementoIzq);
+  document.getElementById(contenedor+"Der").appendChild(elementoDer);
+}
 
 /*Visualizacion de plantilla Fase de Grupos en MOD (Octavos, Cuartos, etc.)*/
-maquetaFaseGrupoIzq("ContenedorOctavosIzq",OctavosIzquierdo)
-maquetaFaseGrupoDer("ContenedorOctavosDer",OctavosDerecho)
-
-maquetaFaseGrupoIzq("ContenedorCuartosIzq",CuartosIzquierdo)
-maquetaFaseGrupoDer("ContenedorCuartosDer",CuartosDerecho)
-
-maquetaFaseGrupoIzq("ContenedorSemiIzq",SemiIzquierdo)
-maquetaFaseGrupoDer("ContenedorSemiDer",SemiDerecho)
-
-maquetaFaseGrupoIzq("ContenedorTercerIzq",TercerIzquierdo)
-maquetaFaseGrupoDer("ContenedorTercerDer",TercerDerecho)
-
-maquetaFaseGrupoIzq("ContenedorFinalIzq",FinalIzquierdo)
-maquetaFaseGrupoDer("ContenedorFinalDer",FinalDerecho)
-
-
+maquetaFaseGrupo("ContenedorOctavos",Octavos)
+maquetaFaseGrupo("ContenedorCuartos",Cuartos)
+maquetaFaseGrupo("ContenedorSemi",Semi)
+maquetaFaseGrupo("ContenedorTercer",Tercer)
+maquetaFaseGrupo("ContenedorFinal",Final)
 
 /*Funcion que oculta / muestra navbar*/
-var prevScrollPos = window.pageYOffset
+let prevScrollPos = window.pageYOffset
 
 window.onscroll = function () {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollPos > currentScrollPos) {
-    document.getElementById("navbarContenedor").style.top = "-60px";
-  } else {
-    document.getElementById("navbarContenedor").style.top = "0";
-    document.getElementById("navbarContenedor").style.opacity = "0.9";
-  }
+  let currentScrollPos = window.pageYOffset;
+
+  /*Usando operador Ternario - multiples acciones*/
+  (prevScrollPos > currentScrollPos) ? 
+  document.getElementById("navbarContenedor").style.top = "-60px" 
+  :
+    (document.getElementById("navbarContenedor").style.top = "0",
+      document.getElementById("navbarContenedor").style.opacity = "0.9"
+    )
   prevScrollPos = currentScrollPos;
 };
 

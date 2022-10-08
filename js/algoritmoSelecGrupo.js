@@ -149,7 +149,7 @@ const mostrarTextoBanderaOctavos = (octavo) => {
 /*Despliega ventana emergente de Advertencia */
 desplegarVentanaAdvertencia = (fase) => {
       Swal.fire({
-          title: "Paises Mostrados en "+fase+" \n Limpiar Fase "+fase,
+          title: "Paises Mostrados en "+fase,
           icon: "warning",
           showConfirmButton: true
           });

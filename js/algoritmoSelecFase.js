@@ -18,7 +18,7 @@ const EscucharClickFase = (faseActual,faseProxima, nroFaseActual,nombreFaseActua
 
       switch (nombreFaseActual) {
         case "ContenedorOctavos":
-          /*Se asegura que no tenga paises mostrados en Semi*/
+          /*Se asegura que no tenga paises mostrados en Semi, banderaSemi true o false */
           banderaSemi = mostrandoBanderaFase(Semi);
           banderaFinal = mostrandoBanderaFase(Final);
           break;
@@ -36,10 +36,8 @@ const EscucharClickFase = (faseActual,faseProxima, nroFaseActual,nombreFaseActua
       faseActual.forEach((objeto) => {
         /*Ingresa solo si todas objetos del array tienen variable nombre cargado */
         /*Ejemplo: array Octavos tiene 16 objetos [A1, A2, ..., H2]*/
-        /*A su vez A1.nombre tiene que tener string != "" para ingresar a sentencia if */
-        if (objeto.nombre != "") {
-          contador++;
-        }
+        /*A su vez A1.nombre tiene que tener string != "" para incrementar contador, para Octavos contador = 16 */
+        objeto.nombre != "" ? contador++ : null
       });
       /*Ingresa a sentencia if si contador = 16 para ejemplo que venimos mostrando*/
       if (contador == nroFaseActual) {
