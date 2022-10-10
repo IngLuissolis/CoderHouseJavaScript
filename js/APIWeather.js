@@ -4,10 +4,11 @@ APIWeatherService = () => {
       .then((response) => {
         document.getElementById('imgWeatherIcon').src = response.current.condition.icon
         document.getElementById('imgWeatherIcon').style.display = 'block'
-        document.getElementById('WeatherCity').innerHTML = response.location.name
+        document.getElementById('WeatherCity').innerHTML = response.location.name+' - '+response.location.country
         document.getElementById('WeatherTemp').innerHTML = "Temp: "+response.current.temp_c+' °C'
         var ultimaActualizacion = new Date(response.current.last_updated_epoch*1000)
-        document.getElementById('WeatherTime').innerHTML = 'Ultima Actualización: '+ultimaActualizacion.toLocaleTimeString()
+        // document.getElementById('WeatherTime').innerHTML = 'Ultima Actualización: '+ultimaActualizacion.toLocaleTimeString()
+        document.getElementById('WeatherTime').innerHTML = 'Ultima Actualización: '+ultimaActualizacion.getHours()+':'+ultimaActualizacion.getMinutes()
       })
       .catch((err) => {
         console.error("Error ",err)

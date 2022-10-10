@@ -50,6 +50,7 @@ btnLimpiarFinal.addEventListener("click", () => {
 const limpiarFase = (faseLimpiar) => {
   /*Recorre Array */
   faseLimpiar.forEach((fase) => {
+    //Se utiliza metodo de clase Elemento para borrar propiedades nombre e imgBandera
     fase.borrarElementoFase()
     /* */
     document.getElementById("img" + fase.ID).style.display = "none";

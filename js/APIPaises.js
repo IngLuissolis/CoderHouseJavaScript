@@ -1,9 +1,7 @@
 const grupoTodos = []
 
 const API_PAISES_fetch = () => {
-  fetch("/BBDD/paises.json").then((response) => {
-    response
-      .json()
+  fetch("/BBDD/paises.json").then((response) => {response.json()
       .then((data) => {
         grupoTodos.push(...data);
         console.log("Respuesta base de datos Local");

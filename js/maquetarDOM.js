@@ -4,9 +4,9 @@ const maquetarGrupoDOM = () => {
 
   grupoTodos.forEach((nombreGrupo) => {
 
-    let elementoDivGrupo = document.createElement("elementoDivGrupo");
-    let elementoNombreGrupo = document.createElement("elementoNombreGrupo");
-    let elementoPaisGrupo = document.createElement("elementoPaisGrupo");
+    let elementoDivGrupo = document.createElement("elementoDivGrupo"),
+      elementoNombreGrupo = document.createElement("elementoNombreGrupo"),
+      elementoPaisGrupo = document.createElement("elementoPaisGrupo");
 
     /*Agrega clase ContenedorGrupo al elemento elementoDivGrupo */
     elementoDivGrupo.classList.add("ContenedorGrupo");
@@ -46,9 +46,9 @@ const maquetarGrupoDOM = () => {
 
 /*Arma plantilla para Fase de Grupos separado por Seccion y en dos grupos de elementos*/
 const maquetaFaseGrupo = (contenedor, arrayFase) => {
-  let elemento = document.createElement("elemento")
-  let elementoIzq = document.createElement("elementoIzq");
-  let elementoDer = document.createElement("elementoDer");
+  let elemento = document.createElement("elemento"),
+    elementoIzq = document.createElement("elementoIzq"),
+    elementoDer = document.createElement("elementoDer");
   let numero = 1
   let claseDiv =""
   

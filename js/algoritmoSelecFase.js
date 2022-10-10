@@ -5,16 +5,13 @@
 /*Ejemplo EscucharClickFase(Octavos, Cuartos, 16, "ContenedorOctavos") */
 const EscucharClickFase = (faseActual,faseProxima, nroFaseActual,nombreFaseActual) => {
   let contador = 0;
+  /*Variables que se utilizan para asegurarse que no esten mostrados paises en la correspondiente Fase*/
+  let banderaSemi = false , banderaFinal = false, banderaTercer = false, banderaCampeon = false;
 
   const botonesFase = document.querySelectorAll("." + nombreFaseActual + " button");
 
   botonesFase.forEach((boton) => {
     boton.addEventListener("click", (evento) => {
-      /*Variables que se utilizan para asegurarse que no esten mostrados paises en la correspondiente Fase*/
-      let banderaSemi = false;
-      let banderaFinal = false;
-      let banderaTercer = false;
-      let banderaCampeon = false;
 
       switch (nombreFaseActual) {
         case "ContenedorOctavos":
@@ -40,7 +37,7 @@ const EscucharClickFase = (faseActual,faseProxima, nroFaseActual,nombreFaseActua
         objeto.nombre != "" ? contador++ : null
       });
       /*Ingresa a sentencia if si contador = 16 para ejemplo que venimos mostrando*/
-      if (contador == nroFaseActual) {
+      if (contador === nroFaseActual) {
         /*Ingresa a sentencia if si no hay paises mostrados en Secciones Campeon, Tercer, Final y Semi*/
         if (banderaSemi === false && banderaFinal === false && banderaTercer === false && banderaCampeon === false) {
           /*llamada a funcion donde se ejecuta la logica para seleccionar pais ganador */
@@ -70,21 +67,26 @@ const EscucharClickFase = (faseActual,faseProxima, nroFaseActual,nombreFaseActua
 
 /*Funcion que paso objetos como parametros, Ejempo: LogicaFase(Octavos, Cuartos, A1) */
 const LogicaFase = (faseActual, faseProxima, PaisSeleccionado) => {
+  //Recorre Array Octavos = [A1, B2,..., ,G2, H1]
   faseActual.forEach((actual) => {
-    if (actual.ID == PaisSeleccionado) {
+    //Ingresa a if si A1.ID = "A1" === "A1" (evento.target.id)
+    if (actual.ID === PaisSeleccionado) {
       console.log("click: ", actual.ID);
-
-      if (faseProxima != "") {
+      //Ingresa solo si se hace click en ganador de Tercer Puesto - EscucharClickFase(Tercer, "", 2, "ContenedorTercer")
+      if (faseProxima === "") {
+        mostrarOcultarEstrella(actual.ID, actual.perdedorPartido);
+      } else {
+        //Recorre Array Cuartos = [CuartosO1, CuartosO2, ...,CuartosO8]
         faseProxima.forEach((proxima) => {
-          if (proxima.ID == actual.posicionProximaFase) {
-            /*guarda pais seleccionado en variable de proxima fase */
+          //Ingresa a if si CuartosO1.ID = "CuartosO1" === Octavos.posicionProximaFase ("CuartosO1")
+          if (proxima.ID === actual.posicionProximaFase) {
+            //guarda nombre e imgBandera en variable de proxima fase 
             proxima.nombre = actual.nombre;
             proxima.imgBandera = actual.imgBandera;
             /*Muestra estrella en pais ganador / Oculta estrella en pais perdedor de fase actual*/
             mostrarOcultarEstrella(actual.ID, actual.perdedorPartido);
             /*Muestra pais ganador (nombre y bandera) en proxima fase*/
             mostrarTextoBandera(proxima.ID, proxima.nombre, proxima.imgBandera);
-
             /*Muestra pais perdedor en seccion Tercer Puesto*/
             if (actual.perdedorSemi != "") {
               Semi.forEach((semi) => {
@@ -97,12 +99,17 @@ const LogicaFase = (faseActual, faseProxima, PaisSeleccionado) => {
                     }
                   });
                   /* */
-                  mostrarTextoBandera(actual.perdedorSemi,semi.nombre,semi.imgBandera);
+                  mostrarTextoBandera(
+                    actual.perdedorSemi,
+                    semi.nombre,
+                    semi.imgBandera
+                  );
                 }
               });
             }
             /*Muestra estrella solo para seccion Campeon */
             if (proxima.ID === "Campeon") {
+              guardarCampeonLocalStorage(proxima.nombre);
               document.getElementById("ganador" + proxima.ID).style.display =
                 "block";
               Swal.fire({
@@ -113,18 +120,15 @@ const LogicaFase = (faseActual, faseProxima, PaisSeleccionado) => {
                 imageWidth: "90%",
                 showConfirmButton: true,
               });
-            }
-          }
+            };
+          };
         });
-      } else {
-        /*Muestra estrella en pais ganador / Oculta estrella en pais perdedor de seccion Tercer Puesto*/
-        mostrarOcultarEstrella(actual.ID, actual.perdedorPartido);
-      }
-    }
+      };
+    };
   });
 };
 
-/*Muestra estrella en pais ganador  / Oculta estrella en pais perdedor de fase actual*/
+/*Muestra estrella en pais ganador / Oculta estrella en pais perdedor de fase actual*/
 mostrarOcultarEstrella = (paisGanador, paisPerdedor) => {
   /*Muestra estrella en pais ganador de fase actual*/
   document.getElementById("ganador" + paisGanador).style.display = "block";
@@ -142,9 +146,15 @@ mostrarTextoBandera = (paisID, paisNombre, paisImgBandera) => {
   document.getElementById("img" + paisID).src = paisImgBandera;
 };
 
-/*Llamada a funciones */
+/*Llamada a funciones de correspondiente Fase de grupos*/
 EscucharClickFase(Octavos, Cuartos, 16, "ContenedorOctavos");
 EscucharClickFase(Cuartos, Semi, 8, "ContenedorCuartos");
 EscucharClickFase(Semi, Final, 4, "ContenedorSemi");
 EscucharClickFase(Tercer, "", 2, "ContenedorTercer");
 EscucharClickFase(Final, Campeon, 2, "ContenedorFinal")
+
+guardarCampeonLocalStorage = (ObjetoCampeon) => {
+  const CampeonJSON = JSON.stringify(ObjetoCampeon);
+
+  localStorage.setItem("Campeon", CampeonJSON);
+}

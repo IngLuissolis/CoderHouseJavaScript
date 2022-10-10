@@ -1,3 +1,22 @@
+/* body {
+	background: linear-gradient(-45deg, #ee52c7, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 700%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} */
+
 *{
     padding: 0;
     margin: 0;
@@ -8,7 +27,7 @@ h1, h3 {
     background-image: url("../img/fondo-titulo-secundario.jpg");
 }
 
-#resultado {
+#resultado, #contenedorWeather {
     background-image: url("../img/fondo-titulo-secundario.jpg");
     border-radius: 0.3rem;
 }
@@ -47,7 +66,7 @@ button * {
 
 .ContenedorGrupo li {
     border-radius: 0.3rem;
-    border: 0.1rem solid rgb(201, 201, 201);
+    border: 0.1rem solid rgb(146, 21, 73);
 }
 
 .ContenedorGrupo li:hover {
@@ -82,9 +101,9 @@ button * {
 .ContenedorTercer div button, .ContenedorFinal div button, .ContenedorCampeon div button {
     width: 10rem;
     height: 4rem;
-    background: white;
+    background: none;
     color: black;
-    border: 0.1rem solid grey !important;
+    border: 0.1rem solid rgb(146, 21, 73) !important;
 }
 
 .ContenedorOctavos div button:hover,  .ContenedorCuartos div button:hover, .ContenedorSemi button:hover,

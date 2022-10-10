@@ -4,9 +4,9 @@ const EscucharClickGrupo = () => {
 
   botonesGrupo.forEach((boton) => {
     boton.addEventListener("click", (evento) => {
-      let banderaCuartos = false
-      let banderaSemi = false
-      let banderaFinal = false
+      let banderaCuartos = false,
+        banderaSemi = false,
+        banderaFinal = false;
 
       console.log("click: ", evento.target.id);
 
@@ -32,8 +32,7 @@ const EscucharClickGrupo = () => {
 }
 
 const LogicaGrupo = (PaisSeleccionado) => {
-  let posicion1aux;
-  let posicion2aux;
+  let posicion1aux, posicion2aux;
   /*Recorre array grupoTodos */
   grupoTodos.forEach((nombreGrupo) => {
     nombreGrupo.paises.forEach((paisGrupo) => {
@@ -68,21 +67,21 @@ const LogicaGrupo = (PaisSeleccionado) => {
           /*Mostrar posicion 2 en Seccion Grupos */
           mostrarPosicionGrupo(paisGrupo.ID, 2);
         } else if (posicion1aux.nombre === paisGrupo.nombre) {
+          /*Setea posicion 1 en seccion Grupos */
           posicion1aux.nombre = "";
           posicion1aux.imgBandera = "";
-          /*Setea posicion 1 en seccion Grupos */
           document.getElementById(
             "posicionGrupo" + paisGrupo.ID
           ).style.display = "none";
         } else if (posicion2aux.nombre === paisGrupo.nombre) {
+          /*Setea posicion 2 en seccion Grupos */
           posicion2aux.nombre = "";
           posicion2aux.imgBandera = "";
-          /*Setea posicion 2 en seccion Grupos */
           document.getElementById(
             "posicionGrupo" + paisGrupo.ID
           ).style.display = "none";
         }
-        /*guarda en A1 y A2 posicion1aux y A2 posicion2aux respectivamente*/
+        /*guarda en A1, A2 en posicion1aux y posicion2aux respectivamente*/
         Octavos.forEach((octavo) => {
           if (octavo.ID.includes(nombreGrupo.grupo)) {
             if (octavo.ID.substr(1, 1) == 1) {
@@ -99,7 +98,6 @@ const LogicaGrupo = (PaisSeleccionado) => {
       }
     });
   });
-  console.log("------------------");
 };
 
 const mostrarPosicionGrupo = (pais, posicion) => {
@@ -124,27 +122,28 @@ const mostrarTextoBanderaOctavos = (octavo) => {
 };
 
 /*Consulta si hay paises mostrados en la Fase, Ejemplo: Cuartos */
- mostrandoBanderaFase = (Fase) => {
-      let bandera = false
-      let atributo
-      Fase.forEach((paisFase) => {
-          /*ingresa a if solo para fase Tercer Puesto */
-          if(paisFase.ID.includes('Tercer') ){
-            atributo = document.getElementById('ganador'+paisFase.ID).style.display
-            /*Ingresa a if si esta seleccionado ganador de Tercer Puesto */
-            /*- img estrella esta visible a traves del atributo block*/
-            if(atributo === 'block'){
-              bandera = true
-              return false
-            }
-          } else if (paisFase.nombre != '') {
-            bandera = true
-            return false
-          }
-      })
+mostrandoBanderaFase = (Fase) => {
+  let bandera = false,
+    atributo;
 
-      return bandera
-  }
+  Fase.forEach((paisFase) => {
+    /*ingresa a if solo para fase Tercer Puesto */
+    if (paisFase.ID.includes("Tercer")) {
+      atributo = document.getElementById("ganador" + paisFase.ID).style.display;
+      /*Ingresa a if si esta seleccionado ganador de Tercer Puesto */
+      /*- img estrella esta visible a traves del atributo block*/
+      if (atributo === "block") {
+        bandera = true;
+        return false;
+      }
+    } else if (paisFase.nombre != "") {
+      bandera = true;
+      return false;
+    }
+  });
+
+  return bandera;
+};
 
 /*Despliega ventana emergente de Advertencia */
 desplegarVentanaAdvertencia = (fase) => {
@@ -163,5 +162,3 @@ extraerAtributo = (Fase) => {
     console.log("paisFase.ID: ", paisFase.ID," - Atributo obtenido: ", atributo)
   })
 }
-
-// EscucharClickGrupo()
