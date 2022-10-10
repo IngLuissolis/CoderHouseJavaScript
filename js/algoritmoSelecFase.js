@@ -81,8 +81,7 @@ const LogicaFase = (faseActual, faseProxima, PaisSeleccionado) => {
           //Ingresa a if si CuartosO1.ID = "CuartosO1" === Octavos.posicionProximaFase ("CuartosO1")
           if (proxima.ID === actual.posicionProximaFase) {
             //guarda nombre e imgBandera en variable de proxima fase 
-            proxima.nombre = actual.nombre;
-            proxima.imgBandera = actual.imgBandera;
+            [proxima.nombre, proxima.imgBandera] = [actual.nombre, actual.imgBandera]
             /*Muestra estrella en pais ganador / Oculta estrella en pais perdedor de fase actual*/
             mostrarOcultarEstrella(actual.ID, actual.perdedorPartido);
             /*Muestra pais ganador (nombre y bandera) en proxima fase*/
@@ -94,8 +93,7 @@ const LogicaFase = (faseActual, faseProxima, PaisSeleccionado) => {
                   /*guarda Semi Perdedor en Tercer Puesto */
                   Tercer.forEach((tercer) => {
                     if (tercer.ID === actual.perdedorSemi) {
-                      tercer.nombre = semi.nombre;
-                      tercer.imgBandera = semi.imgBandera;
+                      [tercer.nombre, tercer.imgBandera] = [semi.nombre, semi.imgBandera]
                     }
                   });
                   /* */
