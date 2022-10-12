@@ -1,22 +1,60 @@
 APIWeatherService = () => {
-    fetch('https://api.weatherapi.com/v1/current.json?key=98b904deb7bb443b992141315220210&q=Qatar&aqi=no')
-      .then((response) => response.json())
-      .then((response) => {
-        document.getElementById('imgWeatherIcon').src = response.current.condition.icon
-        document.getElementById('imgWeatherIcon').style.display = 'block'
-        document.getElementById('WeatherCity').innerHTML = response.location.name+' - '+response.location.country
-        document.getElementById('WeatherTemp').innerHTML = "Temp: "+response.current.temp_c+' °C'
-        var ultimaActualizacion = new Date(response.current.last_updated_epoch*1000)
-        // document.getElementById('WeatherTime').innerHTML = 'Ultima Actualización: '+ultimaActualizacion.toLocaleTimeString()
-        document.getElementById('WeatherTime').innerHTML = 'Ultima Actualización: '+ultimaActualizacion.getHours()+':'+ultimaActualizacion.getMinutes()
-      })
-      .catch((err) => {
-        console.error("Error ",err)
-      })
+  try {
+    fetch(
+        "https://api.weatherapi.com/v1/current.json?key=61f6247d9bcf4ae7977184255221210&q=Qatar&aqi=no"
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          document.getElementById("imgWeatherIcon").src =
+            response.current.condition.icon;
+          document.getElementById("imgWeatherIcon").style.display = "block";
+          document.getElementById("WeatherCity").innerHTML =
+            response.location.name + " - " + response.location.country;
+          document.getElementById("WeatherTemp").innerHTML =
+            "Temp: " + response.current.temp_c + " °C";
+          var ultimaActualizacion = new Date(
+            response.current.last_updated_epoch * 1000
+          );
+          document.getElementById("WeatherTime").innerHTML =
+            "Ultima Actualización: " +
+            ultimaActualizacion.getHours() +
+            ":" +
+            String(ultimaActualizacion.getMinutes()).padStart(2, "0");
+        })
+    console.log("Respuesta OK WeatherAPI")
+    
+  } catch (error) {
+    console.error("Error: ", error);
+  }
 };
+  // fetch(
+  //   "https://api.weatherapi.com/v1/current.json?key=61f6247d9bcf4ae7977184255221210&q=Qatar&aqi=no"
+  // )
+  //   .then((response) => response.json())
+  //   .then((response) => {
+  //     document.getElementById("imgWeatherIcon").src =
+  //       response.current.condition.icon;
+  //     document.getElementById("imgWeatherIcon").style.display = "block";
+  //     document.getElementById("WeatherCity").innerHTML =
+  //       response.location.name + " - " + response.location.country;
+  //     document.getElementById("WeatherTemp").innerHTML =
+  //       "Temp: " + response.current.temp_c + " °C";
+  //     var ultimaActualizacion = new Date(
+  //       response.current.last_updated_epoch * 1000
+  //     );
+  //     document.getElementById("WeatherTime").innerHTML =
+  //       "Ultima Actualización: " +
+  //       ultimaActualizacion.getHours() +
+  //       ":" +
+  //       String(ultimaActualizacion.getMinutes()).padStart(2, "0");
+  //   })
+  //   .catch((err) => {
+  //     console.error("Error ", err);
+  //   });
+// };
 
 /**Llamada a funcion APIWeatherService*/
-APIWeatherService()
+APIWeatherService();
 
 /*Respuesta de WeatherAPI */
 /*Response Body */
@@ -63,26 +101,26 @@ APIWeatherService()
 // }
 
 /*Response Headers */
-  // {
-  //   "Transfer-Encoding": "chunked",
-  //   "Connection": "keep-alive",
-  //   "Vary": "Accept-Encoding",
-  //   "CDN-PullZone": "93447",
-  //   "CDN-Uid": "8fa3a04a-75d9-4707-8056-b7b33c8ac7fe",
-  //   "CDN-RequestCountryCode": "GB",
-  //   "CDN-ProxyVer": "1.02",
-  //   "CDN-RequestPullSuccess": "True",
-  //   "CDN-RequestPullCode": "200",
-  //   "CDN-CachedAt": "10/02/2022 18:59:15",
-  //   "CDN-EdgeStorageId": "947",
-  //   "CDN-Status": "200",
-  //   "CDN-RequestId": "0bb10ab9b569c432ba709752c37f52af",
-  //   "CDN-Cache": "EXPIRED",
-  //   "Cache-Control": "public, max-age=180",
-  //   "Content-Type": "application/json",
-  //   "Date": "Sun, 02 Oct 2022 18:59:15 GMT",
-  //   "Server": "BunnyCDN-FR-947"
-  // }
+// {
+//   "Transfer-Encoding": "chunked",
+//   "Connection": "keep-alive",
+//   "Vary": "Accept-Encoding",
+//   "CDN-PullZone": "93447",
+//   "CDN-Uid": "8fa3a04a-75d9-4707-8056-b7b33c8ac7fe",
+//   "CDN-RequestCountryCode": "GB",
+//   "CDN-ProxyVer": "1.02",
+//   "CDN-RequestPullSuccess": "True",
+//   "CDN-RequestPullCode": "200",
+//   "CDN-CachedAt": "10/02/2022 18:59:15",
+//   "CDN-EdgeStorageId": "947",
+//   "CDN-Status": "200",
+//   "CDN-RequestId": "0bb10ab9b569c432ba709752c37f52af",
+//   "CDN-Cache": "EXPIRED",
+//   "Cache-Control": "public, max-age=180",
+//   "Content-Type": "application/json",
+//   "Date": "Sun, 02 Oct 2022 18:59:15 GMT",
+//   "Server": "BunnyCDN-FR-947"
+// }
 
 /*Fetch utilizando libreria jquery */
 //   APIWeatherService = () => {

@@ -31,6 +31,7 @@ const EscucharClickGrupo = () => {
   })
 }
 
+/*Algoritmo para seleccionar 1er y 2do lugar en Fase de Grupos */
 const LogicaGrupo = (PaisSeleccionado) => {
   let posicion1aux, posicion2aux;
   /*Recorre array grupoTodos */
@@ -41,11 +42,9 @@ const LogicaGrupo = (PaisSeleccionado) => {
           /*Guarda en variable auxiliar pais seleccionado */
           // console.warn("nombreGrupo.grupo: ", nombreGrupo.grupo)
           if (octavo.ID.includes(nombreGrupo.grupo)) {
-            if (octavo.ID.substr(1, 1) == 1) {
-              posicion1aux = octavo;
-            } else {
-              posicion2aux = octavo;
-            }
+            octavo.ID.substr(1, 1) == 1
+              ? (posicion1aux = octavo)
+              : (posicion2aux = octavo);
           }
         });
         /*Algoritmo para seleccionar 1ra y 2da posicion en fase de grupos*/
@@ -53,7 +52,10 @@ const LogicaGrupo = (PaisSeleccionado) => {
           posicion1aux.nombre === "" &&
           posicion2aux.nombre != paisGrupo.nombre
         ) {
-          [posicion1aux.nombre, posicion1aux.imgBandera] = [paisGrupo.nombre, paisGrupo.imgBandera]
+          [posicion1aux.nombre, posicion1aux.imgBandera] = [
+            paisGrupo.nombre,
+            paisGrupo.imgBandera,
+          ];
           /*Mostrar posicion 1 en Seccion Grupos */
           mostrarPosicionGrupo(paisGrupo.ID, 1);
         } else if (
@@ -61,35 +63,33 @@ const LogicaGrupo = (PaisSeleccionado) => {
           posicion2aux.nombre == "" &&
           posicion1aux.nombre != paisGrupo.nombre
         ) {
-          [posicion2aux.nombre, posicion2aux.imgBandera] = [paisGrupo.nombre, paisGrupo.imgBandera]
+          [posicion2aux.nombre, posicion2aux.imgBandera] = [
+            paisGrupo.nombre,
+            paisGrupo.imgBandera,
+          ];
           /*Mostrar posicion 2 en Seccion Grupos */
           mostrarPosicionGrupo(paisGrupo.ID, 2);
         } else if (posicion1aux.nombre === paisGrupo.nombre) {
           /*Setea posicion 1 en seccion Grupos */
-          [posicion1aux.nombre, posicion1aux.imgBandera] = ["", ""]
+          [posicion1aux.nombre, posicion1aux.imgBandera] = ["", ""];
           document.getElementById(
             "posicionGrupo" + paisGrupo.ID
           ).style.display = "none";
         } else if (posicion2aux.nombre === paisGrupo.nombre) {
           /*Setea posicion 2 en seccion Grupos */
-          [posicion2aux.nombre, posicion2aux.imgBandera] = ["", ""]
+          [posicion2aux.nombre, posicion2aux.imgBandera] = ["", ""];
           document.getElementById(
             "posicionGrupo" + paisGrupo.ID
           ).style.display = "none";
         }
         /*guarda en A1, A2 en posicion1aux y posicion2aux respectivamente*/
         Octavos.forEach((octavo) => {
-          if (octavo.ID.includes(nombreGrupo.grupo)) {
-            if (octavo.ID.substr(1, 1) == 1) {
-              //Ingresa si es A1
-              octavo = posicion1aux;
-              mostrarTextoBanderaOctavos(octavo);
-            } else {
-              //Ingresa si es A2
-              octavo = posicion2aux;
-              mostrarTextoBanderaOctavos(octavo);
-            }
-          }
+          (octavo.ID === posicion1aux.ID) ?
+          //Ingresa si es A1
+          (octavo = posicion1aux) :
+          //Ingresa si es A2
+           (octavo = posicion2aux);
+          mostrarTextoBanderaOctavos(octavo);
         });
       }
     });

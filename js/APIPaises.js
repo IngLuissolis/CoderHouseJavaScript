@@ -1,30 +1,37 @@
 const grupoTodos = []
 
 const API_PAISES_fetch = () => {
-  fetch("/BBDD/paises.json").then((response) => {response.json()
-      .then((data) => {
-        grupoTodos.push(...data);
-        console.log("Respuesta base de datos Local");
+  try {
+    fetch('/BBDD/paises.json').then((response) => {
+      response.json().then((pais) => {
+        grupoTodos.push(...pais);
+        console.log("Respuesta OK base de datos Local");
         /*Visualizacion de plantilla Grupos en MOD luego de respuesta base de datos*/
         maquetarGrupoDOM();
         EscucharClickGrupo();
       })
-      .catch((err) => {
-        console.error("Error ", err);
-      });
-  });
-};
+  })
+  } catch (error) {
+    console.error("Error: ", error);
+  }
+}
 
 API_PAISES_fetch()
 
-/*ASINC - AWAIT */
+// /*ASINC - AWAIT */
 // const API_PAISES = async () => {
-//   const respuesta = await fetch("/BBDD/paises.json");
-//   const data = await respuesta.json();
-//   grupoTodos.push(...pais);
-//   /*Visualizacion de plantilla Grupos en MOD luego de respuesta base de datos*/
-//   maquetarGrupoDOM()
-//   EscucharClickGrupo()
+//   try {
+//     const respuesta = await fetch("/BBDD/paises.json");
+//     const pais = await respuesta.json();
+//     grupoTodos.push(...pais);
+//     console.log("Respuesta base de datos Local");
+//     /*Visualizacion de plantilla Grupos en MOD luego de respuesta base de datos*/
+//     maquetarGrupoDOM()
+//     EscucharClickGrupo()
+//   } catch (error) {
+//     console.error("Error: ", error);
+//   }
+  
 // };
 
 // API_PAISES()

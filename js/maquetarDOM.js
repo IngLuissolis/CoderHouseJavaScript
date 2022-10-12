@@ -83,11 +83,11 @@ const maquetaFaseGrupo = (contenedor, arrayFase) => {
 }
 
 /*Visualizacion de plantilla Fase de Grupos en MOD (Octavos, Cuartos, etc.)*/
-maquetaFaseGrupo("ContenedorOctavos",Octavos)
-maquetaFaseGrupo("ContenedorCuartos",Cuartos)
-maquetaFaseGrupo("ContenedorSemi",Semi)
-maquetaFaseGrupo("ContenedorTercer",Tercer)
-maquetaFaseGrupo("ContenedorFinal",Final)
+maquetaFaseGrupo("ContenedorOctavos", Octavos);
+maquetaFaseGrupo("ContenedorCuartos", Cuartos);
+maquetaFaseGrupo("ContenedorSemi", Semi);
+maquetaFaseGrupo("ContenedorTercer", Tercer);
+maquetaFaseGrupo("ContenedorFinal", Final);
 
 /*Funcion que oculta / muestra navbar*/
 let prevScrollPos = window.pageYOffset
