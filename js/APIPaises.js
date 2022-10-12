@@ -21,7 +21,7 @@ const grupoTodos = []
 /*ASINC - AWAIT */
 const API_PAISES = async () => {
   try {
-    const respuesta = await fetch("/BBDD/paises.json");
+    const respuesta = await fetch("./BBDD/paises.json");
     const pais = await respuesta.json();
     grupoTodos.push(...pais);
     console.log("Respuesta base de datos Local");
