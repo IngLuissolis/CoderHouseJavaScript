@@ -78,4 +78,11 @@ $(function () {
     trigger: "hover",
     title: "1"
   });
+
+  $('[data-toggle="btnLimpiarCuartosHover"]').popover({
+    template:
+      '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popoverHeader">Boton Limpiar Cuartos en adelante</h3><div class="popoverBody"></div></div>',
+    trigger: "hover",
+    title: "1"
+  });
 });
