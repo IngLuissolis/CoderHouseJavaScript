@@ -153,6 +153,5 @@ EscucharClickFase(Final, Campeon, 2, "ContenedorFinal")
 
 guardarCampeonLocalStorage = (ObjetoCampeon) => {
   const CampeonJSON = JSON.stringify(ObjetoCampeon);
-
   localStorage.setItem("Campeon", CampeonJSON);
 }
